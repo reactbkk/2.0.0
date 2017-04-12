@@ -3,3 +3,4 @@ extends:
   - standard-react
 rules:
   object-curly-spacing: [ error, always ]
+  react/prop-types: off

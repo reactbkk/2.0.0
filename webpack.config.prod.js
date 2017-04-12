@@ -25,6 +25,10 @@ module.exports = {
       {
         test: /\.png$/,
         use: ['url-loader']
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: ['file-loader']
       }
     ]
   },
