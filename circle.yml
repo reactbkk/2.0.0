@@ -12,4 +12,4 @@ jobs:
       - run: |
           npm run build
       - run: |
-          [ "${CIRCLE_BRANCH}" == "master" ] && npm run deploy
+          [ "${CIRCLE_BRANCH}" == "master" ] && git config --global user.name "CircleCI" && git config --global user.email "circleci@spacet.me" && npm run deploy
