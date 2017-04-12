@@ -1,0 +1,5 @@
+extends:
+  - standard
+  - standard-react
+rules:
+  object-curly-spacing: [ error, always ]
