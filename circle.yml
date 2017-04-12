@@ -1,0 +1,15 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:7.8.0
+    working_directory: ~/reactbkk-2.0.0
+    steps:
+      - checkout
+      - add_ssh_keys
+      - run: |
+          npm install
+      - run: |
+          npm run build
+      - run: |
+          [ "${CIRCLE_BRANCH}" == "master" ] && npm run deploy
