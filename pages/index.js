@@ -6,11 +6,15 @@ export default () => (
   <MainLayout>
     <header>
       <div className='bg-overlay' />
-      <div className='content'>
+      <div style={{ flex: 'auto' }} />
+      <div style={{ position: 'relative' }}>
         <ReactBKKLogo />
         <h2 style={{ textAlign: 'center' }}>
           React Bangkok 2.0.0
         </h2>
+      </div>
+      <div style={{ flex: '1 1 0px', position: 'relative' }}>
+        {/* Add footer here */}
       </div>
       <style jsx>{`
         header {
@@ -20,7 +24,6 @@ export default () => (
           position: relative;
           display: flex;
           flex-direction: column;
-          justify-content: center;
           background: url(static/hero-bg.jpg) center no-repeat;
         }
         .bg-overlay {
@@ -28,9 +31,6 @@ export default () => (
           top: 0; right: 0; bottom: 0; left: 0;
           background: #222;
           opacity: 0.9;
-        }
-        .content {
-          position: relative;
         }
         h2 {
           font-size: 70px;
