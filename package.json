@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ReactBKK 2.0.0 web site",
   "main": "index.js",
-  "repository": "git@github.com:dtinth/reactbkk-2.0.0.git",
+  "repository": "git@github.com:reactbkk/2.0.0.git",
   "author": "Thai Pangsakulyanont <dtinth@spacet.me>",
   "license": "MIT",
   "scripts": {

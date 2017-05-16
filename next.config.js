@@ -2,4 +2,4 @@ exports.exportPathMap = () => ({
   '/': { page: '/' }
 })
 
-exports.assetPrefix = '/reactbkk-2.0.0'
+exports.assetPrefix = '/2.0.0'
