@@ -9,7 +9,7 @@
   "scripts": {
     "start": "next",
     "build": "next build && next export",
-    "deploy": "gh-pages -d out"
+    "deploy": "echo '' > out/.nojekyll && gh-pages -d out"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
