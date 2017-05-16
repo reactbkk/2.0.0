@@ -42,4 +42,5 @@ Icon
 .Spotlight-V100
 .Trashes
 
-/dist/
+/.next/
+/out/

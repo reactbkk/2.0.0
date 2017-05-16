@@ -7,16 +7,11 @@
   "author": "Thai Pangsakulyanont <dtinth@spacet.me>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --port 7823 --hot",
-    "build": "webpack -p --config webpack.config.prod.js",
+    "start": "next",
+    "build": "next build && next export",
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^6.4.1",
-    "babel-preset-latest": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.0",
     "eslint-config-standard-react": "^4.3.0",
@@ -25,17 +20,12 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^3.0.1",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "file-loader": "^0.11.1",
     "gh-pages": "^0.12.0",
-    "html-webpack-inline-source-plugin": "^0.0.8",
-    "html-webpack-plugin": "^2.28.0",
-    "style-loader": "^0.16.1",
-    "url-loader": "^0.5.8",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "next": "beta",
     "normalize.css": "^6.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
