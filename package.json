@@ -9,7 +9,8 @@
   "scripts": {
     "start": "next",
     "build": "next build && next export",
-    "deploy": "echo '' > out/.nojekyll && gh-pages -d out"
+    "postbuild": "cp -Rv public/* public/.nojekyll out",
+    "deploy": "gh-pages -d out"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
@@ -20,7 +21,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^3.0.1",
-    "gh-pages": "^0.12.0",
+    "gh-pages": "^1.0.0",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },
