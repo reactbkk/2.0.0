@@ -34,8 +34,16 @@ export default () => (
         }
         h2 {
           font-size: 70px;
-          margin: 30px 0 0;
+          margin: 1ex 0 0;
           color: #00D8FF;
+        }
+        @media (max-width: 639px) {
+          h2 { font-size: 50px; }
+          header :global(svg) { width: 196px; height: 175px; }
+        }
+        @media (max-width: 399px) {
+          h2 { font-size: 35px; }
+          header :global(svg) { width: 137px; height: 123px; }
         }
       `}</style>
     </header>
