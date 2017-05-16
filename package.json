@@ -13,6 +13,7 @@
     "deploy": "gh-pages --src '{.nojekyll,**/*}' -d out"
   },
   "devDependencies": {
+    "babel-plugin-inline-react-svg": "^0.4.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.0",
     "eslint-config-standard-react": "^4.3.0",
