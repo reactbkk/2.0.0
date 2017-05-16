@@ -45,7 +45,12 @@ export default () => (
 export function MainLayout ({ children }) {
   return (
     <div>
-      <Head />
+      <Head>
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1.0'
+        />
+      </Head>
       <style global jsx>{`
         @font-face {
           font-family: 'ThaiSans Neue';
