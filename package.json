@@ -10,7 +10,7 @@
     "start": "next",
     "build": "next build && next export",
     "postbuild": "cp -Rv public/* public/.nojekyll out",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages --src '{.nojekyll,**/*}' -d out"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
