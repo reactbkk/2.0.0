@@ -10,7 +10,7 @@
     "start": "next",
     "build": "next build && next export",
     "postbuild": "cp -Rv public/* public/.nojekyll out",
-    "deploy": "gh-pages --src '{.nojekyll,**/*}' -d out"
+    "deploy": "gh-pages --src '{.nojekyll,**/*}' -d out -m \"Deploy $(git rev-parse HEAD) to GitHub pages [ci skip]\""
   },
   "devDependencies": {
     "babel-plugin-inline-react-svg": "^0.4.0",
