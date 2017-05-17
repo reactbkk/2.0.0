@@ -60,8 +60,8 @@ function HeroUnitLogo () {
           .logo :global(svg) { width: 196px; height: 175px; }
         }
         @media (max-width: 399px) {
-          h2 { font-size: 35px; }
-          .logo :global(svg) { width: 137px; height: 123px; }
+          h2 { font-size: 44px; }
+          .logo :global(svg) { width: 171px; height: 154px; }
         }
       `}</style>
     </div>
