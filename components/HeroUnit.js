@@ -48,20 +48,20 @@ function HeroUnitLogo () {
   return (
     <div>
       <div className='logo'><ReactBKKLogo /></div>
-      <h2>React Bangkok</h2>
+      <h1>React Bangkok</h1>
       <style jsx>{`
-        h2 {
+        h1 {
           font-size: 70px;
           font-weight: normal;
           margin: 1ex 0 0;
           color: #00D8FF;
         }
         @media (max-width: 639px) {
-          h2 { font-size: 50px; }
+          h1 { font-size: 50px; }
           .logo :global(svg) { width: 196px; height: 175px; }
         }
         @media (max-width: 399px) {
-          h2 { font-size: 44px; }
+          h1 { font-size: 44px; }
           .logo :global(svg) { width: 171px; height: 154px; }
         }
       `}</style>
