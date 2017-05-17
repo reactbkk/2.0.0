@@ -16,7 +16,6 @@ export default function HeroUnit () {
       <style jsx>{`
         header {
           text-align: center;
-          max-height: 750px;
           position: relative;
           background: url(static/hero-bg.jpg) center no-repeat;
           background-size: cover;
