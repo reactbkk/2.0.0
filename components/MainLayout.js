@@ -19,7 +19,7 @@ export default function MainLayout ({ children }) {
           font-style: normal;
         }
         @font-face {
-          font-family: 'thaisans_neueregular';
+          font-family: 'ThaiSans Neue';
           src: local('ThaiSans Neue'),
                url('static/thaisansneue/thaisansneue-regular-webfont.woff2') format('woff2'),
                url('static/thaisansneue/thaisansneue-regular-webfont.woff') format('woff');
