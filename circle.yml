@@ -12,4 +12,9 @@ jobs:
       - run: |
           npm run build
       - run: |
-          [ "${CIRCLE_BRANCH}" == "master" ] && git config --global user.name "CircleCI" && git config --global user.email "circleci@spacet.me" && npm run deploy
+          if [ "${CIRCLE_BRANCH}" == "master" ]
+          then
+            git config --global user.name "CircleCI" && git config --global user.email "circleci@spacet.me" && npm run deploy
+          else
+            echo 'Not master branch, therefore not deploying ^_^'
+          fi
