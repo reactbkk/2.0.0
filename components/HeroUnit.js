@@ -4,15 +4,15 @@ export default function HeroUnit () {
   return (
     <header>
       <div className='bg-overlay' />
-      <div style={{ flex: 'auto' }} />
-      <div style={{ position: 'relative' }}>
+      <div className='spacer' />
+      <div className='center'>
         <ReactBKKLogo />
         <h2 style={{ textAlign: 'center' }}>
           React Bangkok 2.0.0
         </h2>
       </div>
-      <div style={{ flex: '1 1 0px', position: 'relative' }}>
-        {/* Add footer here */}
+      <div className='footer'>
+        <HeroUnitFooter />
       </div>
       <style jsx>{`
         header {
@@ -43,7 +43,28 @@ export default function HeroUnit () {
           h2 { font-size: 35px; }
           header :global(svg) { width: 137px; height: 123px; }
         }
+        .spacer {
+          flex: auto;
+        }
+        .center {
+          position: relative;
+        }
+        .footer {
+          flex: 1 1 0px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        }
       `}</style>
     </header>
+  )
+}
+
+function HeroUnitFooter () {
+  return (
+    <div>
+      {/* footer here */}
+    </div>
   )
 }
