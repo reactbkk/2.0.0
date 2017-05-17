@@ -102,8 +102,12 @@ function NavigationBar () {
           text-transform: uppercase;
           padding: 0 2em;
         }
+        a.disabled {
+          opacity: 0.25;
+          pointer-events: none;
+        }
         @media (max-width: 639px) {
-          a { display: block;}
+          a { display: block; }
         }
       `}</style>
     </nav>
