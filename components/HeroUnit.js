@@ -34,6 +34,10 @@ export default function HeroUnit () {
           padding-bottom: 40px;
           padding-top: 80px;
         }
+        @media (max-width: 639px) {
+          .center { padding-top: 80px; }
+          .footer { padding-top: 40px; }
+        }
       `}</style>
     </header>
   )
@@ -97,6 +101,9 @@ function NavigationBar () {
           text-decoration: none;
           text-transform: uppercase;
           padding: 0 2em;
+        }
+        @media (max-width: 639px) {
+          a { display: block;}
         }
       `}</style>
     </nav>
