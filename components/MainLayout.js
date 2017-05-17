@@ -4,6 +4,7 @@ export default function MainLayout ({ children }) {
   return (
     <div>
       <Head>
+        <title>React Bangkok 2.0.0</title>
         <meta
           name='viewport'
           content='width=device-width, initial-scale=1.0'
