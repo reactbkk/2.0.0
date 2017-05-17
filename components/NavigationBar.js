@@ -6,6 +6,7 @@ export default function NavigationBar () {
       <NavigationLink href='#about' disabled>About</NavigationLink>
       <NavigationLink href='#tickets'>Tickets</NavigationLink>
       <NavigationLink href='#sponsors' disabled>Sponsors</NavigationLink>
+      <NavigationLink href='#speakers' disabled>Speakers</NavigationLink>
       <NavigationLink href='#contact' disabled>Contact</NavigationLink>
       <style jsx>{`
         nav {
@@ -24,7 +25,7 @@ function NavigationLink ({ href, disabled, children }) {
       <style jsx>{`
         span {
           text-transform: uppercase;
-          padding: 0 2em;
+          padding: 0 1.25em;
         }
         .disabled {
           opacity: 0.25;
