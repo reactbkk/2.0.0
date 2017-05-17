@@ -1,1 +1,1 @@
-web: cd out && serve -p $PORT
+web: yarn run heroku-start

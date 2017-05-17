@@ -11,7 +11,8 @@
     "build": "next build && next export",
     "postbuild": "cp -Rv public/* public/.nojekyll out",
     "deploy": "gh-pages --src '{.nojekyll,**/*}' -d out -m \"Deploy $(git rev-parse HEAD) to GitHub pages [ci skip]\"",
-    "heroku-postbuild": "env NEXT_DEV=1 yarn run build && yarn global add serve"
+    "heroku-postbuild": "env NEXT_DEV=1 yarn run build",
+    "heroku-start": "cd out && serve -p $PORT"
   },
   "devDependencies": {
     "babel-plugin-inline-react-svg": "^0.4.0",
@@ -24,6 +25,7 @@
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^3.0.1",
     "gh-pages": "^1.0.0",
+    "serve": "^5.1.5",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },
