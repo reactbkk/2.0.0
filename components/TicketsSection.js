@@ -5,7 +5,7 @@ export default function TicketsSection () {
     <div className='tickets'>
       <SectionTitle>Tickets</SectionTitle>
       <TicketsTable />
-      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0'>Tickets</Button>
+      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0'>Get Tickets</Button>
       <style jsx>{`
         .tickets {
           text-align: center;
