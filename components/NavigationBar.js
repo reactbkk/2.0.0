@@ -26,13 +26,16 @@ function NavigationLink ({ href, disabled, children }) {
       <style jsx>{`
         span {
           text-transform: uppercase;
-          padding: 0 1.25em;
+          padding: 0 1.5em;
         }
         .disabled {
           opacity: 0.25;
           pointer-events: none;
         }
-        @media (max-width: 639px) {
+        @media (max-width: 899px) {
+          span { padding: 0 1em; }
+        }
+        @media (max-width: 719px) {
           span { display: block; }
         }
       `}</style>
