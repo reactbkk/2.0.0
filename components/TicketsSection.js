@@ -1,8 +1,11 @@
+import SectionTitle from './SectionTitle'
+
 export default function TicketsSection () {
   return (
     <div className='tickets'>
+      <SectionTitle>Tickets</SectionTitle>
       <TicketsTable />
-      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0'>Tickets</Button>
+      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0'>Get Tickets</Button>
       <style jsx>{`
         .tickets {
           text-align: center;
@@ -65,6 +68,7 @@ function Button ({ children, href }) {
           border-radius: 35px;
           text-transform: uppercase;
           text-decoration: none;
+          transition: 0.15s all ease-out;
         }
         .button:hover {
           background: rgba(255,255,255,0.5);
