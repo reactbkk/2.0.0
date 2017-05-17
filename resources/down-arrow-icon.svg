@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="13px" viewBox="0 0 22 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>down arrow icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sedna" transform="translate(-789.000000, -702.000000)" fill="#FFFFFF">
+            <g id="Hero-section" transform="translate(-35.000000, 0.000000)">
+                <path d="M831.087421,708.245728 L840.747074,699.463065 C841.084309,699.129871 841.084309,698.58309 840.747074,698.249896 C840.40984,697.916701 839.862371,697.916701 839.525995,698.249896 L829.245076,707.596426 C829.065732,707.775839 828.988503,708.015055 829.001375,708.245728 C828.988503,708.484945 829.065732,708.724161 829.245076,708.903574 L839.525995,718.250104 C839.862371,718.583299 840.40984,718.583299 840.747074,718.250104 C841.084309,717.908366 841.084309,717.370129 840.747074,717.036935 L831.087421,708.245728" id="down-arrow-icon" transform="translate(835.000000, 708.250000) scale(-1, 1) rotate(-90.000000) translate(-835.000000, -708.250000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
