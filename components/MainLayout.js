@@ -33,6 +33,7 @@ export default function MainLayout ({ children }) {
           color: #fff;
           font-family: ThaiSans Neue;
           font-size: 22px;
+          -webkit-font-smoothing: antialiased;
         }
       `}</style>
       {children}
