@@ -89,7 +89,7 @@ function NavigationBar () {
   return (
     <nav>
       <a href='#about' className='disabled'>About</a>
-      <a href='#tickets' className='disabled'>Tickets</a>
+      <a href='#tickets'>Tickets</a>
       <a href='#sponsors' className='disabled'>Sponsors</a>
       <a href='#contact' className='disabled'>Contact</a>
       <style jsx>{`
