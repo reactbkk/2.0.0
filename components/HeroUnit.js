@@ -1,4 +1,5 @@
 import DownArrowIcon from '../resources/down-arrow-icon.svg'
+import LevitatingLink from './LevitatingLink'
 import ReactBKKLogo from '../resources/reactbkk.svg'
 
 export default function HeroUnit () {
@@ -88,29 +89,37 @@ function HeroUnitFooter () {
 function NavigationBar () {
   return (
     <nav>
-      <a href='#about' className='disabled'>About</a>
-      <a href='#tickets'>Tickets</a>
-      <a href='#sponsors' className='disabled'>Sponsors</a>
-      <a href='#contact' className='disabled'>Contact</a>
+      <NavigationLink href='#about' disabled>About</NavigationLink>
+      <NavigationLink href='#tickets'>Tickets</NavigationLink>
+      <NavigationLink href='#sponsors' disabled>Sponsors</NavigationLink>
+      <NavigationLink href='#contact' disabled>Contact</NavigationLink>
       <style jsx>{`
         nav {
           font-size: 22px;
           line-height: 30px;
         }
-        a {
-          color: white;
-          text-decoration: none;
+      `}</style>
+    </nav>
+  )
+}
+
+function NavigationLink ({ href, disabled, children }) {
+  return (
+    <span className={disabled ? 'disabled' : ''}>
+      <LevitatingLink href={href}>{children}</LevitatingLink>
+      <style jsx>{`
+        span {
           text-transform: uppercase;
           padding: 0 2em;
         }
-        a.disabled {
+        .disabled {
           opacity: 0.25;
           pointer-events: none;
         }
         @media (max-width: 639px) {
-          a { display: block; }
+          span { display: block; }
         }
       `}</style>
-    </nav>
+    </span>
   )
 }
