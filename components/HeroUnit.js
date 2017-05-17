@@ -18,6 +18,7 @@ export default function HeroUnit () {
           max-height: 750px;
           position: relative;
           background: url(static/hero-bg.jpg) center no-repeat;
+          background-size: cover;
         }
         .bg-overlay {
           position: absolute;
