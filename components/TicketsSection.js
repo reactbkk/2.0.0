@@ -68,6 +68,7 @@ function Button ({ children, href }) {
           border-radius: 35px;
           text-transform: uppercase;
           text-decoration: none;
+          transition: 0.15s all ease-out;
         }
         .button:hover {
           background: rgba(255,255,255,0.5);
