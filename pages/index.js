@@ -10,6 +10,6 @@ export default () => (
     <SectionSeparator first />
     <section id='tickets'><TicketsSection /></section>
     <SectionSeparator />
-    <section id='eof'><FooterSection /></section>
+    <section id='contact'><FooterSection /></section>
   </MainLayout>
 )

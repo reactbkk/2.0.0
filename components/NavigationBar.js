@@ -7,7 +7,7 @@ export default function NavigationBar () {
       <NavigationLink href='#tickets'>Tickets</NavigationLink>
       <NavigationLink href='#sponsors' disabled>Sponsors</NavigationLink>
       <NavigationLink href='#speakers' disabled>Speakers</NavigationLink>
-      <NavigationLink href='#contact' disabled>Contact</NavigationLink>
+      <NavigationLink href='#contact'>Contact</NavigationLink>
       <style jsx>{`
         nav {
           font-size: 22px;
