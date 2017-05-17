@@ -16,6 +16,7 @@ export default function TicketsSection () {
       <style jsx>{`
         footer {
           text-align: center;
+          padding-bottom: 30px;
         }
         h2 {
           text-transform: uppercase;
