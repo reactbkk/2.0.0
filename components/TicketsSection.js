@@ -1,11 +1,21 @@
 export default function TicketsSection () {
   return (
     <div className='tickets'>
-      <a className='button' href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0'>Tickets</a>
+      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0'>Tickets</Button>
       <style jsx>{`
         .tickets {
           text-align: center;
         }
+      `}</style>
+    </div>
+  )
+}
+
+function Button ({ children, href }) {
+  return (
+    <a className='button' href={href}>
+      {children}
+      <style jsx>{`
         .button {
           display: inline-block;
           font-size: 18px;
@@ -22,6 +32,6 @@ export default function TicketsSection () {
           color: #222;
         }
       `}</style>
-    </div>
+    </a>
   )
 }
