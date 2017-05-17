@@ -1,3 +1,4 @@
+import DownArrowIcon from '../resources/down-arrow-icon.svg'
 import ReactBKKLogo from '../resources/reactbkk.svg'
 
 export default function HeroUnit () {
@@ -64,7 +65,7 @@ export default function HeroUnit () {
 function HeroUnitFooter () {
   return (
     <div>
-      {/* footer here */}
+      <DownArrowIcon />
     </div>
   )
 }
