@@ -1,6 +1,9 @@
+import SectionTitle from './SectionTitle'
+
 export default function TicketsSection () {
   return (
     <div className='tickets'>
+      <SectionTitle>Tickets</SectionTitle>
       <TicketsTable />
       <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0'>Tickets</Button>
       <style jsx>{`
