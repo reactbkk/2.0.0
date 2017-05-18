@@ -6,6 +6,9 @@
   "repository": "git@github.com:reactbkk/2.0.0.git",
   "author": "Thai Pangsakulyanont <dtinth@spacet.me>",
   "license": "MIT",
+  "engines": {
+    "node": "7.10.0"
+  },
   "scripts": {
     "start": "env NEXT_DEV=1 next",
     "build": "next build && next export",
