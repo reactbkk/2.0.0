@@ -14,7 +14,8 @@ const speakers = [
 ]
 
 function speaker (name, title) {
-  return { name, title }
+  const photo = `static/speakers/${name.replace(' ', '')}.jpg`
+  return { name, title, photo }
 }
 
 export default function TicketsSection () {
@@ -38,29 +39,40 @@ export default function TicketsSection () {
         }
         li {
           display: block;
-          margin: 0;
+          margin: 50px 0 0;
         }
       `}</style>
     </div>
   )
 }
 
-function Speaker ({ name, title }) {
+function Speaker ({ name, title, photo }) {
   return (
     <div>
+      <img alt='Photo' src={photo} />
       <h3>{name}</h3>
       <p>{title}</p>
       <style jsx>{`
+        img {
+          overflow: hidden;
+          display: block;
+          margin: 0 auto;
+          width: 80px;
+          height: 80px;
+          border: 3px solid white;
+          border-radius: 50%;
+        }
         h3 {
           margin: 0;
           font-size: 28px;
+          font-weight: normal;
           line-height: 42px;
         }
         p {
           margin: 0;
           font-size: 18px;
           line-height: 22px;
-          letter-spacing: 0.04em;
+          letter-spacing: 0.05em;
           opacity: 0.5;
         }
       `}</style>
