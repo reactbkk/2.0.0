@@ -37,6 +37,7 @@
     "next": "beta",
     "normalize.css": "^6.0.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-scroll": "^1.5.2"
   }
 }
