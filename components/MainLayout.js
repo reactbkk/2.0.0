@@ -1,5 +1,15 @@
 import Head from 'next/head'
 
+const ga = `
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-99360357-1', 'auto');
+  ga('send', 'pageview');
+`
+
 export default function MainLayout ({ children }) {
   return (
     <div>
@@ -13,6 +23,7 @@ export default function MainLayout ({ children }) {
           property='og:image'
           content='https://reactbkk.github.io/2.0.0/static/og-image.jpg'
         />
+        <script dangerouslySetInnerHTML={{ __html: ga }} />
       </Head>
       <style global jsx>{`
         @font-face {
