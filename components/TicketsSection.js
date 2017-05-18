@@ -18,7 +18,7 @@ export default function TicketsSection () {
 function TicketsTable () {
   return (
     <div className='tickets-table'>
-      <TicketsRow title='1st round' date='18 May 2017' isFull/>
+      <TicketsRow title='1st round' date='18 May 2017' isFull />
       <TicketsRow title='2nd round' date='25 May 2017' />
       <style jsx>{`
         .tickets-table {
