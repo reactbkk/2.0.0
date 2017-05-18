@@ -24,6 +24,7 @@ export default function MainLayout ({ children }) {
           content='https://reactbkk.github.io/2.0.0/static/og-image.jpg'
         />
         <script dangerouslySetInnerHTML={{ __html: ga }} />
+        <link rel='manifest' href='static/manifest.json' />
       </Head>
       <style global jsx>{`
         @font-face {
