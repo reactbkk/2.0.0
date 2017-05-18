@@ -9,6 +9,10 @@ export default function MainLayout ({ children }) {
           name='viewport'
           content='width=device-width, initial-scale=1.0'
         />
+        <meta
+          property='og:image'
+          content='https://reactbkk.github.io/2.0.0/static/og-image.jpg'
+        />
       </Head>
       <style global jsx>{`
         @font-face {
