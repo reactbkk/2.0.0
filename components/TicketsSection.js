@@ -18,7 +18,7 @@ export default function TicketsSection () {
 function TicketsTable () {
   return (
     <div className='tickets-table'>
-      <TicketsRow title='1st round' date='18 May 2017' />
+      <TicketsRow title='1st round' date='18 May 2017' isFull />
       <TicketsRow title='2nd round' date='25 May 2017' />
       <style jsx>{`
         .tickets-table {
@@ -29,9 +29,9 @@ function TicketsTable () {
   )
 }
 
-function TicketsRow ({ title, date }) {
+function TicketsRow ({ title, date, isFull }) {
   return (
-    <div className='tickets-row'>
+    <div className={`tickets-row ${isFull ? 'full' : ''}`}>
       <div className='title'>{title}</div>
       <div className='date'>{date}</div>
       <style jsx>{`
@@ -41,12 +41,26 @@ function TicketsRow ({ title, date }) {
           font-size: 24px;
           line-height: 32px;
           margin: 0 auto;
+          position: relative;
         }
         .title {
           padding-right: 1em;
         }
         .date {
           margin-left: auto;
+        }
+        .full {
+          color: #555;
+        }
+        .full:after {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          height: 2px;
+          background: #555;
+          content: "";
+          width: 100%;
+          display: block;
         }
       `}</style>
     </div>
