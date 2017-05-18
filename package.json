@@ -11,12 +11,13 @@
   },
   "scripts": {
     "start": "env NEXT_DEV=1 next",
+    "serve-static": "node static-server.js",
     "build": "next build && next export",
     "postbuild": "cp -Rv public/* public/.nojekyll out",
     "deploy": "gh-pages --src '{.nojekyll,**/*}' -d out -m \"Deploy $(git rev-parse HEAD) to GitHub pages [ci skip]\"",
     "lint": "eslint *.js components pages",
     "heroku-postbuild": "env NEXT_DEV=1 yarn run build",
-    "heroku-start": "cd out && serve -p $PORT"
+    "heroku-start": "yarn run serve-static"
   },
   "devDependencies": {
     "babel-plugin-inline-react-svg": "^0.4.0",
@@ -34,6 +35,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "express": "^4.15.3",
     "next": "beta",
     "normalize.css": "^6.0.0",
     "react": "^15.5.4",
