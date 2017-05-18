@@ -2,21 +2,21 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:7.8.0
+      - image: node:7.10.0
     working_directory: ~/reactbkk-2.0.0
     steps:
       - checkout
       - add_ssh_keys
       - run: |
-          npm install
+          yarn
       - run: |
-          npm run lint
+          yarn run lint
       - run: |
-          npm run build
+          yarn run build
       - run: |
           if [ "${CIRCLE_BRANCH}" == "master" ]
           then
-            git config --global user.name "CircleCI" && git config --global user.email "circleci@spacet.me" && npm run deploy
+            git config --global user.name "CircleCI" && git config --global user.email "circleci@spacet.me" && yarn run deploy
           else
             echo 'Not master branch, therefore not deploying ^_^'
           fi
