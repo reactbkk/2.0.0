@@ -23,6 +23,7 @@ export default function MainLayout ({ children }) {
           property='og:image'
           content='https://reactbkk.github.io/2.0.0/static/og-image.jpg'
         />
+        <link rel='shortcut icon' type='image/x-icon' href='static/favicon.ico' sizes='64x64' />
         <script dangerouslySetInnerHTML={{ __html: ga }} />
       </Head>
       <style global jsx>{`
