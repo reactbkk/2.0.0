@@ -32,5 +32,12 @@ yarn start
 yarn run build
 ```
 
+## Testing the web site
+```
+yarn run serve-static
+```
+
+Test the website at http://localhost:3002/
+
 ## Deployment
 When a commit is added to `master` branch, it will be deployed to GitHub Pages by the CI.
