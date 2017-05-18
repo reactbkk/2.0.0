@@ -22,12 +22,32 @@ export default function TicketsSection () {
   return (
     <div className='speakers-section'>
       <SectionTitle>Speakers</SectionTitle>
-      <ul>
-        {speakers.map((speaker, index) => <li>
-          <Speaker {...speaker} />
-        </li>)}
-      </ul>
+      <div className='container'>
+        <ul className='row'>
+          {speakers.map((speaker, index) => <li className="col-sm-4">
+            <Speaker {...speaker} />
+          </li>)}
+        </ul>
+      </div>
       <style jsx>{`
+        .container {
+          width: 1060px;
+          margin: 0 auto;
+        }
+        .row {
+          position: relative;
+        }
+        .row:after {
+          content: "";
+          float: none;
+          display: block;
+          clear: both;
+        }
+        .col-sm-4 {
+          width: 33.33%;
+          float: left;
+          margin-bottom: 30px;
+        }
         .speakers-section {
           text-align: center;
         }
@@ -40,6 +60,19 @@ export default function TicketsSection () {
         li {
           display: block;
           margin: 50px 0 0;
+        }
+        @media screen and (max-width: 991px) {
+          .container {
+            width: 750px;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          .container {
+            width: 100%;
+          }
+          .col-sm-4 {
+            width: 50%;
+          }
         }
       `}</style>
     </div>
