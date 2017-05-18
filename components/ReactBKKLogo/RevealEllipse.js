@@ -1,6 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+function generateRange (start, end, count) {
+  let result = []
+  for (let i = start; i <= end; i += count) {
+    result.push(i)
+  }
+  return result
+}
+
 function ellipsePoint (a, b, angle) {
   return {
     x: a * Math.cos(angle * Math.PI / 180),
@@ -9,37 +17,60 @@ function ellipsePoint (a, b, angle) {
 }
 
 class RevealEllipse extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      currentAngle: 0,
-      pointList: [ellipsePoint(props.a, props.b, 0)]
-    }
+  static propTypes = {
+    cx: PropTypes.number,
+    cy: PropTypes.number,
+    a: PropTypes.number,
+    b: PropTypes.number,
+    rotate: PropTypes.number,
+    duration: PropTypes.number
   }
-
+  static defaultProps = {
+    cx: 0,
+    cy: 0,
+    a: 1,
+    b: 1,
+    rotate: 0,
+    duration: 1
+  }
+  state = {
+    currentAngle: 0,
+    pointList: [ellipsePoint(this.props.a, this.props.b, 0)]
+  }
   componentDidMount () {
     const step = () => {
-      const { a, b, duration } = this.props
+      const { a, b, duration, enabled } = this.props
       this.setState(({ currentAngle, pointList }) => {
-        if (currentAngle > 360) {
-          window.cancelAnimationFrame(this.raf)
+        if (!enabled) {
           return { currentAngle, pointList }
         }
-        const nextAngle = currentAngle + 6 / duration
-        this.raf = window.requestAnimationFrame(step)
+        if (currentAngle > 360) {
+          window.cancelAnimationFrame(this.raf)
+          return
+        }
+        const nextAngle = (currentAngle + 6 / duration)
+        const newPointList = this.getIntegratedAngles(currentAngle, nextAngle, 5)
+          .filter(angle => angle <= 360)
+          .map(angle => ellipsePoint(a, b, angle))
+
         return {
           currentAngle: nextAngle,
-          pointList: [ ...pointList, ellipsePoint(a, b, nextAngle) ]
+          pointList: [ ...pointList, ...newPointList ]
         }
       })
+      this.raf = window.requestAnimationFrame(step)
     }
     this.raf = window.requestAnimationFrame(step)
   }
-
   componentWillUnmount () {
     window.cancelAnimationFrame(this.raf)
   }
-
+  getIntegratedAngles (currentAngle, nextAngle, maxAngle) {
+    if (nextAngle - currentAngle > maxAngle) {
+      return generateRange(currentAngle, nextAngle, maxAngle)
+    }
+    return [ currentAngle ]
+  }
   render () {
     const { cx, cy, rotate } = this.props
     const { currentAngle, pointList } = this.state
@@ -56,20 +87,5 @@ class RevealEllipse extends React.Component {
     />
   }
 }
-RevealEllipse.propTypes = {
-  cx: PropTypes.number,
-  cy: PropTypes.number,
-  a: PropTypes.number,
-  b: PropTypes.number,
-  rotate: PropTypes.number,
-  duration: PropTypes.number
-}
-RevealEllipse.defaultProps = {
-  cx: 0,
-  cy: 0,
-  a: 1,
-  b: 1,
-  rotate: 0,
-  duration: 1
-}
+
 export default RevealEllipse
