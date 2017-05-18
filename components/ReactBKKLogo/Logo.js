@@ -18,7 +18,6 @@ class Logo extends React.Component {
     const width = 274
     const height = 245
     const { revealIndex } = this.state
-    console.log(revealIndex)
     return (
       <svg width={width} height={height}>
         <RevealEllipse
