@@ -30,7 +30,6 @@
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^3.0.1",
     "gh-pages": "^1.0.0",
-    "serve": "^5.1.5",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },
