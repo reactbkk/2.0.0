@@ -3,7 +3,7 @@ import NavigationBar from './NavigationBar'
 import ReactBKKLogo from '../resources/reactbkk.svg'
 import Scroll from 'react-scroll'
 
-var Link       = Scroll.Link
+var Link = Scroll.Link
 
 export default function HeroUnit () {
   return (
@@ -78,7 +78,7 @@ function HeroUnitFooter () {
       <div className='nav'>
         <NavigationBar />
       </div>
-      <Link to="tickets" spy={true} smooth={true} duration={500}>
+      <Link to='tickets' spy smooth duration={500}>
         <DownArrowIcon />
       </Link>
 
