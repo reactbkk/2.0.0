@@ -23,6 +23,7 @@ export default function MainLayout ({ children }) {
           property='og:image'
           content='https://reactbkk.github.io/2.0.0/static/og-image.jpg'
         />
+        <link rel='shortcut icon' type='image/png' href='static/favicon.png' sizes='32x32' />
         <link rel='apple-touch-icon' href='https://reactbkk.github.io/2.0.0/static/og-image.jpg' />
         <link rel='apple-touch-icon' sizes='152x152' href='https://reactbkk.github.io/2.0.0/static/og-image.jpg' />
         <link rel='apple-touch-icon' sizes='180x180' href='https://reactbkk.github.io/2.0.0/static/og-image.jpg' />
