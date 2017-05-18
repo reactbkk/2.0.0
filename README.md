@@ -7,6 +7,16 @@
 <p align="center"><a href="https://circleci.com/gh/reactbkk/2.0.0/tree/master"><img src="https://circleci.com/gh/reactbkk/2.0.0/tree/master.svg?style=svg" alt="CircleCI" /></a></p>
 
 
+## Folder structure
+
+- `pages` [Next.js][] pages
+- `static` [Next.js] static files
+- `components` React components
+- `public` Additional files to be copied to GitHub pages
+- `resources` Additional files that may be used from JavaScript files (e.g. svg files)
+
+[Next.js]: https://github.com/zeit/next.js
+
 ## Install the dependencies
 ```
 yarn
@@ -23,4 +33,4 @@ yarn run build
 ```
 
 ## Deployment
-Just commit to master branch
+When a commit is added to `master` branch, it will be deployed to GitHub Pages by the CI.
