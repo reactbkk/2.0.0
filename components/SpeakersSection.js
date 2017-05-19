@@ -114,7 +114,7 @@ function Speaker ({ name, title, photo, description }) {
 
         .speaker-info {
           max-width: 270px;
-          margin: auto auto;
+          margin: 0 auto;
           height: 270px;
         }
 
@@ -125,7 +125,7 @@ function Speaker ({ name, title, photo, description }) {
 
         @media (max-width: 768px) {
           .speaker-info {
-            height: inherit;
+            height: auto;
           }
         }
       `}</style>
