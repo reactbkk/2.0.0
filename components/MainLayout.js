@@ -23,7 +23,7 @@ export default function MainLayout ({ children }) {
           property='og:image'
           content='https://reactbkk.github.io/2.0.0/static/og-image.jpg'
         />
-        <script src='static/service-worker-registration.js' />
+        <script async src='static/service-worker-registration.js' />
         <script dangerouslySetInnerHTML={{ __html: ga }} />
       </Head>
       <style global jsx>{`
