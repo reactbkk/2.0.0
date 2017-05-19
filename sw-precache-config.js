@@ -1,6 +1,5 @@
 module.exports = {
   staticFileGlobs: [
-    'out/**/*.html',
     'out/static/**/*',
     'out/_next/**/*'
   ],
@@ -9,6 +8,6 @@ module.exports = {
   verbose: true,
   runtimeCaching: [{
     urlPattern: /(.*)/,
-    handler: 'fastest'
+    handler: 'networkFirst'
   }]
 }
