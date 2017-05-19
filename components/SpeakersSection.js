@@ -24,7 +24,7 @@ export default function TicketsSection () {
       <SectionTitle>Speakers</SectionTitle>
       <div className='container'>
         <ul className='row'>
-          {speakers.map((speaker, index) => <li className="column">
+          {speakers.map((speaker, index) => <li className='column'>
             <Speaker {...speaker} />
           </li>)}
         </ul>
