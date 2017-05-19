@@ -6,7 +6,7 @@ import Scroll from 'react-scroll'
 
 var Link = Scroll.Link
 
-export default function HeroUnit ({ images }) {
+export default function HeroUnit () {
   return (
     <header>
       <SimpleCrossfadeImages />
