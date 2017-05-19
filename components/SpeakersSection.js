@@ -38,12 +38,11 @@ export default function TicketsSection () {
         }
         .row {
           position: relative;
+          display: flex;
+          flex-wrap: wrap;
         }
-        .row:after {
-          content: "";
-          float: none;
-          display: block;
-          clear: both;
+        .column {
+          width: 100%;
         }
         .speakers-section {
           text-align: center;
@@ -60,9 +59,7 @@ export default function TicketsSection () {
         }
         @media screen and (min-width: 1060px) {
           .column {
-            width: 33.33%;
-            float: left;
-            margin-bottom: 30px;
+            width: 33.33333%;
           }
 
         }
@@ -72,8 +69,6 @@ export default function TicketsSection () {
           }
           .column {
             width: 50%;
-            float: left;
-            margin: 0 auto 30px auto;
           }
         }
       `}</style>
