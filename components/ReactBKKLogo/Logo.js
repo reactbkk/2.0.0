@@ -13,16 +13,14 @@ class Logo extends React.Component {
             .lotus {
               opacity: 0;
               transform-origin: center;
-              animation: fade-in 2.5s 1s;
+              animation: fade-in 2.5s 0.8s;
               animation-fill-mode: forwards;
             }
             @keyframes fade-in {
               from {
-                transform: rotate(-30deg) translateZ(0);
                 opacity: 0;
               }
               to {
-                transform: rotate(0) translateZ(0);
                 opacity: 1;
               }
             }
