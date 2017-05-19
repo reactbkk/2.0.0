@@ -76,8 +76,8 @@ function Button ({ children, href }) {
           display: inline-block;
           font-size: 18px;
           line-height: 33px;
-          color: rgba(255,255,255,0.5);
-          border: 2px solid rgba(255,255,255,0.5);
+          color: #fe4918;
+          border: 2px solid #fe4918;
           padding: 0 30px;
           border-radius: 35px;
           text-transform: uppercase;
