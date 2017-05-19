@@ -85,7 +85,6 @@ function Speaker ({ name, title, photo, description }) {
       <img alt='Photo' src={photo} />
       <h3>{name}</h3>
       <p>{title}</p>
-      <p className="description">"{description}"</p>
       <style jsx>{`
         img {
           overflow: hidden;
