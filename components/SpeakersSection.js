@@ -40,12 +40,6 @@ export default function TicketsSection () {
           display: flex;
           flex-wrap: wrap;
         }
-        .row:after {
-          content: "";
-          float: none;
-          display: block;
-          clear: both;
-        }
         .column {
           width: 100%;
         }
