@@ -3,34 +3,28 @@ import React from 'react'
 import RevealEllipse from './RevealEllipse'
 
 class Logo extends React.Component {
-  state = {
-    revealLotus: false
-  }
-  componentDidMount () {
-    this.delay = setTimeout(() => {
-      this.setState({ revealLotus: true })
-    }, 500)
-  }
-  componentWillUnmount () {
-    clearTimeout(this.delay)
-  }
   render () {
     const width = 274
     const height = 245
-    const lotusClassName = `lotus ${this.state.revealLotus ? 'show' : ''}`
     return (
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
-        <g className={lotusClassName}>
+        <g className='lotus'>
           <style jsx>{`
               .lotus {
                 opacity: 0;
-                transform: rotate3d(0, 0, 1, -30deg);
-                transition: opacity 2s, transform 2s ease-out;
-              }
-              .lotus.show {
-                transform: rotate3d(0, 0, 1, 0);
                 transform-origin: center;
-                opacity: 1;
+                animation: fade-in 2.5s 1s;
+                animation-fill-mode: forwards;
+              }
+              @keyframes fade-in {
+                from {
+                  transform: rotate3d(0,0,1, -30deg);
+                  opacity: 0;
+                }
+                to {
+                  transform: rotate3d(0,0,1,0);
+                  opacity: 1;
+                }
               }
           `}</style>
           <Lotus />
