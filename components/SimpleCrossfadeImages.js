@@ -24,7 +24,7 @@ export default class SimpleCrossfadeImages extends React.Component {
     return (
       <div className='container'>
         {images.map(image => {
-          return <div className='image' style={{ backgroundImage: `url(${image})` }} />
+          return <div key={image} className='image' style={{ backgroundImage: `url(${image})` }} />
         })}
         <style jsx>{`
             .container {
