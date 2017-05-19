@@ -1,9 +1,7 @@
 import DownArrowIcon from '../resources/down-arrow-icon.svg'
 import NavigationBar from './NavigationBar'
 import ReactBKKLogo from '../resources/reactbkk.svg'
-import Scroll from 'react-scroll'
-
-var Link = Scroll.Link
+import { Link } from 'react-scroll'
 
 export default function HeroUnit () {
   return (

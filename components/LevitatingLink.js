@@ -1,13 +1,22 @@
-export default function LevitatingLink ({ href, children }) {
+import { Link } from 'react-scroll'
+
+export default function LevitatingLink({ href, withScrollTaget, children }) {
+  const scrollTarget = href.replace('#', '')
+  const childrenDOM = <span className='text'>{children}</span>
   return (
-    <a href={href}>
-      <span className='text'>{children}</span>
+    <span>
+      {
+        withScrollTaget
+          ? <Link to={scrollTarget} spy smooth duration={500} className='link-to'>{childrenDOM}</Link>
+          : <a href={href} className='link-to'>{childrenDOM}</a>
+      }
       <style jsx>{`
-        a {
+        span :global(.link-to) {
           color: #fff;
           text-decoration: none;
           display: inline-block;
           position: relative;
+          cursor: pointer;
         }
         .text {
           display: block;
@@ -15,10 +24,10 @@ export default function LevitatingLink ({ href, children }) {
           transition: 0.2s transform;
           transform: translateY(0);
         }
-        a:hover .text {
+        span :global(.link-to):hover .text {
           transform: translateY(-2px);
         }
-        a::after {
+        span :global(.link-to)::after {
           content: '';
           position: absolute;
           display: block;
@@ -28,11 +37,11 @@ export default function LevitatingLink ({ href, children }) {
           transition: 0.2s transform, 0.2s opacity;
           transform: scaleX(0.5);
         }
-        a:hover::after {
+        span :global(.link-to):hover::after {
           opacity: 1;
           transform: scaleX(1);
         }
       `}</style>
-    </a>
+    </span>
   )
 }
