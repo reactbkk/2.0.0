@@ -1,6 +1,6 @@
 module.exports = {
   staticFileGlobs: [
-    'out/**.html',
+    'out/*.html',
     'out/static/**.*',
     'out/**/*.*'
   ],
