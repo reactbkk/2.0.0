@@ -1,12 +1,12 @@
 import { Link } from 'react-scroll'
 
-export default function LevitatingLink ({ href, withScrollTaget, children }) {
+export default function LevitatingLink ({ href, withScrollTarget, children }) {
   const scrollTarget = href.replace('#', '')
   const childrenDOM = <span className='text'>{children}</span>
   return (
     <span>
       {
-        withScrollTaget
+        withScrollTarget
           ? <Link to={scrollTarget} spy smooth duration={500} className='link-to'>{childrenDOM}</Link>
           : <a href={href} className='link-to'>{childrenDOM}</a>
       }

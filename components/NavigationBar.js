@@ -22,7 +22,7 @@ export default function NavigationBar () {
 function NavigationLink ({ href, disabled, children }) {
   return (
     <div className={disabled ? 'disabled' : ''}>
-      <LevitatingLink href={href} withScrollTaget >{children}</LevitatingLink>
+      <LevitatingLink href={href} withScrollTarget >{children}</LevitatingLink>
       <style jsx>{`
         div {
           text-transform: uppercase;
