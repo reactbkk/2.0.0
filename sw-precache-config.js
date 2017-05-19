@@ -8,6 +8,6 @@ module.exports = {
   verbose: true,
   runtimeCaching: [{
     urlPattern: /(.*)/,
-    handler: 'networkFirst'
+    handler: 'fastest'
   }]
 }
