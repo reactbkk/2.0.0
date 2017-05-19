@@ -6,7 +6,7 @@ export default function NavigationBar () {
       <NavigationLink href='#about' disabled>About</NavigationLink>
       <NavigationLink href='#tickets'>Tickets</NavigationLink>
       <NavigationLink href='#sponsors' disabled>Sponsors</NavigationLink>
-      <NavigationLink href='#speakers' disabled>Speakers</NavigationLink>
+      <NavigationLink href='#speakers'>Speakers</NavigationLink>
       <NavigationLink href='#schedule' disabled>Schedule</NavigationLink>
       <NavigationLink href='#contact'>Contact</NavigationLink>
       <style jsx>{`

@@ -13,9 +13,9 @@
     "start": "env NEXT_DEV=1 next",
     "serve-static": "node static-server.js",
     "build": "next build && next export",
-    "postbuild": "cp -Rv public/* public/.nojekyll out",
+    "postbuild": "cp -Rv public/* public/.nojekyll out && sw-precache --config=sw-precache-config.js --root=out/",
     "deploy": "gh-pages --src '{.nojekyll,**/*}' -d out -m \"Deploy $(git rev-parse HEAD) to GitHub pages [ci skip]\"",
-    "lint": "eslint *.js components pages",
+    "lint": "eslint *.js components pages static public",
     "heroku-postbuild": "env NEXT_DEV=1 yarn run build",
     "heroku-start": "yarn run serve-static"
   },
@@ -30,6 +30,7 @@
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^3.0.1",
     "gh-pages": "^1.0.0",
+    "sw-precache": "^5.1.1",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   },
