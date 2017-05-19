@@ -14,7 +14,7 @@
     "build": "next build && next export",
     "postbuild": "cp -Rv public/* public/.nojekyll out && sw-precache --config=sw-precache-config.js --root=out/",
     "deploy": "gh-pages --src '{.nojekyll,**/*}' -d out -m \"Deploy $(git rev-parse HEAD) to GitHub pages [ci skip]\"",
-    "lint": "eslint *.js components pages",
+    "lint": "eslint *.js components pages static public",
     "heroku-postbuild": "env NEXT_DEV=1 yarn run build",
     "heroku-start": "cd out && serve -p $PORT"
   },
