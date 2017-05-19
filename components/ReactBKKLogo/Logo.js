@@ -1,5 +1,6 @@
 import React from 'react'
 import RevealEllipse from './RevealEllipse'
+
 class Logo extends React.Component {
   state = {
     revealIndex: 0
@@ -19,7 +20,7 @@ class Logo extends React.Component {
     const height = 245
     const { revealIndex } = this.state
     return (
-      <svg width={width} height={height}>
+      <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
         <RevealEllipse
           a={132}
           b={51}
@@ -34,7 +35,7 @@ class Logo extends React.Component {
           cx={width / 2}
           cy={height / 2}
           rotate={60}
-          duration={2}
+          duration={0.8}
           enabled={revealIndex > 1}
         />
         <RevealEllipse
