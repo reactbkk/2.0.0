@@ -2,9 +2,9 @@
 // credit: http://css3.bradshawenterprises.com/cfimg/
 
 const images = [
-  '/static/hero-bg.jpg',
-  'https://cloud.githubusercontent.com/assets/193136/26200621/2d440318-3bf9-11e7-909e-44cab5c9c4a8.jpg',
-  'https://cloud.githubusercontent.com/assets/193136/26200625/3074fc04-3bf9-11e7-8764-b5c0adeb5bd2.jpg'
+  'static/hero-bg.jpg',
+  'static/hero-bg-2.jpg',
+  'static/hero-bg-3.jpg'
 ]
 export default class SimpleCrossfadeImages extends React.Component {
   constructor (props) {
