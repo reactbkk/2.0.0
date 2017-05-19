@@ -22,12 +22,28 @@ export default function TicketsSection () {
   return (
     <div className='speakers-section'>
       <SectionTitle>Speakers</SectionTitle>
-      <ul>
-        {speakers.map((speaker, index) => <li>
-          <Speaker {...speaker} />
-        </li>)}
-      </ul>
+      <div className='container'>
+        <ul className='row'>
+          {speakers.map((speaker, index) => <li className='column'>
+            <Speaker {...speaker} />
+          </li>)}
+        </ul>
+      </div>
       <style jsx>{`
+        .container {
+          max-width: 1060px;
+          width: 100%;
+          margin: 0 auto;
+        }
+        .row {
+          position: relative;
+        }
+        .row:after {
+          content: "";
+          float: none;
+          display: block;
+          clear: both;
+        }
         .speakers-section {
           text-align: center;
         }
@@ -41,20 +57,21 @@ export default function TicketsSection () {
           display: block;
           margin: 50px 0 0;
         }
-
-        @media only screen and (min-width: 1060px) {
-          .speakers-section {
-            max-width: 1060px;
-            margin: 0 auto;
+        @media screen and (min-width: 1060px) {
+          .column {
+            width: 33.33%;
+            float: left;
+            margin-bottom: 30px;
           }
-          ul {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        }
+        @media (min-width: 768px) and (max-width: 1060px) {
+          .container {
+            width: 750px;
           }
-          li {
-            width: 33.33333%;
+          .column {
+            width: 50%;
+            float: left;
+            margin: 0 auto 30px auto;
           }
         }
       `}</style>
