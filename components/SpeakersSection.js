@@ -23,23 +23,41 @@ export default function TicketsSection () {
     <div className='speakers-section'>
       <SectionTitle>Speakers</SectionTitle>
       <ul>
-        {speakers.map((speaker, index) => <li>
+        {speakers.map((speaker, index) => <li className="column">
           <Speaker {...speaker} />
         </li>)}
       </ul>
       <style jsx>{`
         .speakers-section {
           text-align: center;
+          width: 1060px;
+          margin: auto auto;
         }
         ul {
           display: block;
           margin: 0;
           padding: 0;
           list-style: none;
+          overflow: hidden;
         }
         li {
           display: block;
           margin: 50px 0 0;
+        }
+        .column {
+          width: 33.3%;
+          float: left;
+        }
+
+        @media (max-width: 768px) {
+          .speakers-section {
+            width: 100%;
+          }
+          
+          .column {
+            width: 100%;
+            float: none;
+          }
         }
       `}</style>
     </div>
@@ -48,7 +66,7 @@ export default function TicketsSection () {
 
 function Speaker ({ name, title, photo }) {
   return (
-    <div>
+    <div >
       <img alt='Photo' src={photo} />
       <h3>{name}</h3>
       <p>{title}</p>
