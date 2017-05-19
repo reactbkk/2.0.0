@@ -23,7 +23,7 @@ export default function TicketsSection () {
     <div className='speakers-section'>
       <SectionTitle>Speakers</SectionTitle>
       <ul>
-        {speakers.map((speaker, index) => <li className="column">
+        {speakers.map((speaker, index) => <li className='column'>
           <Speaker {...speaker} />
         </li>)}
       </ul>
@@ -67,11 +67,11 @@ export default function TicketsSection () {
 
 function Speaker ({ name, title, photo, description }) {
   return (
-    <div className="speaker-info">
+    <div className='speaker-info'>
       <img alt='Photo' src={photo} />
       <h3>{name}</h3>
       <p>{title}</p>
-      <p className="description">"{description}"</p>
+      <p className='description'>"{description}"</p>
       <style jsx>{`
         img {
           overflow: hidden;
