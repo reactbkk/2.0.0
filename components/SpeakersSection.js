@@ -63,6 +63,7 @@ export default function TicketsSection () {
             float: left;
             margin-bottom: 30px;
           }
+
         }
         @media (min-width: 768px) and (max-width: 1060px) {
           .container {
@@ -81,10 +82,11 @@ export default function TicketsSection () {
 
 function Speaker ({ name, title, photo, description }) {
   return (
-    <div>
+    <div className='speaker-info'>
       <img alt='Photo' src={photo} />
       <h3>{name}</h3>
       <p>{title}</p>
+      <p className='description'>"{description}"</p>
       <style jsx>{`
         img {
           overflow: hidden;
@@ -112,7 +114,7 @@ function Speaker ({ name, title, photo, description }) {
         .speaker-info {
           max-width: 270px;
           margin: auto auto;
-          height: 300px;
+          height: 270px;
         }
 
         .description {
