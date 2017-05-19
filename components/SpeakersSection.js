@@ -24,7 +24,7 @@ export default function TicketsSection () {
       <SectionTitle>Speakers</SectionTitle>
       <div className='container'>
         <ul className='row'>
-          {speakers.map((speaker, index) => <li className="column">
+          {speakers.map((speaker, index) => <li className='column'>
             <Speaker {...speaker} />
           </li>)}
         </ul>
@@ -58,13 +58,22 @@ export default function TicketsSection () {
         }
         @media screen and (min-width: 1060px) {
           .container {
-            width: 100%;
             width: 1060px;
           }
           .column {
             width: 33.33%;
             float: left;
             margin-bottom: 30px;
+          }
+        }
+        @media (min-width: 768px) and (max-width: 1060px) {
+          .container {
+            width: 750px;
+          }
+          .column {
+            width: 50%;
+            float: left;
+            margin: 0 auto 30px auto;
           }
         }
       `}</style>
