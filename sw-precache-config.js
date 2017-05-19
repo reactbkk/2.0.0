@@ -5,6 +5,7 @@ module.exports = {
     'out/_next/**/*'
   ],
   stripPrefix: 'out/',
+  replacePrefix: '/2.0.0/',
   verbose: true,
   runtimeCaching: [{
     urlPattern: /(.*)/,
