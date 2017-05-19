@@ -42,7 +42,7 @@ export default function TicketsSection () {
           margin: 50px 0 0;
         }
 
-        @media only screen and (min-width: 66.25em) {
+        @media only screen and (min-width: 1060px) {
           .speakers-section {
             max-width: 1060px;
             margin: 0 auto;
