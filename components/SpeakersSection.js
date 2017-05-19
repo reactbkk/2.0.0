@@ -31,6 +31,7 @@ export default function TicketsSection () {
       </div>
       <style jsx>{`
         .container {
+          max-width: 1060px;
           width: 100%;
           margin: 0 auto;
         }
@@ -57,9 +58,6 @@ export default function TicketsSection () {
           margin: 50px 0 0;
         }
         @media screen and (min-width: 1060px) {
-          .container {
-            width: 1060px;
-          }
           .column {
             width: 33.33%;
             float: left;
