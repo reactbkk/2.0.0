@@ -82,7 +82,6 @@ export default function TicketsSection () {
 function Speaker ({ name, title, photo, description }) {
   return (
     <div>
-
       <img alt='Photo' src={photo} />
       <h3>{name}</h3>
       <p>{title}</p>
