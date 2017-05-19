@@ -17,6 +17,10 @@ const isKeyPressedWithClick = (event) => event.ctrlKey || event.altKey || event.
 
 export default class MainLayout extends React.Component {
   componentDidMount () {
+    this.listenerClickLink()
+  }
+
+  listenerClickLink () {
     [].forEach.call(document.querySelectorAll('a'), (el) => {
       el.addEventListener('click', (event) => {
         event.preventDefault()
