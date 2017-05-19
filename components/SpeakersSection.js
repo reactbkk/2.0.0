@@ -46,12 +46,6 @@ export default function TicketsSection () {
         }
         .speakers-section {
           text-align: center;
-<<<<<<< HEAD
-=======
-          width: 1060px;
-          margin: auto auto;
-          overflow: hidden;
->>>>>>> 6668c80... add description speaker
         }
         ul {
           display: block;
@@ -87,11 +81,8 @@ export default function TicketsSection () {
 
 function Speaker ({ name, title, photo, description }) {
   return (
-<<<<<<< HEAD
     <div>
-=======
-    <div className="speaker-info">
->>>>>>> 6668c80... add description speaker
+
       <img alt='Photo' src={photo} />
       <h3>{name}</h3>
       <p>{title}</p>
