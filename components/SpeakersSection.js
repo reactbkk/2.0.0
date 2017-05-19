@@ -41,6 +41,22 @@ export default function TicketsSection () {
           display: block;
           margin: 50px 0 0;
         }
+
+        @media only screen and (min-width: 66.25em) {
+          .speakers-section {
+            max-width: 1060px;
+            margin: 0 auto;
+          }
+          ul {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          li {
+            width: 33.33333%;
+          }
+        }
       `}</style>
     </div>
   )
