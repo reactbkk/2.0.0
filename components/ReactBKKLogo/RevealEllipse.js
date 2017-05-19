@@ -1,5 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 function generateRange (start, end, count) {
   let result = []
@@ -23,7 +23,8 @@ class RevealEllipse extends React.Component {
     a: PropTypes.number,
     b: PropTypes.number,
     rotate: PropTypes.number,
-    duration: PropTypes.number
+    duration: PropTypes.number,
+    delay: PropTypes.number
   }
   static defaultProps = {
     cx: 0,
@@ -31,39 +32,39 @@ class RevealEllipse extends React.Component {
     a: 1,
     b: 1,
     rotate: 0,
-    duration: 1
+    duration: 1,
+    delay: 0
   }
   state = {
     currentAngle: 0,
     pointList: [ellipsePoint(this.props.a, this.props.b, 0)]
   }
   componentDidMount () {
-    const step = () => {
-      const { a, b, duration, enabled } = this.props
-      this.setState(({ currentAngle, pointList }) => {
-        if (!enabled) {
-          return { currentAngle, pointList }
-        }
-        if (currentAngle > 360) {
-          window.cancelAnimationFrame(this.raf)
-          return
-        }
-        const nextAngle = (currentAngle + 6 / duration)
-        const newPointList = this.getIntegratedAngles(currentAngle, nextAngle, 5)
-          .filter(angle => angle <= 360)
-          .map(angle => ellipsePoint(a, b, angle))
-
-        return {
-          currentAngle: nextAngle,
-          pointList: [ ...pointList, ...newPointList ]
-        }
-      })
-      this.raf = window.requestAnimationFrame(step)
-    }
-    this.raf = window.requestAnimationFrame(step)
+    this.delay = setTimeout(() => {
+      this.raf = window.requestAnimationFrame(this.revealStep)
+    }, this.props.delay)
   }
   componentWillUnmount () {
     window.cancelAnimationFrame(this.raf)
+    clearTimeout(this.delay)
+  }
+  revealStep = () => {
+    const { a, b, duration } = this.props
+    this.setState(({ currentAngle, pointList }) => {
+      if (currentAngle >= 360) {
+        return window.cancelAnimationFrame(this.raf)
+      }
+      const nextAngle = (currentAngle + 6 / duration)
+      const newPointList = this.getIntegratedAngles(currentAngle, nextAngle, 5)
+        .filter(angle => angle <= 360)
+        .map(angle => ellipsePoint(a, b, angle))
+
+      return {
+        currentAngle: nextAngle,
+        pointList: [ ...pointList, ...newPointList ]
+      }
+    })
+    this.raf = window.requestAnimationFrame(this.revealStep)
   }
   getIntegratedAngles (currentAngle, nextAngle, maxAngle) {
     if (nextAngle - currentAngle > maxAngle) {
@@ -75,16 +76,17 @@ class RevealEllipse extends React.Component {
     const { cx, cy, rotate } = this.props
     const { currentAngle, pointList } = this.state
     const path = pointList.map(({ x, y }) => x + ' ' + y).join(' ')
-    return <path
-      d={`M${path}${currentAngle >= 360 ? 'z' : ''}`}
-      transform={`
-        translate(${cx}, ${cy})
-        rotate(${rotate})
-      `}
-      strokeWidth='10px'
-      stroke='#00D8FF'
-      fill='none'
-    />
+    return (
+      <path
+        d={`M${path}${currentAngle >= 360 ? 'z' : ''}`}
+        transform={`
+          translate(${cx}, ${cy})
+          rotate(${rotate})
+        `}
+        strokeWidth='10px'
+        stroke='#00D8FF'
+        fill='none'
+    />)
   }
 }
 
