@@ -85,7 +85,6 @@ function HeroUnitFooter () {
           <DownArrowIcon />
         </div>
       </Link>
-
       <style jsx>{`
         .nav {
           margin-bottom: 30px;
@@ -107,44 +106,39 @@ function HeroUnitFooter () {
   )
 }
 
-function Completionist() {
-    return (
-        <span>
-            Good luck and have fun.
-        <style jsx>{`
-            span {
-                font-size: 36px;
-            }
-            @media (max-width: 399px) {
-                span {
-                    font-size: 24px;
-                }
-            }
-          `}
-        </style>
-        </span>
-    )
+function Completionist () {
+  return (
+    <span>
+      Good luck and have fun.
+      <style jsx>{`
+        span {
+          font-size: 36px;
+        }
+        @media (max-width: 399px) {
+          span {
+            font-size: 24px;
+          }
+        }
+        `}
+      </style>
+    </span>
+  )
 }
 
 function renderer ({ days, hours, minutes, seconds, completed }) {
-    if (completed) {
-        return <Completionist />;
-    } else {
-        return (
-            <div>
-                <p>{days}</p>
-                <p>:</p>
-                <p>{hours}</p>
-                <p>:</p>
-                <p>{minutes}</p>
-                <p>:</p>
-                <p>{seconds}</p>
-                <style jsx>{`
-            div {
-                max-width: 400px;
-                margin: 0 auto;
-                border-bottom: dashed 1px #00D8FF;
-            }
+  if (completed) {
+    return <Completionist />
+  } else {
+    return (
+      <div>
+        <p>{days}</p>
+        <p>:</p>
+        <p>{hours}</p>
+        <p>:</p>
+        <p>{minutes}</p>
+        <p>:</p>
+        <p>{seconds}</p>
+        <style jsx>{`
             p {
                 font-size: 40px;
                 font-weight: bold;
@@ -160,7 +154,7 @@ function renderer ({ days, hours, minutes, seconds, completed }) {
                 }
             }
           `}</style>
-            </div>
-        )
-    }
+      </div>
+    )
+  }
 }
