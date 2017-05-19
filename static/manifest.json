@@ -23,6 +23,6 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "https://reactbkk.github.io/2.0.0/",
   "display": "standalone"
 }
