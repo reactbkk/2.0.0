@@ -1,5 +1,5 @@
 {
-  "short_name": "ReactBKK 2.0.0",
+  "short_name": "ReactBKK",
   "name": "React Bangkok 2.0.0",
   "icons": [
     {
@@ -23,6 +23,6 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "https://reactbkk.github.io/2.0.0/",
   "display": "standalone"
 }
