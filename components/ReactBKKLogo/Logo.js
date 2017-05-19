@@ -10,22 +10,22 @@ class Logo extends React.Component {
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
         <g className='lotus'>
           <style jsx>{`
-              .lotus {
+            .lotus {
+              opacity: 0;
+              transform-origin: center;
+              animation: fade-in 2.5s 1s;
+              animation-fill-mode: forwards;
+            }
+            @keyframes fade-in {
+              from {
+                transform: rotate(-30deg) translateZ(0);
                 opacity: 0;
-                transform-origin: center;
-                animation: fade-in 2.5s 1s;
-                animation-fill-mode: forwards;
               }
-              @keyframes fade-in {
-                from {
-                  transform: rotate3d(0,0,1, -30deg);
-                  opacity: 0;
-                }
-                to {
-                  transform: rotate3d(0,0,1,0);
-                  opacity: 1;
-                }
+              to {
+                transform: rotate(0) translateZ(0);
+                opacity: 1;
               }
+            }
           `}</style>
           <Lotus />
         </g>

@@ -41,6 +41,7 @@ class RevealEllipse extends React.Component {
   }
   componentDidMount () {
     this.delay = setTimeout(() => {
+      this.timer = Date.now()
       this.raf = window.requestAnimationFrame(this.revealStep)
     }, this.props.delay)
   }
@@ -48,17 +49,18 @@ class RevealEllipse extends React.Component {
     window.cancelAnimationFrame(this.raf)
     clearTimeout(this.delay)
   }
-  revealStep = () => {
+  revealStep = (time) => {
+    const deltaTime = this.lastTime ? time - this.lastTime : 0
+    this.lastTime = time
     const { a, b, duration } = this.props
+    if (this.state.currentAngle >= 360) {
+      return window.cancelAnimationFrame(this.raf)
+    }
     this.setState(({ currentAngle, pointList }) => {
-      if (currentAngle >= 360) {
-        return window.cancelAnimationFrame(this.raf)
-      }
-      const nextAngle = (currentAngle + 6 / duration)
+      const nextAngle = (currentAngle + 360 * deltaTime * 0.001 / duration)
       const newPointList = this.getIntegratedAngles(currentAngle, nextAngle, 5)
         .filter(angle => angle <= 360)
         .map(angle => ellipsePoint(a, b, angle))
-
       return {
         currentAngle: nextAngle,
         pointList: [ ...pointList, ...newPointList ]
