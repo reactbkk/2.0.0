@@ -1,6 +1,6 @@
 import DownArrowIcon from '../resources/down-arrow-icon.svg'
 import NavigationBar from './NavigationBar'
-import ReactBKKLogo from '../resources/reactbkk.svg'
+import ReactBKKLogo from './ReactBKKLogo'
 import Scroll from 'react-scroll'
 
 var Link = Scroll.Link
