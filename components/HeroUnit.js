@@ -2,6 +2,7 @@ import DownArrowIcon from '../resources/down-arrow-icon.svg'
 import NavigationBar from './NavigationBar'
 import ReactBKKLogo from '../resources/reactbkk.svg'
 import Scroll from 'react-scroll'
+import Countdown from 'react-countdown-now'
 
 var Link = Scroll.Link
 
@@ -52,6 +53,7 @@ function HeroUnitLogo () {
     <div>
       <div className='logo'><ReactBKKLogo /></div>
       <h1>React Bangkok</h1>
+      <Countdown date={'03 June 2017 09:30:00'} renderer={renderer} />
       <style jsx>{`
         h1 {
           font-size: 70px;
@@ -103,4 +105,62 @@ function HeroUnitFooter () {
       `}</style>
     </div>
   )
+}
+
+function Completionist() {
+    return (
+        <span>
+            Good luck and have fun.
+        <style jsx>{`
+            span {
+                font-size: 36px;
+            }
+            @media (max-width: 399px) {
+                span {
+                    font-size: 24px;
+                }
+            }
+          `}
+        </style>
+        </span>
+    )
+}
+
+function renderer ({ days, hours, minutes, seconds, completed }) {
+    if (completed) {
+        return <Completionist />;
+    } else {
+        return (
+            <div>
+                <p>{days}</p>
+                <p>:</p>
+                <p>{hours}</p>
+                <p>:</p>
+                <p>{minutes}</p>
+                <p>:</p>
+                <p>{seconds}</p>
+                <style jsx>{`
+            div {
+                max-width: 400px;
+                margin: 0 auto;
+                border-bottom: dashed 1px #00D8FF;
+            }
+            p {
+                font-size: 40px;
+                font-weight: bold;
+                display: inline-block;
+                margin: 0 8px;
+            }
+            @media (max-width: 399px) {
+                div {
+                max-width: 240px;
+                }
+                p {
+                    font-size: 32px;
+                }
+            }
+          `}</style>
+            </div>
+        )
+    }
 }
