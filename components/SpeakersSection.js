@@ -25,7 +25,7 @@ export default function TicketsSection () {
 
       <div className='container'>
         <ul className='row'>
-          {speakers.map((speaker, index) => <li className='column'>
+          {speakers.map((speaker, index) => <li className='column' key={index}>
             <Speaker {...speaker} />
           </li>)}
         </ul>
@@ -47,40 +47,23 @@ export default function TicketsSection () {
         }
         .speakers-section {
           text-align: center;
-          width: 1060px;
-          margin: auto auto;
-          overflow: hidden;
         }
         ul {
           display: block;
           margin: 0;
           padding: 0;
           list-style: none;
-          overflow: hidden;
         }
         li {
           display: block;
           margin: 50px 0 0;
         }
-        .column {
-          width: 33.3%;
-          float: left;
-        }
-
-        @media (max-width: 768px) {
-          .speakers-section {
-            width: 100%;
-          }
-          
+        @media screen and (min-width: 1060px) {
           .column {
-            width: 100%;
-            float: none;
-              @media screen and (min-width: 1060px) {
-                .column {
-                  width: 33.33%;
-                  float: left;
-                  margin-bottom: 30px;
-                }
+            width: 33.33%;
+            float: left;
+            margin-bottom: 30px;
+          }
 
         }
         @media (min-width: 768px) and (max-width: 1060px) {
