@@ -9,7 +9,7 @@ class Logo extends React.Component {
   componentDidMount () {
     this.delay = setTimeout(() => {
       this.setState({ revealLotus: true })
-    }, 800)
+    }, 500)
   }
   componentWillUnmount () {
     clearTimeout(this.delay)
