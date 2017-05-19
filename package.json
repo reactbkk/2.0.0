@@ -20,6 +20,7 @@
     "heroku-start": "yarn run serve-static"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "babel-plugin-inline-react-svg": "^0.4.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.0",
