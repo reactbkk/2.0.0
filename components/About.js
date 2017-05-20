@@ -16,7 +16,6 @@ export default function About () {
       <style jsx>{`
         .about {
             max-width: 1060px;
-            width: 100%;
             margin: 0 auto;
         }
        .header, .description {
