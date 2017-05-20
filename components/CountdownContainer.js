@@ -81,10 +81,11 @@ function renderCountdown ({ days, hours, minutes, seconds, completed }) {
           }
           p > small {
             position: absolute;
+            right: 0;
             bottom: -12px;
+            left: 0;
             display: block;
             font-size: 18px;
-            width: 100%;
             text-align: center;
           }
           @media (max-width: 399px) {
