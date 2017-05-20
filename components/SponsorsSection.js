@@ -2,7 +2,7 @@ import SectionTitle from './SectionTitle'
 
 const sponsorsGold = [
   'programmer-thai',
-  'sprin3t'
+  'sprin3r'
 ]
 const sponsorsSliver = [
   'cleverse',
