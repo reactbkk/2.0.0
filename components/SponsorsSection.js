@@ -1,17 +1,17 @@
 import SectionTitle from './SectionTitle'
 
 const sponsorsGold = [
-  'programmer-thai',
-  'sprin3r'
+  { name: 'Thai Programmer Association', image: 'programmer-thai' },
+  { name: 'SPRINT3r', image: 'sprin3r' }
 ]
 const sponsorsSliver = [
-  'cleverse',
-  'integenxe',
-  'omise',
-  'pronto',
-  'taskworld',
-  'thinknet',
-  'wongnai'
+  { name: 'Cleverse', image: 'cleverse' },
+  { name: 'int’genxe', image: 'integenxe' },
+  { name: 'Omise', image: 'omise' },
+  { name: 'Pronto Tools', image: 'pronto' },
+  { name: 'Taskworld', image: 'taskworld' },
+  { name: 'THiNKNET', image: 'thinknet' },
+  { name: 'Wongnai', image: 'wongnai' }
 ]
 
 export default function TicketsSection () {
@@ -21,22 +21,10 @@ export default function TicketsSection () {
 
       <div className='item-sponsors-box'>
         <div>
-          {sponsorsGold.map(name => (
-            <ItemSponsor
-              key={name}
-              src={`static/sponsor/${name}.svg`}
-              type='gold'
-            />
-          ))}
+          {sponsorsGold.map(createSponsorRenderer('gold'))}
         </div>
         <div>
-          {sponsorsSliver.map(name => (
-            <ItemSponsor
-              key={name}
-              src={`static/sponsor/${name}.svg`}
-              type='sliver'
-            />
-          ))}
+          {sponsorsSliver.map(createSponsorRenderer('silver'))}
         </div>
       </div>
 
@@ -53,14 +41,26 @@ export default function TicketsSection () {
     </div>
   )
 }
+function createSponsorRenderer (type) {
+  return function renderSponsor (detail) {
+    return (
+      <ItemSponsor
+        key={detail.name}
+        name={detail.name}
+        src={`static/sponsor/${detail.image}.svg`}
+        type={type}
+      />
+    )
+  }
+}
 
-function ItemSponsor ({ src, type }) {
+function ItemSponsor ({ name, src, type }) {
   return (
     <div className={`sponsor-item-${type}`}>
-      <img src={src} width='100%' />
+      <img alt={`${name}`} src={src} width='100%' />
 
       <style jsx>{`
-        .sponsor-item-gold, .sponsor-item-sliver {
+        .sponsor-item-gold, .sponsor-item-silver {
           display: inline-block;
         }
         .sponsor-item-gold {
@@ -68,7 +68,7 @@ function ItemSponsor ({ src, type }) {
           max-width: 300px;
           padding: 0 30px;
         }
-        .sponsor-item-sliver {
+        .sponsor-item-silver {
           width: 30%;
           max-width: 170px;
           padding: 0 20px;
@@ -79,7 +79,7 @@ function ItemSponsor ({ src, type }) {
             max-width: 40%;
             padding: 0 10px;
           }
-          .sponsor-item-sliver {
+          .sponsor-item-silver {
             width: 40%;
             max-width: 150px;
             padding: 0 10px;
