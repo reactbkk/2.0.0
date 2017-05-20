@@ -55,6 +55,7 @@ export default function MainLayout ({ children }) {
         <link rel='apple-touch-icon' sizes='167x167' href='https://reactbkk.github.io/2.0.0/static/icon-ios-167.png' />
         <link rel='apple-touch-icon' sizes='180x180' href='https://reactbkk.github.io/2.0.0/static/icon-ios-180.png' />
         <script dangerouslySetInnerHTML={{ __html: ga }} />
+        <script defer src='static/service-worker-registration.js' />
         <link rel='manifest' href='static/manifest.json' />
       </Head>
       <style global jsx>{`
