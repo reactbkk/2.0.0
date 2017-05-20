@@ -24,6 +24,7 @@ export default function TicketsSection () {
           {sponsorsGold.map(name => (
             <ItemSponsor
               key={name}
+              name={name}
               src={`static/sponsor/${name}.svg`}
               type='gold'
             />
@@ -33,6 +34,7 @@ export default function TicketsSection () {
           {sponsorsSliver.map(name => (
             <ItemSponsor
               key={name}
+              name={name}
               src={`static/sponsor/${name}.svg`}
               type='sliver'
             />
@@ -54,10 +56,10 @@ export default function TicketsSection () {
   )
 }
 
-function ItemSponsor ({ src, type }) {
+function ItemSponsor ({ name, src, type }) {
   return (
     <div className={`sponsor-item-${type}`}>
-      <img alt='Photo' src={src} width='100%' />
+      <img alt={`${name}`} aria-hidden src={src} width='100%' />
 
       <style jsx>{`
         .sponsor-item-gold, .sponsor-item-sliver {
