@@ -9,10 +9,10 @@ export default () => (
   <MainLayout>
     <HeroUnit />
     <SectionSeparator first />
-    <selection id='tickets'><TicketsSection /></selection>
+    <section id='tickets'><TicketsSection /></section>
     <SectionSeparator />
-    <selection id='speakers'><SpeakersSection /></selection>
+    <section id='speakers'><SpeakersSection /></section>
     <SectionSeparator />
-    <selection id='contact'><FooterSection /></selection>
+    <section id='contact'><FooterSection /></section>
   </MainLayout>
 )
