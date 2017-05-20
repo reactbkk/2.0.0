@@ -1,7 +1,18 @@
 import SectionTitle from './SectionTitle'
 
-const sponsorsGold = ['programmer-thai', 'sprin3t']
-const sponsorsSliver = ['cleverse', 'integenxe', 'omise', 'pronto', 'taskworld', 'thinknet', 'wongnai']
+const sponsorsGold = [
+  'programmer-thai',
+  'sprin3t'
+]
+const sponsorsSliver = [
+  'cleverse',
+  'integenxe',
+  'omise',
+  'pronto',
+  'taskworld',
+  'thinknet',
+  'wongnai'
+]
 
 export default function TicketsSection () {
   return (
@@ -9,11 +20,21 @@ export default function TicketsSection () {
       <SectionTitle>Sponsors</SectionTitle>
 
       <div className='item-sponsors-box'>
-        <div>{sponsorsGold.map((name) => <ItemSponsor src={`static/sponsor/${name}.svg`} type='gold' />)}</div>
-        <div>{sponsorsSliver.map((name) => <ItemSponsor src={`static/sponsor/${name}.svg`} type='sliver' />)}</div>
+        <div>
+          {sponsorsGold.map(name => (
+            <ItemSponsor src={`static/sponsor/${name}.svg`} type='gold' />
+          ))}
+        </div>
+        <div>
+          {sponsorsSliver.map(name => (
+            <ItemSponsor src={`static/sponsor/${name}.svg`} type='sliver' />
+          ))}
+        </div>
       </div>
 
-      <style jsx>{`
+      <style jsx>
+        {
+          `
         .tickets {
           text-align: center;
         }
@@ -22,7 +43,9 @@ export default function TicketsSection () {
           text-align: center;
           margin: 0 auto;
         }
-      `}</style>
+      `
+        }
+      </style>
     </div>
   )
 }
@@ -32,7 +55,9 @@ function ItemSponsor ({ src, type }) {
     <div className={`sponsor-item-${type}`}>
       <img src={src} width='100%' />
 
-      <style jsx>{`
+      <style jsx>
+        {
+          `
         .sponsor-item-gold, .sponsor-item-sliver {
           display: inline-block;
         }
@@ -64,8 +89,10 @@ function ItemSponsor ({ src, type }) {
             padding: 0;
           }
         }
-        
-      `}</style>
+
+      `
+        }
+      </style>
     </div>
   )
 }
