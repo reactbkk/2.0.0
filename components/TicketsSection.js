@@ -76,8 +76,8 @@ function Button ({ children, href }) {
           display: inline-block;
           font-size: 18px;
           line-height: 33px;
-          color: rgba(255,255,255,0.5);
-          border: 2px solid rgba(255,255,255,0.5);
+          color: #00D8FF;
+          border: 2px solid #00D8FF;
           padding: 0 30px;
           border-radius: 35px;
           text-transform: uppercase;
@@ -85,8 +85,8 @@ function Button ({ children, href }) {
           transition: 0.15s all ease-out;
         }
         .button:hover {
-          background: rgba(255,255,255,0.5);
-          color: #222;
+          background: #00D8FF;
+          color: #FFF;
         }
       `}</style>
     </a>
