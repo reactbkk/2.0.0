@@ -27,8 +27,6 @@ export default function TicketsSection () {
   )
 }
 
-
-
 function ItemSponsor ({ src, type }) {
   return (
     <div className={`sponsor-item-${type}`}>
