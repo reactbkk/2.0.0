@@ -53,13 +53,16 @@ function HeroUnitLogo () {
     <div>
       <div className='logo'><ReactBKKLogo /></div>
       <h1>React Bangkok</h1>
-      <CountdownContainer />
+      <div className='countdown'><CountdownContainer /></div>
       <style jsx>{`
         h1 {
           font-size: 70px;
           font-weight: normal;
           margin: 1ex 0 0;
           color: #00D8FF;
+        }
+        .countdown {
+          height: 52px;
         }
         @media (max-width: 639px) {
           h1 { font-size: 50px; }
