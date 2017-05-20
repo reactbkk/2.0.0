@@ -23,18 +23,16 @@ const handleLinkClick = (event) => {
     target = target.parentNode
   }
 
-  if (target && !isExternal(target.href) && isKeyPressedWithClick(event)) {
-    event.preventDefault()
-  }
+  if (!target) return
+  if (isExternal(target.href)) return
+  if (isKeyPressedWithClick(event)) return
 
-  if (target && !isExternal(target.href) && !isKeyPressedWithClick(event)) {
-    event.preventDefault()
-    const targetName = target.getAttribute('href').replace('#', '')
-    scroller.scrollTo(targetName, {
-      duration: 500,
-      smooth: true
-    })
-  }
+  event.preventDefault()
+  const targetName = target.getAttribute('href').replace('#', '')
+  scroller.scrollTo(targetName, {
+    duration: 500,
+    smooth: true
+  })
 }
 
 export default function MainLayout ({ children }) {
