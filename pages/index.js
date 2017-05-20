@@ -1,4 +1,3 @@
-import { Element } from 'react-scroll'
 import FooterSection from '../components/FooterSection'
 import HeroUnit from '../components/HeroUnit'
 import MainLayout from '../components/MainLayout'
@@ -10,13 +9,10 @@ export default () => (
   <MainLayout>
     <HeroUnit />
     <SectionSeparator first />
-    <Element name='tickets' />
-    <TicketsSection />
+    <selection id='tickets'><TicketsSection /></selection>
     <SectionSeparator />
-    <Element name='speakers' />
-    <SpeakersSection />
+    <selection id='speakers'><SpeakersSection /></selection>
     <SectionSeparator />
-    <Element name='contact' />
-    <FooterSection />
+    <selection id='contact'><FooterSection /></selection>
   </MainLayout>
 )
