@@ -5,6 +5,7 @@ import SectionSeparator from '../components/SectionSeparator'
 import SpeakersSection from '../components/SpeakersSection'
 import TicketsSection from '../components/TicketsSection'
 import About from '../components/About'
+import SponsorsSection from '../components/SponsorsSection'
 
 export default () => (
   <MainLayout>
@@ -13,6 +14,8 @@ export default () => (
     <section id='about'><About /></section>
     <SectionSeparator />
     <section id='tickets'><TicketsSection /></section>
+    <SectionSeparator />
+    <section id='sponsors'><SponsorsSection /></section>
     <SectionSeparator />
     <section id='speakers'><SpeakersSection /></section>
     <SectionSeparator />

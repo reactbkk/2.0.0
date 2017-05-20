@@ -5,7 +5,7 @@ export default function NavigationBar () {
     <nav>
       <NavigationLink href='#about'>About</NavigationLink>
       <NavigationLink href='#tickets'>Tickets</NavigationLink>
-      <NavigationLink href='#sponsors' disabled>Sponsors</NavigationLink>
+      <NavigationLink href='#sponsors'>Sponsors</NavigationLink>
       <NavigationLink href='#speakers'>Speakers</NavigationLink>
       <NavigationLink href='#schedule' disabled>Schedule</NavigationLink>
       <NavigationLink href='#contact'>Contact</NavigationLink>
