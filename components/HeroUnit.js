@@ -1,6 +1,7 @@
 import DownArrowIcon from '../resources/down-arrow-icon.svg'
 import NavigationBar from './NavigationBar'
 import ReactBKKLogo from './ReactBKKLogo'
+import SimpleCrossfadeImages from './SimpleCrossfadeImages'
 import Scroll from 'react-scroll'
 
 var Link = Scroll.Link
@@ -8,6 +9,7 @@ var Link = Scroll.Link
 export default function HeroUnit () {
   return (
     <header>
+      <SimpleCrossfadeImages />
       <div className='bg-overlay' />
       <div className='spacer' />
       <div className='center'>
