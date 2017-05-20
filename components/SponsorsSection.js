@@ -57,7 +57,7 @@ export default function TicketsSection () {
 function ItemSponsor ({ src, type }) {
   return (
     <div className={`sponsor-item-${type}`}>
-      <img src={src} width='100%' />
+      <img alt='Photo' src={src} width='100%' />
 
       <style jsx>{`
         .sponsor-item-gold, .sponsor-item-sliver {
