@@ -1,9 +1,15 @@
+import Scroll from 'react-scroll'
+var Link = Scroll.Link
+
+
 export default function LevitatingLink ({ href, children }) {
   return (
-    <a href={href}>
-      <span className='text'>{children}</span>
+    <Link to={href} spy smooth duration={500}>
+      <span className='listBlock'>
+        <span className='text'>{children}</span>
+      </span>
       <style jsx>{`
-        a {
+        .listBlock {
           color: #fff;
           text-decoration: none;
           display: inline-block;
@@ -15,10 +21,13 @@ export default function LevitatingLink ({ href, children }) {
           transition: 0.2s transform;
           transform: translateY(0);
         }
-        a:hover .text {
+	.listBlock:hover {
+	  cursor: pointer;
+	}
+        .listBlock:hover .text {
           transform: translateY(-2px);
         }
-        a::after {
+        .listBlock::after {
           content: '';
           position: absolute;
           display: block;
@@ -28,11 +37,11 @@ export default function LevitatingLink ({ href, children }) {
           transition: 0.2s transform, 0.2s opacity;
           transform: scaleX(0.5);
         }
-        a:hover::after {
+        .listBlock:hover::after {
           opacity: 1;
           transform: scaleX(1);
         }
       `}</style>
-    </a>
+    </Link>
   )
 }
