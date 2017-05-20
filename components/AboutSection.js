@@ -1,10 +1,10 @@
-import SectionTitle from './SectionTitle'
+import AboutSection from './SectionTitle'
 export default function About () {
   return (
     <div className='about'>
       <div className='header'>
         <div className='upsize'>2.0.0</div>
-        <SectionTitle>FIRST REACT MEETUP IN THAILAND</SectionTitle>
+        <AboutSection>FIRST REACT MEETUP IN THAILAND</AboutSection>
       </div>
       <div className='content'>
         <div className='description'>
@@ -15,31 +15,30 @@ export default function About () {
       </div>
       <style jsx>{`
         .upsize {
-            font-size: 85px;
-            line-height: 48px;
-            text-transform: uppercase;
-            margin: 0 0 30px;
+          font-size: 85px;
+          line-height: 48px;
+          text-transform: uppercase;
+          margin: 0 0 30px;
         }   
         .about {
-            max-width: 1060px;
-            margin: 0 auto;
+          max-width: 1060px;
+          margin: 0 auto;
         }
        .header, .description {
-            text-align: justify;
-            text-align: center;
+          text-align: center;
         }
         .content > .description {
-            text-indent: 10px;
+          text-indent: 10px;
         }
         @media (max-width: 767px) {
-            .about {
-                padding: 0 5.33%;
-            }
+          .about {
+            padding: 0 5.33%;
+          }
         }
         @media (min-width: 768px) and (max-width: 1060px) {
-            .about {
-                width: 750px;
-            }
+          .about {
+            width: 750px;
+          }
         }
     `}</style>
     </div>
