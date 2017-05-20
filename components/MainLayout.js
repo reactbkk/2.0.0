@@ -1,5 +1,15 @@
 import Head from 'next/head'
 import { scroller } from 'react-scroll'
+import React from 'react'
+
+class MainLayout extends React.Component {
+  componentDidMount () {
+    document.documentElement.lang = 'th'
+  }
+  render () {
+    return renderMainLayout(this.props.children)
+  }
+}
 
 const ga = `
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -35,7 +45,7 @@ const handleLinkClick = (event) => {
   })
 }
 
-export default function MainLayout ({ children }) {
+function renderMainLayout (children) {
   return (
     <div onClick={handleLinkClick}>
       <Head>
@@ -90,3 +100,5 @@ export default function MainLayout ({ children }) {
     </div>
   )
 }
+
+export default MainLayout
