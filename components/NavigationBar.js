@@ -21,25 +21,24 @@ export default function NavigationBar () {
 
 function NavigationLink ({ href, disabled, children }) {
   return (
-    <div className={disabled ? 'disabled' : ''}>
+    <span className={disabled ? 'disabled' : ''}>
       <LevitatingLink href={href} >{children}</LevitatingLink>
       <style jsx>{`
-        div {
+        span {
           text-transform: uppercase;
           padding: 0 1.5em;
-          display: inline-block;
         }
         .disabled {
           opacity: 0.25;
           pointer-events: none;
         }
         @media (max-width: 899px) {
-          div { padding: 0 1em; }
+          span { padding: 0 1em; }
         }
         @media (max-width: 719px) {
-          div { display: block; }
+          span { display: block; }
         }
       `}</style>
-    </div>
+    </span>
   )
 }
