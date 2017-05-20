@@ -130,24 +130,24 @@ function renderer ({ days, hours, minutes, seconds, completed }) {
     return <Completionist />
   } else {
     return (
-      <div className="countdown">
+      <div className='countdown'>
         <div>
-          <p className="countdown-text">
+          <p className='countdown-text'>
             {days}
             <div>Day</div>
           </p>
           <p>:</p>
-          <p className="countdown-text">
+          <p className='countdown-text'>
             {hours}
             <div>Hour</div>
           </p>
           <p>:</p>
-          <p className="countdown-text">
+          <p className='countdown-text'>
             {minutes}
             <div>Minute</div>
           </p>
           <p>:</p>
-          <p className="countdown-text">
+          <p className='countdown-text'>
             {seconds}
             <div>Second</div>
           </p>
