@@ -12,7 +12,7 @@ export default () => (
     <SectionSeparator first />
     <section id='tickets'><TicketsSection /></section>
     <SectionSeparator />
-    <section id='sponsor'><SponsorsSection /></section>
+    <section id='sponsors'><SponsorsSection /></section>
     <SectionSeparator />
     <section id='speakers'><SpeakersSection /></section>
     <SectionSeparator />
