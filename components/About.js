@@ -3,8 +3,8 @@ export default function About () {
   return (
     <div className='about'>
       <div className='header'>
-        <SectionTitle>2.0.0</SectionTitle>
-        <SectionTitle>REACT MEETUP IN BANKOK</SectionTitle>
+        <div className='upsize'>2.0.0</div>
+        <SectionTitle>FIRST REACT MEETUP IN THAILAND</SectionTitle>
       </div>
       <div className='content'>
         <div className='description'>
@@ -14,6 +14,12 @@ export default function About () {
         </div>
       </div>
       <style jsx>{`
+        .upsize {
+            font-size: 85px;
+            line-height: 48px;
+            text-transform: uppercase;
+            margin: 0 0 30px;
+        }   
         .about {
             max-width: 1060px;
             margin: 0 auto;
