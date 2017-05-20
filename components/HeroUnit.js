@@ -1,10 +1,8 @@
+import { Link } from 'react-scroll'
 import DownArrowIcon from '../resources/down-arrow-icon.svg'
 import NavigationBar from './NavigationBar'
 import ReactBKKLogo from './ReactBKKLogo'
 import SimpleCrossfadeImages from './SimpleCrossfadeImages'
-import Scroll from 'react-scroll'
-
-var Link = Scroll.Link
 
 export default function HeroUnit () {
   return (
