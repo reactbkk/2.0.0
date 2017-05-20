@@ -22,19 +22,25 @@ export default function TicketsSection () {
       <div className='item-sponsors-box'>
         <div>
           {sponsorsGold.map(name => (
-            <ItemSponsor src={`static/sponsor/${name}.svg`} type='gold' />
+            <ItemSponsor
+              key={name}
+              src={`static/sponsor/${name}.svg`}
+              type='gold'
+            />
           ))}
         </div>
         <div>
           {sponsorsSliver.map(name => (
-            <ItemSponsor src={`static/sponsor/${name}.svg`} type='sliver' />
+            <ItemSponsor
+              key={name}
+              src={`static/sponsor/${name}.svg`}
+              type='sliver'
+            />
           ))}
         </div>
       </div>
 
-      <style jsx>
-        {
-          `
+      <style jsx>{`
         .tickets {
           text-align: center;
         }
@@ -43,9 +49,7 @@ export default function TicketsSection () {
           text-align: center;
           margin: 0 auto;
         }
-      `
-        }
-      </style>
+      `}</style>
     </div>
   )
 }
@@ -55,9 +59,7 @@ function ItemSponsor ({ src, type }) {
     <div className={`sponsor-item-${type}`}>
       <img src={src} width='100%' />
 
-      <style jsx>
-        {
-          `
+      <style jsx>{`
         .sponsor-item-gold, .sponsor-item-sliver {
           display: inline-block;
         }
@@ -89,10 +91,7 @@ function ItemSponsor ({ src, type }) {
             padding: 0;
           }
         }
-
-      `
-        }
-      </style>
+      `}</style>
     </div>
   )
 }
