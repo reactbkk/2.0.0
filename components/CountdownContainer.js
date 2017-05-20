@@ -23,7 +23,7 @@ class CountdownContainer extends React.Component {
   }
 }
 
-function renderCountdownCompletionist () {
+function renderCompleted () {
   return (
     <span>
       Good luck and have fun.
@@ -43,7 +43,7 @@ function renderCountdownCompletionist () {
 
 function renderCountdown ({ days, hours, minutes, seconds, completed }) {
   if (completed) {
-    return <renderCountdownCompletionist />
+    return renderCompleted()
   } else {
     return (
       <div className='countdown'>
