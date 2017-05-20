@@ -136,22 +136,22 @@ function renderer ({ days, hours, minutes, seconds, completed }) {
         <div>
           <p className='countdown-text'>
             {days}
-            <div>Day</div>
+            <small>Day</small>
           </p>
           <p>:</p>
           <p className='countdown-text'>
             {hours}
-            <div>Hour</div>
+            <small>Hour</small>
           </p>
           <p>:</p>
           <p className='countdown-text'>
             {minutes}
-            <div>Minute</div>
+            <small>Minute</small>
           </p>
           <p>:</p>
           <p className='countdown-text'>
             {seconds}
-            <div>Second</div>
+            <small>Second</small>
           </p>
         </div>
         <style jsx>{`
@@ -165,8 +165,10 @@ function renderer ({ days, hours, minutes, seconds, completed }) {
           p.countdown-text {
             width: 40px;
           }
-          p > div {
+          p > small {
             position: absolute;
+            bottom: -12px;
+            display: block;
             font-size: 18px;
             width: 100%;
             text-align: center;
