@@ -130,29 +130,51 @@ function renderer ({ days, hours, minutes, seconds, completed }) {
     return <Completionist />
   } else {
     return (
-      <div>
-        <p>{days}</p>
-        <p>:</p>
-        <p>{hours}</p>
-        <p>:</p>
-        <p>{minutes}</p>
-        <p>:</p>
-        <p>{seconds}</p>
+      <div className="countdown">
+        <div>
+          <p className="countdown-text">
+            {days}
+            <div>Day</div>
+          </p>
+          <p>:</p>
+          <p className="countdown-text">
+            {hours}
+            <div>Hour</div>
+          </p>
+          <p>:</p>
+          <p className="countdown-text">
+            {minutes}
+            <div>Minute</div>
+          </p>
+          <p>:</p>
+          <p className="countdown-text">
+            {seconds}
+            <div>Second</div>
+          </p>
+        </div>
         <style jsx>{`
+          p {
+            position: relative;
+            font-size: 40px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 0 8px;
+          }
+          p.countdown-text {
+            width: 40px;
+          }
+          p > div {
+            position: absolute;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+          }
+          @media (max-width: 399px) {
             p {
-                font-size: 40px;
-                font-weight: bold;
-                display: inline-block;
-                margin: 0 8px;
+              font-size: 28px;
+              margin 0 4px;
             }
-            @media (max-width: 399px) {
-                div {
-                max-width: 240px;
-                }
-                p {
-                    font-size: 32px;
-                }
-            }
+          }
           `}</style>
       </div>
     )
