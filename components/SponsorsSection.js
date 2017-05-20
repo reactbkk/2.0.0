@@ -1,17 +1,17 @@
 import SectionTitle from './SectionTitle'
 
 const sponsorsGold = [
-  'programmer-thai',
-  'sprin3r'
+  { name: 'Thai Programmer Association', image: 'programmer-thai', type: 'gold' },
+  { name: 'SPRINT3r', image: 'sprin3r', type: 'gold' }
 ]
 const sponsorsSliver = [
-  'cleverse',
-  'integenxe',
-  'omise',
-  'pronto',
-  'taskworld',
-  'thinknet',
-  'wongnai'
+  { name: 'Cleverse', image: 'cleverse', type: 'sliver' },
+  { name: 'int’genxe', image: 'integenxe', type: 'sliver' },
+  { name: 'Omise', image: 'omise', type: 'sliver' },
+  { name: 'Pronto Tools', image: 'pronto', type: 'sliver' },
+  { name: 'Taskworld', image: 'taskworld', type: 'sliver' },
+  { name: 'THiNKNET', image: 'thinknet', type: 'sliver' },
+  { name: 'Wongnai', image: 'wongnai', type: 'sliver' }
 ]
 
 export default function TicketsSection () {
@@ -21,24 +21,10 @@ export default function TicketsSection () {
 
       <div className='item-sponsors-box'>
         <div>
-          {sponsorsGold.map(name => (
-            <ItemSponsor
-              key={name}
-              name={name}
-              src={`static/sponsor/${name}.svg`}
-              type='gold'
-            />
-          ))}
+          {sponsorsGold.map(renderSponsor)}
         </div>
         <div>
-          {sponsorsSliver.map(name => (
-            <ItemSponsor
-              key={name}
-              name={name}
-              src={`static/sponsor/${name}.svg`}
-              type='sliver'
-            />
-          ))}
+          {sponsorsSliver.map(renderSponsor)}
         </div>
       </div>
 
@@ -56,10 +42,21 @@ export default function TicketsSection () {
   )
 }
 
+function renderSponsor (detail) {
+  return (
+    <ItemSponsor
+      key={detail.name}
+      name={detail.name}
+      src={`static/sponsor/${detail.image}.svg`}
+      type={detail.type}
+    />
+  )
+}
+
 function ItemSponsor ({ name, src, type }) {
   return (
     <div className={`sponsor-item-${type}`}>
-      <img alt={`${name}`} aria-hidden src={src} width='100%' />
+      <img alt={`${name}`} src={src} width='100%' />
 
       <style jsx>{`
         .sponsor-item-gold, .sponsor-item-sliver {
