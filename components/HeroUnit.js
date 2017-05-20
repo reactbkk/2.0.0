@@ -1,9 +1,9 @@
-import { Link } from 'react-scroll'
+import CountdownContainer from './CountdownContainer'
 import DownArrowIcon from '../resources/down-arrow-icon.svg'
+import { Link } from 'react-scroll'
 import NavigationBar from './NavigationBar'
 import ReactBKKLogo from './ReactBKKLogo'
 import SimpleCrossfadeImages from './SimpleCrossfadeImages'
-import CountdownContainer from '../containers/CountdownContainer'
 
 export default function HeroUnit () {
   return (

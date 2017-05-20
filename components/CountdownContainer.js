@@ -1,5 +1,5 @@
-import React from 'react'
 import Countdown from 'react-countdown-now'
+import React from 'react'
 
 class CountdownContainer extends React.Component {
   state = {
