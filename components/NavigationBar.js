@@ -3,7 +3,7 @@ import LevitatingLink from './LevitatingLink'
 export default function NavigationBar () {
   return (
     <nav>
-      <NavigationLink href='#about' disabled>About</NavigationLink>
+      <NavigationLink href='#about'>About</NavigationLink>
       <NavigationLink href='#tickets'>Tickets</NavigationLink>
       <NavigationLink href='#sponsors'>Sponsors</NavigationLink>
       <NavigationLink href='#speakers'>Speakers</NavigationLink>
