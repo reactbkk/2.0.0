@@ -4,12 +4,15 @@ import MainLayout from '../components/MainLayout'
 import SectionSeparator from '../components/SectionSeparator'
 import SpeakersSection from '../components/SpeakersSection'
 import TicketsSection from '../components/TicketsSection'
+import AboutSection from '../components/AboutSection'
 import SponsorsSection from '../components/SponsorsSection'
 
 export default () => (
   <MainLayout>
     <HeroUnit />
     <SectionSeparator first />
+    <section id='about'><AboutSection /></section>
+    <SectionSeparator />
     <section id='tickets'><TicketsSection /></section>
     <SectionSeparator />
     <section id='sponsors'><SponsorsSection /></section>

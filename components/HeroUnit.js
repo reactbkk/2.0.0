@@ -83,7 +83,7 @@ function HeroUnitFooter () {
       <div className='nav'>
         <NavigationBar />
       </div>
-      <Link to='tickets' spy smooth duration={500}>
+      <Link to='about' spy smooth duration={500}>
         <div className='link'>
           <DownArrowIcon />
         </div>
