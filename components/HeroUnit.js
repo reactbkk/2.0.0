@@ -1,13 +1,14 @@
+import CountdownContainer from './CountdownContainer'
 import DownArrowIcon from '../resources/down-arrow-icon.svg'
+import { Link } from 'react-scroll'
 import NavigationBar from './NavigationBar'
 import ReactBKKLogo from './ReactBKKLogo'
-import Scroll from 'react-scroll'
-
-var Link = Scroll.Link
+import SimpleCrossfadeImages from './SimpleCrossfadeImages'
 
 export default function HeroUnit () {
   return (
     <header>
+      <SimpleCrossfadeImages />
       <div className='bg-overlay' />
       <div className='spacer' />
       <div className='center'>
@@ -52,12 +53,16 @@ function HeroUnitLogo () {
     <div>
       <div className='logo'><ReactBKKLogo /></div>
       <h1>React Bangkok</h1>
+      <div className='countdown'><CountdownContainer /></div>
       <style jsx>{`
         h1 {
           font-size: 70px;
           font-weight: normal;
           margin: 1ex 0 0;
           color: #00D8FF;
+        }
+        .countdown {
+          height: 52px;
         }
         @media (max-width: 639px) {
           h1 { font-size: 50px; }
@@ -78,12 +83,11 @@ function HeroUnitFooter () {
       <div className='nav'>
         <NavigationBar />
       </div>
-      <Link to='tickets' spy smooth duration={500}>
+      <Link to='about' spy smooth duration={500}>
         <div className='link'>
           <DownArrowIcon />
         </div>
       </Link>
-
       <style jsx>{`
         .nav {
           margin-bottom: 30px;
