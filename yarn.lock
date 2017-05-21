@@ -3667,6 +3667,10 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-countdown-now@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-countdown-now/-/react-countdown-now-1.2.0.tgz#9875c6634330e6c400fc829798358cbfa9aac77f"
+
 react-deep-force-update@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.0.1.tgz#4f7f6c12c3e7de42f345992a3c518236fa1ecad3"
