@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
 import LevitatingLink from './LevitatingLink'
 import Hamburger from '../resources/hamburger.svg'
 
 export default class MobileNavigation extends Component {
-
   state = {
     showMobileNav: false,
     expandMobileNav: false
@@ -20,7 +19,7 @@ export default class MobileNavigation extends Component {
   }
 
   handleScroll = (e) => {
-    window.scrollY > 700 ? this.showMobileNav() : this.hideMobileNav();
+    window.scrollY > 700 ? this.showMobileNav() : this.hideMobileNav()
   }
 
   showMobileNav = () => {
