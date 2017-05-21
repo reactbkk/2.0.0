@@ -35,11 +35,6 @@ export default function About () {
             padding: 0 5.33%;
           }
         }
-        @media (min-width: 768px) and (max-width: 1060px) {
-          .about {
-            width: 750px;
-          }
-        }
     `}</style>
     </div>
   )
