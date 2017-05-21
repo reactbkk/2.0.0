@@ -21,7 +21,7 @@ export default function About () {
           margin: 0 0 30px;
         }   
         .about {
-          max-width: 1060px;
+          max-width: 780px;
           margin: 0 auto;
         }
        .header, .description {
