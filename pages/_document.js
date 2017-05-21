@@ -35,8 +35,6 @@ export default class MyDocument extends Document {
           <script dangerouslySetInnerHTML={{ __html: ga }} />
           <script defer src='static/service-worker-registration.js' />
           <link rel='manifest' href='static/manifest.json' />
-        </Head>
-        <body>
           <style global jsx>{`
           @font-face {
             font-family: 'ThaiSans Neue';
@@ -63,6 +61,8 @@ export default class MyDocument extends Document {
             -webkit-font-smoothing: antialiased;
           }
           `}</style>
+        </Head>
+        <body>
           <Main />
           <NextScript />
         </body>
