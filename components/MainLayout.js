@@ -1,11 +1,5 @@
-/*
-eslint
-  jsx-a11y/click-events-have-key-events: "off",
-  jsx-a11y/no-static-element-interactions: "off",
-*/
-
 import Head from 'next/head'
-import { scroller } from 'react-scroll'
+import SmoothScrollContainer from './SmoothScrollContainer'
 
 const ga = `
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -17,33 +11,9 @@ const ga = `
   ga('send', 'pageview');
 `
 
-const isKeyPressedWithClick = (event) => event.ctrlKey || event.altKey || event.shiftKey || event.metaKey
-const isExternal = (targetUrl) => {
-  const stripHash = (url) => url.replace(/#.*$/, '')
-  return stripHash(targetUrl) !== stripHash(window.location.href)
-}
-
-const handleLinkClick = (event) => {
-  let target = event.target
-  while (target && target.nodeName !== 'A') {
-    target = target.parentNode
-  }
-
-  if (!target) return
-  if (isExternal(target.href)) return
-  if (isKeyPressedWithClick(event)) return
-
-  event.preventDefault()
-  const targetName = target.getAttribute('href').replace('#', '')
-  scroller.scrollTo(targetName, {
-    duration: 500,
-    smooth: true
-  })
-}
-
 export default function MainLayout ({ children }) {
   return (
-    <div onClick={handleLinkClick}>
+    <SmoothScrollContainer>
       <Head>
         <title>React Bangkok 2.0.0</title>
         <meta
@@ -93,6 +63,6 @@ export default function MainLayout ({ children }) {
         }
       `}</style>
       {children}
-    </div>
+    </SmoothScrollContainer>
   )
 }
