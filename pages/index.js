@@ -6,9 +6,11 @@ import SpeakersSection from '../components/SpeakersSection'
 import TicketsSection from '../components/TicketsSection'
 import AboutSection from '../components/AboutSection'
 import SponsorsSection from '../components/SponsorsSection'
+import MobileNavigation from '../components/MobileNavigation'
 
 export default () => (
   <MainLayout>
+    <MobileNavigation />
     <HeroUnit />
     <SectionSeparator first />
     <section id='about'><AboutSection /></section>
