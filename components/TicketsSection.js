@@ -50,14 +50,14 @@ function TicketsRow ({ title, date, isFull }) {
           margin-left: auto;
         }
         .full {
-          color: #555;
+          color: #6c6c6c;
         }
         .full:after {
           position: absolute;
           left: 0;
           top: 50%;
           height: 2px;
-          background: #555;
+          background: #6c6c6c;
           content: "";
           width: 100%;
           display: block;
