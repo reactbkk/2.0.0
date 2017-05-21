@@ -3,7 +3,7 @@ import React from 'react'
 import RevealEllipse from './RevealEllipse'
 
 class Logo extends React.Component {
-  render() {
+  render () {
     const width = 274
     const height = 245
     return (

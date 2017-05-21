@@ -20,7 +20,7 @@ class RevealEllipse extends React.Component {
     duration: 1,
     delay: 0
   }
-  render() {
+  render () {
     const { cx, cy, a, b, rotate, duration, delay } = this.props
     return (
       <ellipse
@@ -34,7 +34,6 @@ class RevealEllipse extends React.Component {
         `}
         strokeWidth={10}
         stroke='#00D8FF'
-        fill='none'
         strokeDasharray={620}
         strokeDashoffset={620}
       >
