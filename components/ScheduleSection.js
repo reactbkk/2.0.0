@@ -1,3 +1,5 @@
+// Created By Wasu Winitmontri
+
 import SectionTitle from './SectionTitle'
 
 const sessions = [
