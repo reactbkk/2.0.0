@@ -1,10 +1,10 @@
-import AboutSection from './SectionTitle'
-export default function About () {
+import SectionTitle from './SectionTitle'
+export default function AboutSection () {
   return (
     <div className='about'>
       <div className='header'>
         <div className='upsize'>2.0.0</div>
-        <AboutSection>FIRST REACT MEETUP IN THAILAND</AboutSection>
+        <SectionTitle>FIRST REACT MEETUP IN THAILAND</SectionTitle>
       </div>
       <div className='content'>
         <div className='description'>
