@@ -13,14 +13,14 @@ export default () => (
   <MainLayout>
     <HeroUnit />
     <SectionSeparator first />
-    <LogoBackground width={820} top={100} right={-200} />
+    <LogoBackground offsetTop={100} right={-200} />
     <section id='about'><AboutSection /></section>
     <SectionSeparator />
     <section id='tickets'><TicketsSection /></section>
     <SectionSeparator />
     <section id='sponsors'><SponsorsSection /></section>
     <SectionSeparator />
-    <LogoBackground width={820} top={50} left={-200} />
+    <LogoBackground offsetTop={50} left={-200} />
     <section id='speakers'><SpeakersSection /></section>
     <SectionSeparator />
     <section id='schedule'><ScheduleSection /></section>
