@@ -76,11 +76,10 @@ export default function ScheduleSection () {
         }
         .container {
           max-width: 1060px;
-          width: 100%;
           margin: 0 auto;
           text-align: left;
         }
-        @media (max-width: 768px){
+        @media (max-width: 767px){
           .container {
             max-width: 750px;
             text-align: center;
@@ -113,9 +112,9 @@ const ScheduleRow = ({ children }) => (
   </div>
 )
 
-const ScheduleColumn = ({ children, size }) => {
+const ScheduleColumn = ({ children, size, alignSelf }) => {
   return (
-    <div className='column' data-size={size}>
+    <div className='column' data-size={size} style={{ alignSelf }}>
       {children}
       <style jsx>{`
         .column { width: 100%; }
@@ -132,10 +131,10 @@ const ScheduleColumn = ({ children, size }) => {
 
 const ActivityRow = ({ time, children }) => (
   <ScheduleRow>
-    <ScheduleColumn size={2}>
+    <ScheduleColumn size={2} alignSelf='center'>
       <SessionItemTime>{time}</SessionItemTime>
     </ScheduleColumn>
-    <ScheduleColumn size={10}>
+    <ScheduleColumn size={10} alignSelf='center'>
       <div className='main'>{children}</div>
     </ScheduleColumn>
     <style jsx>{`
@@ -148,27 +147,18 @@ const ActivityRow = ({ time, children }) => (
 
 const BreakRow = ({ time }) => (
   <ScheduleRow>
-    <ScheduleColumn size={2}>
+    <ScheduleColumn size={2} alignSelf='center'>
       <SessionItemTime>{time}</SessionItemTime>
     </ScheduleColumn>
-    <ScheduleColumn size={8}>
-      <div className='container-break'><div className='break' /></div>
+    <ScheduleColumn size={8} alignSelf='center'>
+      <div className='break' />
     </ScheduleColumn>
     <style jsx>{`
       .break {
         height: 2px;
         width: 20%;
         background-color: #3A3A3A;
-      }
-      .container-break {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      @media (max-width: 768px){
-        .container-break {
-          margin-top: 15px;
-        }
+        margin: 0 auto;
       }
     `}</style>
   </ScheduleRow>
@@ -176,7 +166,7 @@ const BreakRow = ({ time }) => (
 
 const SessionRow = ({ time, children }) => (
   <ScheduleRow>
-    <ScheduleColumn size={2}>
+    <ScheduleColumn size={2} alignSelf='center'>
       <SessionItemTime>{time}</SessionItemTime>
     </ScheduleColumn>
     {children}
@@ -195,7 +185,7 @@ const SessionItemTime = ({ children }) => (
 )
 
 const SessionItem = ({ topic, speakerName, speakerAvatar, speakerTitle }) => (
-  <ScheduleColumn size={5}>
+  <ScheduleColumn size={5} alignSelf='center'>
     <div className='session'>
       <div className='avatar'>
         <img alt='Photo' aria-hidden src={getSpeakerAvatar(speakerName)} />
@@ -230,7 +220,7 @@ const SessionItem = ({ topic, speakerName, speakerAvatar, speakerTitle }) => (
         color: #00E0FF;
         font-weight: bold;
       }
-      @media (max-width: 768px){
+      @media (max-width: 767px){
         .topic, .speaker {
           font-size: 18px;
         }
