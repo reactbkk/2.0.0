@@ -62,8 +62,36 @@ export default class MobileNavigation extends Component {
     this.handleToggleMobileNav(false)
   }
 
-  render () {
+  renderNav = () => {
     const { navs } = this.props
+    const { expandMobileNav } = this.state
+
+    return (
+      <nav onClick={this.handleClickNav}>
+        <CSSTransitionGroup
+          transitionName='fade'
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}>
+          { expandMobileNav && <div className='nav-header' key='nav-header'>React Bangkok</div> }
+          { expandMobileNav && navs.map(nav => <NavigationLink href={nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>)}
+        </CSSTransitionGroup>
+        <style jsx>{`
+          nav {
+            background: rgba(0, 0, 0, 0.9);
+          }
+          .nav-header {
+            text-align:center;
+            padding: .6em;
+            color:#00D8FF;
+            font-size: 30px;
+          }
+        `}</style>
+      </nav>
+    )
+  }
+
+  render () {
+    // const { navs } = this.props
     const { showMobileNav, expandMobileNav } = this.state
     return (
       <CSSTransitionGroup
@@ -76,18 +104,7 @@ export default class MobileNavigation extends Component {
               <button type='button' className='btn-nav-toggle' onClick={() => this.handleToggleMobileNav()}>
                 <Hamburger />
               </button>
-              <CSSTransitionGroup
-                transitionName='fade'
-                transitionEnterTimeout={300}
-                transitionLeaveTimeout={300}>
-                {
-                  expandMobileNav &&
-                    <nav onClick={this.handleClickNav}>
-                      <div className='nav-header'>React Bangkok</div>
-                      {navs.map(nav => <NavigationLink href={nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>)}
-                    </nav>
-                }
-              </CSSTransitionGroup>
+              {this.renderNav()}
               <style jsx>{`
                 #mobile-nav {
                   position: fixed;
@@ -102,9 +119,6 @@ export default class MobileNavigation extends Component {
                   #mobile-nav { display: block; }
                 }
 
-                #mobile-nav nav {
-                  background: rgba(0, 0, 0, 0.9);
-                }
                 .btn-nav-toggle {
                   position: absolute;
                   z-index:1;
@@ -120,31 +134,6 @@ export default class MobileNavigation extends Component {
 
                 .btn-nav-toggle:active {
                   opacity: 0.5;
-                }
-
-                .nav-header {
-                  text-align:center;
-                  padding: .6em;
-                  color:#00D8FF;
-                  font-size: 30px;
-                }
-
-                .fade-enter {
-                  opacity: 0.01;
-                }
-
-                .fade-enter.fade-enter-active {
-                  opacity: 1;
-                  transition: opacity 500ms ease-out;
-                }
-
-                .fade-leave {
-                  opacity: 1;
-                }
-
-                .fade-leave.fade-leave-active {
-                  opacity: 0.01;
-                  transition: opacity 300ms ease-out;
                 }
               `}</style>
             </div>
