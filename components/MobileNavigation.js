@@ -6,7 +6,6 @@ import LevitatingLink from './LevitatingLink'
 import Hamburger from '../resources/hamburger.svg'
 
 export default class MobileNavigation extends Component {
-
   static defaultProps = {
     navs: []
   }
