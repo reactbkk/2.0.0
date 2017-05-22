@@ -67,13 +67,15 @@ export default class MobileNavigation extends Component {
     const { expandMobileNav } = this.state
 
     return (
-      <nav onClick={this.handleClickNav}>
+      <nav role='presentation' onClick={this.handleClickNav}>
         <CSSTransitionGroup
           transitionName='fade'
           transitionEnterTimeout={300}
           transitionLeaveTimeout={300}>
           { expandMobileNav && <div className='nav-header' key='nav-header'>React Bangkok</div> }
-          { expandMobileNav && navs.map(nav => <NavigationLink href={nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>)}
+          { expandMobileNav && navs.map(nav =>
+            <NavigationLink href={nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>)
+          }
         </CSSTransitionGroup>
         <style jsx>{`
           nav {
