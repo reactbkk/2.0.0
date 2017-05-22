@@ -30,6 +30,22 @@ function renderCompleted () {
       <style jsx>{`
         span {
           font-size: 36px;
+          position: relative;
+          bottom: 10px;
+          opacity: 0; 
+          animation: fade-in 1.5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease-in-out;
+        }
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            bottom: 20px;
+          }
+          to {
+            opacity: 1;
+            bottom: 0px;
+          }
         }
         @media (max-width: 399px) {
           span {
