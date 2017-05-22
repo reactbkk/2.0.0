@@ -84,7 +84,7 @@ export default class MobileNavigation extends Component {
                   expandMobileNav &&
                     <nav onClick={this.handleClickNav}>
                       <div className='nav-header'>React Bangkok</div>
-                      {navs.map(nav => <NavigationLink href={nav.href} key={nav.href}>{nav.label}</NavigationLink>)}
+                      {navs.map(nav => <NavigationLink href={nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>)}
                     </nav>
                 }
               </CSSTransitionGroup>

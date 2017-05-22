@@ -3,7 +3,7 @@ import LevitatingLink from './LevitatingLink'
 export default function NavigationBar ({ navs = [] }) {
   return (
     <nav>
-      {navs.map(nav => <NavigationLink href={nav.href} key={nav.href}>{nav.label}</NavigationLink>)}
+      {navs.map(nav => <NavigationLink href={nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>)}
       <style jsx>{`
         nav {
           font-size: 22px;
@@ -14,7 +14,7 @@ export default function NavigationBar ({ navs = [] }) {
   )
 }
 
-function NavigationLink ({ href, disabled, children }) {
+function NavigationLink ({ href, disabled = false, children }) {
   return (
     <span className={disabled ? 'disabled' : ''}>
       <LevitatingLink href={href}>{children}</LevitatingLink>
