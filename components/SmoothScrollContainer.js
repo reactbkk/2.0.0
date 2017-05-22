@@ -27,7 +27,7 @@ const handleLinkClick = (event) => {
   scroller.scrollTo(targetName, {
     duration: 500,
     smooth: true,
-    offset: -100
+    offset: -70
   })
 }
 
