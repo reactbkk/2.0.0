@@ -1,23 +1,32 @@
-import { Link } from 'react-scroll'
+import Scroll from 'react-scroll'
+
+function scrollToTop () {
+  Scroll.animateScroll.scrollToTop()
+}
+
+Scroll.Events.scrollEvent.register('begin', function (to, element) {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById('top-arrow').style.display = 'block'
+  } else {
+    document.getElementById('top-arrow').style.display = 'none'
+  }
+})
 
 export default function TopArrowSection () {
   return (
     <div>
-      <Link to='herounit' spy smooth duration={500}>
-        <div className='top-arrow'>
-        </div>
-      </Link>
-
+      <div id='top-arrow' className='top-arrow' onClick={scrollToTop}></div>
       <style jsx>{`
         .top-arrow {
           position: fixed;
           left: auto;
+          padding: 5px;
           right: 30px;
           bottom: 40px;
-          width: 50px;
-          height: 50px;
-          display: block;
-          background: #222 url(static/arrow-up.png) no-repeat center center;
+          width: 30px;
+          height: 30px; 
+          background: #222 url(static/arrow-up.svg) no-repeat center center;
+          background-size: 30px 20px;
           border-radius: 60px;
           -webkit-transition: 1s;
           -moz-transition: 1s;
