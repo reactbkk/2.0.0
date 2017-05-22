@@ -79,7 +79,7 @@ export default function TicketsSection () {
 function Speaker ({ name, title, photo, description }) {
   return (
     <div className='speaker-info'>
-      <img alt='Photo' src={photo} />
+      <img alt='Photo' src={photo} aria-hidden />
       <h3>{name}</h3>
       <p>{title}</p>
       <p className='description'>"{description}"</p>
