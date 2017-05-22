@@ -91,8 +91,7 @@ export default class MobileNavigation extends Component {
   }
 
   render () {
-    // const { navs } = this.props
-    const { showMobileNav, expandMobileNav } = this.state
+    const { showMobileNav } = this.state
     return (
       <CSSTransitionGroup
         transitionName='fade'
