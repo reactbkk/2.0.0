@@ -67,7 +67,7 @@ export default class MobileNavigation extends Component {
     const { expandMobileNav } = this.state
 
     return (
-      <nav role='presentation' onClick={this.handleClickNav}>
+      <nav aria-hidden role='presentation' onClick={this.handleClickNav}>
         <CSSTransitionGroup
           transitionName='fade'
           transitionEnterTimeout={300}
