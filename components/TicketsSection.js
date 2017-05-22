@@ -18,7 +18,7 @@ export default function TicketsSection () {
 function TicketsTable () {
   return (
     <div className='tickets-table'>
-      <TicketsRow title='1st round' date='18 May 2017' />
+      <TicketsRow title='1st round' date='18 May 2017' isFull />
       <TicketsRow title='2nd round' date='25 May 2017' />
       <style jsx>{`
         .tickets-table {
@@ -29,9 +29,9 @@ function TicketsTable () {
   )
 }
 
-function TicketsRow ({ title, date }) {
+function TicketsRow ({ title, date, isFull }) {
   return (
-    <div className='tickets-row'>
+    <div className={`tickets-row ${isFull ? 'full' : ''}`}>
       <div className='title'>{title}</div>
       <div className='date'>{date}</div>
       <style jsx>{`
@@ -41,12 +41,26 @@ function TicketsRow ({ title, date }) {
           font-size: 24px;
           line-height: 32px;
           margin: 0 auto;
+          position: relative;
         }
         .title {
           padding-right: 1em;
         }
         .date {
           margin-left: auto;
+        }
+        .full {
+          color: #6c6c6c;
+        }
+        .full:after {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          height: 2px;
+          background: #6c6c6c;
+          content: "";
+          width: 100%;
+          display: block;
         }
       `}</style>
     </div>
@@ -62,8 +76,8 @@ function Button ({ children, href }) {
           display: inline-block;
           font-size: 18px;
           line-height: 33px;
-          color: rgba(255,255,255,0.5);
-          border: 2px solid rgba(255,255,255,0.5);
+          color: #00D8FF;
+          border: 2px solid #00D8FF;
           padding: 0 30px;
           border-radius: 35px;
           text-transform: uppercase;
@@ -71,8 +85,8 @@ function Button ({ children, href }) {
           transition: 0.15s all ease-out;
         }
         .button:hover {
-          background: rgba(255,255,255,0.5);
-          color: #222;
+          background: #00D8FF;
+          color: #FFF;
         }
       `}</style>
     </a>

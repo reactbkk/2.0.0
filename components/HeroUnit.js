@@ -1,10 +1,14 @@
+import CountdownContainer from './CountdownContainer'
 import DownArrowIcon from '../resources/down-arrow-icon.svg'
+import { Link } from 'react-scroll'
 import NavigationBar from './NavigationBar'
-import ReactBKKLogo from '../resources/reactbkk.svg'
+import ReactBKKLogo from './ReactBKKLogo'
+import SimpleCrossfadeImages from './SimpleCrossfadeImages'
 
 export default function HeroUnit () {
   return (
     <header>
+      <SimpleCrossfadeImages />
       <div className='bg-overlay' />
       <div className='spacer' />
       <div className='center'>
@@ -49,12 +53,16 @@ function HeroUnitLogo () {
     <div>
       <div className='logo'><ReactBKKLogo /></div>
       <h1>React Bangkok</h1>
+      <div className='countdown'><CountdownContainer /></div>
       <style jsx>{`
         h1 {
           font-size: 70px;
           font-weight: normal;
           margin: 1ex 0 0;
           color: #00D8FF;
+        }
+        .countdown {
+          height: 52px;
         }
         @media (max-width: 639px) {
           h1 { font-size: 50px; }
@@ -75,10 +83,26 @@ function HeroUnitFooter () {
       <div className='nav'>
         <NavigationBar />
       </div>
-      <DownArrowIcon />
+      <Link to='about' spy smooth duration={500}>
+        <div className='link'>
+          <DownArrowIcon />
+        </div>
+      </Link>
       <style jsx>{`
         .nav {
           margin-bottom: 30px;
+        }
+        .link {
+          cursor: pointer;
+          display: inline-block;
+          -webkit-transition: transform 0.25 ease-in-out;
+          -moz-transition: transform 0.25s ease-in-out;
+          -ms-transition: transform 0.25s ease-in-out;
+          -o-transition: transform 0.25s ease-in-out;
+          transition: transform 0.25s ease-in-out;
+        }
+        .link:hover {
+          transform: translateY(6px);
         }
       `}</style>
     </div>
