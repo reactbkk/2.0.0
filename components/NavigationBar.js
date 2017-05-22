@@ -3,12 +3,12 @@ import LevitatingLink from './LevitatingLink'
 export default function NavigationBar () {
   return (
     <nav>
-      <NavigationLink href='#about' offset={-100}>About</NavigationLink>
-      <NavigationLink href='#tickets' offset={-100}>Tickets</NavigationLink>
-      <NavigationLink href='#sponsors' offset={-100}>Sponsors</NavigationLink>
-      <NavigationLink href='#speakers' offset={-100}>Speakers</NavigationLink>
+      <NavigationLink href='#about'>About</NavigationLink>
+      <NavigationLink href='#tickets'>Tickets</NavigationLink>
+      <NavigationLink href='#sponsors'>Sponsors</NavigationLink>
+      <NavigationLink href='#speakers'>Speakers</NavigationLink>
       <NavigationLink href='#schedule' disabled>Schedule</NavigationLink>
-      <NavigationLink href='#contact' offset={-100}>Contact</NavigationLink>
+      <NavigationLink href='#contact'>Contact</NavigationLink>
       <style jsx>{`
         nav {
           font-size: 22px;

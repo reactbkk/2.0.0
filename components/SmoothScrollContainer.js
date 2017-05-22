@@ -17,7 +17,6 @@ const handleLinkClick = (event) => {
   while (target && target.nodeName !== 'A') {
     target = target.parentNode
   }
-  const offset = target.getAttribute('data-offset') | 0
 
   if (!target) return
   if (isExternal(target.href)) return
@@ -28,7 +27,7 @@ const handleLinkClick = (event) => {
   scroller.scrollTo(targetName, {
     duration: 500,
     smooth: true,
-    offset
+    offset: -100
   })
 }
 

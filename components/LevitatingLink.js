@@ -1,6 +1,6 @@
-export default function LevitatingLink ({ href, offset, children }) {
+export default function LevitatingLink ({ href, children }) {
   return (
-    <a href={href} data-offset={offset} >
+    <a href={href}>
       <span className='text'>{children}</span>
       <style jsx>{`
         a {
