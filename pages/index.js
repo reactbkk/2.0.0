@@ -9,7 +9,7 @@ import BacktoTopSection from '../components/BacktoTopSection'
 
 export default () => (
   <MainLayout>
-    <section id='herounit'><HeroUnit /></section>
+    <HeroUnit />
     <SectionSeparator first />
     <section id='tickets'><TicketsSection /></section>
     <SectionSeparator />
