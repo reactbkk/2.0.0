@@ -2,6 +2,7 @@ const LogoBackground = ({ size = 820, offsetTop = 0, left, right, bottom }) => (
   <div className='top-bg-container' style={{ height: size + offsetTop }}>
     <img className='top-bg'
       src='static/reactbkk-white.svg'
+      alt=''
       style={{ width: size, top: offsetTop, left, right, bottom }}
     />
     <style jsx>{`
