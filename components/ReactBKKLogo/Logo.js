@@ -13,7 +13,7 @@ class Logo extends React.Component {
             .lotus {
               opacity: 0;
               transform-origin: center;
-              animation: fade-in 2.5s 0.8s;
+              animation: fade-in 2.5s 1s;
               animation-fill-mode: forwards;
             }
             @keyframes fade-in {
@@ -40,8 +40,7 @@ class Logo extends React.Component {
           cx={width / 2}
           cy={height / 2}
           rotate={60}
-          duration={0.8}
-          delay={150}
+          delay={0.15}
         />
         <RevealEllipse
           a={132}
@@ -49,7 +48,7 @@ class Logo extends React.Component {
           cx={width / 2}
           cy={height / 2}
           rotate={120}
-          delay={250}
+          delay={0.25}
         />
       </svg>
     )
