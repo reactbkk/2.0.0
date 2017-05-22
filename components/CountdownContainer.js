@@ -33,18 +33,17 @@ function renderCompleted () {
           position: relative;
           bottom: 10px;
           opacity: 0; 
-          animation: fade-in 1.5s;
+          animation: fade-in-from-top 1.5s;
           animation-fill-mode: forwards;
-          animation-timing-function: ease-in-out;
         }
-        @keyframes fade-in {
+        @keyframes fade-in-from-top {
           from {
             opacity: 0;
             bottom: 20px;
           }
           to {
             opacity: 1;
-            bottom: 0px;
+            bottom: -10px;
           }
         }
         @media (max-width: 399px) {
@@ -63,6 +62,7 @@ function renderCountdown ({ days, hours, minutes, seconds, completed }) {
   } else {
     return (
       <div className='countdown'>
+        <span>Remaining tickets available in</span>
         <div>
           <p className='countdown-text'>
             {days}
@@ -85,6 +85,10 @@ function renderCountdown ({ days, hours, minutes, seconds, completed }) {
           </p>
         </div>
         <style jsx>{`
+          span {
+            font-size: 26px;
+            opacity: 0.3;
+          }
           p {
             position: relative;
             font-size: 40px;
