@@ -14,7 +14,7 @@ const navs = [
   { href: '#tickets', label: 'Tickets' },
   { href: '#sponsors', label: 'Sponsors' },
   { href: '#speakers', label: 'Speakers' },
-  { href: '#schedule', label: 'Schedule', disabled: true },
+  { href: '#schedule', label: 'Schedule' },
   { href: '#contact', label: 'Contact' }
 ]
 
