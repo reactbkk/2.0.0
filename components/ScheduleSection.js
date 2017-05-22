@@ -69,6 +69,10 @@ export default function ScheduleSection () {
             speakerTitle='(CTO at TakeMeTour)'
           />
         </SessionRow>
+        <BreakRow time='Break' />
+        <ActivityRow time='17:00 - 17:20'>Fireside Chat</ActivityRow>
+        <ActivityRow time='17:20 onwards'>Networking Dinner</ActivityRow>
+
       </div>
       <style jsx>{`
         .schedule {
@@ -202,8 +206,8 @@ const SessionItem = ({ topic, speakerName, speakerAvatar, speakerTitle }) => (
         display: flex;
         align-items: center;
       }
-      .avatar { 
-        flex: none; 
+      .avatar {
+        flex: none;
         margin-right: 15px;
       }
       .info { flex: auto; }
