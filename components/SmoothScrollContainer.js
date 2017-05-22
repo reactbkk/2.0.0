@@ -26,7 +26,8 @@ const handleLinkClick = (event) => {
   const targetName = target.getAttribute('href').replace('#', '')
   scroller.scrollTo(targetName, {
     duration: 500,
-    smooth: true
+    smooth: true,
+    offset: -50
   })
 }
 
