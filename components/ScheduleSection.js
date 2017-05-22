@@ -95,10 +95,9 @@ const getSpeakerAvatar = (name) => {
   return `static/speakers/${name.replace(' ', '')}.jpg`
 }
 
-const ActivityRow = ({ time, children }) => (
+const ScheduleRow = ({ children }) => (
   <div className='row _margin-bottom-30'>
-    <div className='column-md-2 column-xs-12 time'>{time}</div>
-    <div className='column-md-5 column-xs-12 main'>{children}</div>
+    {children}
     <style jsx>{`
       .row {
         position: relative;
@@ -107,63 +106,55 @@ const ActivityRow = ({ time, children }) => (
         padding-left:7.5px;
         padding-right:7.5px;
       }
-      .column-md-5 {
-        width: 41.65%;
-      }
-      .column-md-2 {
-        width: 16.66%;
-      }
-      .column-md-8 {
-        width: 66.64%;
-      }
-      .column-md-10 {
-        width: 83.33%;
-      }
-      .time, .main {
-        font-size:28px;
-      }
       ._margin-bottom-30 {
         margin-bottom: 30px;
-      }
-      @media (max-width: 768px){
-        .column-xs-12 {
-          width: 100%;
-        }
       }
     `}</style>
   </div>
 )
 
-const BreakRow = ({ time }) => (
-  <div className='row _margin-bottom-30'>
-    <div className='column-md-2 column-xs-12 time'>{time}</div>
-    <div className='column-md-8 column-xs-12 container-break'><div className='break' /></div>
+const ScheduleColumn = ({ children, size }) => {
+  return (
+    <div className='column' data-size={size}>
+      {children}
+      <style jsx>{`
+        .column { width: 100%; }
+        @media (min-width: 768px) {
+          .column[data-size="2"] { width: 16.66%; }
+          .column[data-size="5"] { width: 41.65%; }
+          .column[data-size="8"] { width: 66.64%; }
+          .column[data-size="10"] { width: 83.33%; }
+        }
+      `}</style>
+    </div>
+  )
+}
+
+const ActivityRow = ({ time, children }) => (
+  <ScheduleRow>
+    <ScheduleColumn size={2}>
+      <SessionItemTime>{time}</SessionItemTime>
+    </ScheduleColumn>
+    <ScheduleColumn size={10}>
+      <div className='main'>{children}</div>
+    </ScheduleColumn>
     <style jsx>{`
-      .row {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        padding-left:7.5px;
-        padding-right:7.5px;
-      }
-      .column-md-5 {
-        width: 41.65%;
-      }
-      .column-md-2 {
-        width: 16.66%;
-      }
-      .column-md-8 {
-        width: 66.64%;
-      }
-      .column-md-10 {
-        width: 83.33%;
-      }
-      .time {
+      .main {
         font-size:28px;
       }
-      ._margin-bottom-30 {
-        margin-bottom: 30px;
-      }
+    `}</style>
+  </ScheduleRow>
+)
+
+const BreakRow = ({ time }) => (
+  <ScheduleRow>
+    <ScheduleColumn size={2}>
+      <SessionItemTime>{time}</SessionItemTime>
+    </ScheduleColumn>
+    <ScheduleColumn size={8}>
+      <div className='container-break'><div className='break' /></div>
+    </ScheduleColumn>
+    <style jsx>{`
       .break {
         height: 2px;
         width: 20%;
@@ -178,113 +169,72 @@ const BreakRow = ({ time }) => (
         .container-break {
           margin-top: 15px;
         }
-        .column-xs-12 {
-          width: 100%;
-        }
       }
     `}</style>
-  </div>
+  </ScheduleRow>
 )
 
 const SessionRow = ({ time, children }) => (
-  <div className='row _margin-bottom-30'>
-    <div className='column-md-2 column-xs-12 time'>{time}</div>
+  <ScheduleRow>
+    <ScheduleColumn size={2}>
+      <SessionItemTime>{time}</SessionItemTime>
+    </ScheduleColumn>
+    {children}
+  </ScheduleRow>
+)
+
+const SessionItemTime = ({ children }) => (
+  <div className='time'>
     {children}
     <style jsx>{`
-      .row {
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        padding-left:7.5px;
-        padding-right:7.5px;
-      }
-      .column-md-5 {
-        width: 41.65%;
-      }
-      .column-md-2 {
-        width: 16.66%;
-      }
-      .column-md-8 {
-        width: 66.64%;
-      }
-      .column-md-10 {
-        width: 83.33%;
-      }
       .time {
         font-size:28px;
-      }
-      ._margin-bottom-30 {
-        margin-bottom: 30px;
-      }
-      @media (max-width: 768px){
-        .column-xs-12 {
-          width: 100%;
-        }
       }
     `}</style>
   </div>
 )
 
-const SessionItem = ({ topic, speakerName, speakerAvatar, speakerTitle }) => {
-  return (
-    <div className='column-md-5 column-xs-12'>
-      <div className='row'>
-        <div className='column-md-2'>
-          <img className='speaker-avatar' src={getSpeakerAvatar(speakerName)} />
+const SessionItem = ({ topic, speakerName, speakerAvatar, speakerTitle }) => (
+  <ScheduleColumn size={5}>
+    <div className='session'>
+      <div className='avatar'>
+        <img alt='Photo' aria-hidden src={getSpeakerAvatar(speakerName)} />
+      </div>
+      <div className='info'>
+        <div className='topic'>
+          {topic}
         </div>
-        <div className='column-md-10'>
-          <div className='topic'>
-            {topic}
-          </div>
-          <div className='speaker'>
-            {speakerName} {speakerTitle}
-          </div>
+        <div className='speaker'>
+          {speakerName} {speakerTitle}
         </div>
       </div>
-      <style jsx>{`
-        .row {
-          position: relative;
-          display: flex;
-          flex-wrap: wrap;
-          padding-left:7.5px;
-          padding-right:7.5px;
-        }
-        .column-md-5 {
-          width: 41.65%;
-        }
-        .column-md-2 {
-          width: 16.66%;
-        }
-        .column-md-8 {
-          width: 66.64%;
-        }
-        .column-md-10 {
-          width: 83.33%;
-        }
-        .topic {
-          color:#00E0FF;
-          font-weight: bold;
-          text-align: left;
-        }
-        .speaker {
-          text-align: left;
-        }
-        ._margin-bottom-30 {
-          margin-bottom: 30px;
-        }
-        .speaker-avatar {
-          width: 80%;
-          border-radius: 50px
-        }
-        @media (max-width: 768px){
-          .column-xs-12 {
-            width: 100%;
-          }
-          .topic, .speaker {
-            font-size: 18px;
-          }
-        }
-      `}</style>
     </div>
-  )
-}
+    <style jsx>{`
+      .session {
+        display: flex;
+        align-items: center;
+      }
+      .avatar { 
+        flex: none; 
+        margin-right: 15px;
+      }
+      .info { flex: auto; }
+      .avatar img {
+        border-radius: 50%;
+        width: 60px;
+      }
+      .info {
+        text-align: left;
+      }
+      .topic {
+        color: #00E0FF;
+        font-weight: bold;
+      }
+      @media (max-width: 768px){
+        .topic, .speaker {
+          font-size: 18px;
+        }
+      }
+    `}</style>
+  </ScheduleColumn>
+)
