@@ -19,10 +19,10 @@ export default function NavigationBar () {
   )
 }
 
-function NavigationLink ({ href, disabled, children, offset }) {
+function NavigationLink ({ href, disabled, children }) {
   return (
     <span className={disabled ? 'disabled' : ''}>
-      <LevitatingLink href={href} offset={offset}>{children}</LevitatingLink>
+      <LevitatingLink href={href}>{children}</LevitatingLink>
       <style jsx>{`
         span {
           text-transform: uppercase;
