@@ -6,7 +6,7 @@ import SpeakersSection from '../components/SpeakersSection'
 import TicketsSection from '../components/TicketsSection'
 import AboutSection from '../components/AboutSection'
 import SponsorsSection from '../components/SponsorsSection'
-import ScheduleSection from '../components/ScheduleSectio
+import ScheduleSection from '../components/ScheduleSection'
 
 export default () => (
   <MainLayout>
