@@ -95,7 +95,7 @@ const getSpeakerAvatar = (name) => {
 }
 
 const ScheduleRow = ({ children }) => (
-  <div className='row _margin-bottom-30'>
+  <div className='row'>
     {children}
     <style jsx>{`
       .row {
@@ -104,8 +104,6 @@ const ScheduleRow = ({ children }) => (
         flex-wrap: wrap;
         padding-left:7.5px;
         padding-right:7.5px;
-      }
-      ._margin-bottom-30 {
         margin-bottom: 30px;
       }
     `}</style>
