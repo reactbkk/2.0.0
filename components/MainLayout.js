@@ -1,32 +1,8 @@
-import { scroller } from 'react-scroll'
-
-const isKeyPressedWithClick = (event) => event.ctrlKey || event.altKey || event.shiftKey || event.metaKey
-const isExternal = (targetUrl) => {
-  const stripHash = (url) => url.replace(/#.*$/, '')
-  return stripHash(targetUrl) !== stripHash(window.location.href)
-}
-
-const handleLinkClick = (event) => {
-  let target = event.target
-  while (target && target.nodeName !== 'A') {
-    target = target.parentNode
-  }
-
-  if (!target) return
-  if (isExternal(target.href)) return
-  if (isKeyPressedWithClick(event)) return
-
-  event.preventDefault()
-  const targetName = target.getAttribute('href').replace('#', '')
-  scroller.scrollTo(targetName, {
-    duration: 500,
-    smooth: true
-  })
-}
+import SmoothScrollContainer from './SmoothScrollContainer'
 
 export default function MainLayout ({ children }) {
   return (
-    <div onClick={handleLinkClick}>
+    <SmoothScrollContainer>
       {children}
       <style global jsx>{`
         @font-face {
@@ -53,7 +29,25 @@ export default function MainLayout ({ children }) {
           font-size: 22px;
           -webkit-font-smoothing: antialiased;
         }
-        `}</style>
-    </div>
+
+        .fade-enter {
+          opacity: 0.01;
+        }
+
+        .fade-enter.fade-enter-active {
+          opacity: 1;
+          transition: opacity 500ms ease-out;
+        }
+
+        .fade-leave {
+          opacity: 1;
+        }
+
+        .fade-leave.fade-leave-active {
+          opacity: 0.01;
+          transition: opacity 300ms ease-out;
+        }
+      `}</style>
+    </SmoothScrollContainer>
   )
 }
