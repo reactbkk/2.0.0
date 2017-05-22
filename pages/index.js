@@ -7,6 +7,7 @@ import TicketsSection from '../components/TicketsSection'
 import AboutSection from '../components/AboutSection'
 import SponsorsSection from '../components/SponsorsSection'
 import LogoBackground from '../components/LogoBackground'
+import ScheduleSection from '../components/ScheduleSection'
 
 export default () => (
   <MainLayout>
@@ -21,6 +22,8 @@ export default () => (
     <SectionSeparator />
     <LogoBackground width={820} top={50} left={-200} />
     <section id='speakers'><SpeakersSection /></section>
+    <SectionSeparator />
+    <section id='schedule'><ScheduleSection /></section>
     <SectionSeparator />
     <section id='contact'><FooterSection /></section>
   </MainLayout>
