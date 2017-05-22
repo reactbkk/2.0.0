@@ -5,7 +5,7 @@ import NavigationBar from './NavigationBar'
 import ReactBKKLogo from './ReactBKKLogo'
 import SimpleCrossfadeImages from './SimpleCrossfadeImages'
 
-export default function HeroUnit () {
+export default function HeroUnit ({ navs }) {
   return (
     <header>
       <SimpleCrossfadeImages />
@@ -15,7 +15,7 @@ export default function HeroUnit () {
         <HeroUnitLogo />
       </div>
       <div className='footer'>
-        <HeroUnitFooter />
+        <HeroUnitFooter navs={navs} />
       </div>
       <style jsx>{`
         header {
@@ -77,11 +77,11 @@ function HeroUnitLogo () {
   )
 }
 
-function HeroUnitFooter () {
+function HeroUnitFooter ({ navs }) {
   return (
     <div className='footer'>
       <div className='nav'>
-        <NavigationBar />
+        <NavigationBar navs={navs} />
       </div>
       <Link to='tickets' spy smooth duration={500}>
         <div className='link'>

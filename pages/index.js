@@ -8,10 +8,19 @@ import AboutSection from '../components/AboutSection'
 import SponsorsSection from '../components/SponsorsSection'
 import MobileNavigation from '../components/MobileNavigation'
 
+const navs = [
+  { href: '#about', label: 'About' },
+  { href: '#tickets', label: 'Tickets' },
+  { href: '#sponsors', label: 'Sponsors' },
+  { href: '#speakers', label: 'Speakers' },
+  { href: '#schedule', label: 'Schedule', disabled: true },
+  { href: '#contact', label: 'Contact' }
+]
+
 export default () => (
   <MainLayout>
-    <MobileNavigation />
-    <HeroUnit />
+    <MobileNavigation navs={navs} />
+    <HeroUnit navs={navs} />
     <SectionSeparator first />
     <section id='about'><AboutSection /></section>
     <SectionSeparator />

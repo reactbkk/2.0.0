@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
 
 import LevitatingLink from './LevitatingLink'
 import Hamburger from '../resources/hamburger.svg'
 
 export default class MobileNavigation extends Component {
+
+  static defaultProps = {
+    navs: []
+  }
+
+  static propTypes = {
+    navs: PropTypes.arrayOf(PropTypes.shape({
+      href: PropTypes.string.isRequire,
+      labal: PropTypes.string.isRequire,
+      disabled: PropTypes.bool
+    }))
+  }
+
   state = {
     showMobileNav: false,
     expandMobileNav: false
@@ -19,7 +33,11 @@ export default class MobileNavigation extends Component {
   }
 
   handleScroll = (e) => {
-    window.scrollY > 700 ? this.showMobileNav() : this.hideMobileNav()
+    if (window.scrollY > 700) {
+      if (!this.state.showMobileNav) this.showMobileNav()
+    } else {
+      if (this.state.showMobileNav) this.hideMobileNav()
+    }
   }
 
   showMobileNav = () => {
@@ -27,6 +45,7 @@ export default class MobileNavigation extends Component {
       showMobileNav: true
     })
   }
+
   hideMobileNav = () => {
     this.setState({
       showMobileNav: false,
@@ -45,8 +64,8 @@ export default class MobileNavigation extends Component {
   }
 
   render () {
+    const { navs } = this.props
     const { showMobileNav, expandMobileNav } = this.state
-
     return (
       <CSSTransitionGroup
         transitionName='fade'
@@ -60,18 +79,13 @@ export default class MobileNavigation extends Component {
               </button>
               <CSSTransitionGroup
                 transitionName='fade'
-                transitionEnterTimeout={500}
+                transitionEnterTimeout={300}
                 transitionLeaveTimeout={300}>
                 {
                   expandMobileNav &&
                     <nav onClick={this.handleClickNav}>
                       <div className='nav-header'>React Bangkok</div>
-                      <NavigationLink href='#about'>About</NavigationLink>
-                      <NavigationLink href='#tickets'>Tickets</NavigationLink>
-                      <NavigationLink href='#sponsors'>Sponsors</NavigationLink>
-                      <NavigationLink href='#speakers'>Speakers</NavigationLink>
-                      <NavigationLink href='#schedule' disabled>Schedule</NavigationLink>
-                      <NavigationLink href='#contact'>Contact</NavigationLink>
+                      {navs.map(nav => <NavigationLink href={nav.href} key={nav.href}>{nav.label}</NavigationLink>)}
                     </nav>
                 }
               </CSSTransitionGroup>
@@ -122,7 +136,7 @@ export default class MobileNavigation extends Component {
 
                 .fade-enter.fade-enter-active {
                   opacity: 1;
-                  transition: opacity 500ms ease-in;
+                  transition: opacity 500ms ease-out;
                 }
 
                 .fade-leave {
@@ -131,7 +145,7 @@ export default class MobileNavigation extends Component {
 
                 .fade-leave.fade-leave-active {
                   opacity: 0.01;
-                  transition: opacity 300ms ease-in;
+                  transition: opacity 300ms ease-out;
                 }
               `}</style>
             </div>

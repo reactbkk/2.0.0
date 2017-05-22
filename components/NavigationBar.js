@@ -1,14 +1,9 @@
 import LevitatingLink from './LevitatingLink'
 
-export default function NavigationBar () {
+export default function NavigationBar ({ navs = [] }) {
   return (
     <nav>
-      <NavigationLink href='#about'>About</NavigationLink>
-      <NavigationLink href='#tickets'>Tickets</NavigationLink>
-      <NavigationLink href='#sponsors'>Sponsors</NavigationLink>
-      <NavigationLink href='#speakers'>Speakers</NavigationLink>
-      <NavigationLink href='#schedule' disabled>Schedule</NavigationLink>
-      <NavigationLink href='#contact'>Contact</NavigationLink>
+      {navs.map(nav => <NavigationLink href={nav.href} key={nav.href}>{nav.label}</NavigationLink>)}
       <style jsx>{`
         nav {
           font-size: 22px;
