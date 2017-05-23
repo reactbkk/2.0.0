@@ -1,17 +1,17 @@
 import SectionTitle from './SectionTitle'
 
 const sponsorsGold = [
-  { name: 'Thai Programmer Association', image: 'programmer-thai' },
-  { name: 'SPRINT3r', image: 'sprin3r' }
+  { name: 'Thai Programmer Association', image: 'programmer-thai', url: 'https://thaiprogrammer.org/' },
+  { name: 'SPRINT3r', image: 'sprin3r', url: 'http://sprint3r.com/' }
 ]
 const sponsorsSliver = [
-  { name: 'Cleverse', image: 'cleverse' },
-  { name: 'int’genxe', image: 'integenxe' },
-  { name: 'Omise', image: 'omise' },
-  { name: 'Pronto Tools', image: 'pronto' },
-  { name: 'Taskworld', image: 'taskworld' },
-  { name: 'THiNKNET', image: 'thinknet' },
-  { name: 'Wongnai', image: 'wongnai' }
+  { name: 'Cleverse', image: 'cleverse', url: 'http://cleverse.com' },
+  { name: 'int’genxe', image: 'integenxe', url: 'https://www.intgenxe.com/' },
+  { name: 'Omise', image: 'omise', url: 'https://www.omise.co/' },
+  { name: 'Pronto Tools', image: 'pronto', url: 'http://www.prontotools.io' },
+  { name: 'Taskworld', image: 'taskworld', url: 'https://www.taskworld.com/‎' },
+  { name: 'THiNKNET', image: 'thinknet', url: 'https://www.thinknet.co.th/home.php' },
+  { name: 'Wongnai', image: 'wongnai', url: 'https://www.wongnai.com/' }
 ]
 
 export default function TicketsSection () {
@@ -49,16 +49,18 @@ function createSponsorRenderer (type) {
         name={detail.name}
         src={`static/sponsor/${detail.image}.svg`}
         type={type}
+        url={detail.url}
       />
     )
   }
 }
 
-function ItemSponsor ({ name, src, type }) {
+function ItemSponsor ({ name, src, type, url }) {
   return (
     <div className={`sponsor-item-${type}`}>
-      <img alt={`${name}`} src={src} width='100%' />
-
+      <a href={url} target='_blank'>
+        <img alt={`${name}`} src={src} width='100%' />
+      </a>
       <style jsx>{`
         .sponsor-item-gold, .sponsor-item-silver {
           display: inline-block;
