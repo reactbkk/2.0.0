@@ -1,21 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-function generateRange (start, end, count) {
-  let result = []
-  for (let i = start; i <= end; i += count) {
-    result.push(i)
-  }
-  return result
-}
-
-function ellipsePoint (a, b, angle) {
-  return {
-    x: a * Math.cos(angle * Math.PI / 180),
-    y: b * Math.sin(angle * Math.PI / 180)
-  }
-}
-
 class RevealEllipse extends React.Component {
   static propTypes = {
     cx: PropTypes.number,
@@ -35,60 +20,37 @@ class RevealEllipse extends React.Component {
     duration: 1,
     delay: 0
   }
-  state = {
-    currentAngle: 0,
-    pointList: [ellipsePoint(this.props.a, this.props.b, 0)]
-  }
-  componentDidMount () {
-    this.delay = setTimeout(() => {
-      this.timer = Date.now()
-      this.raf = window.requestAnimationFrame(this.revealStep)
-    }, this.props.delay)
-  }
-  componentWillUnmount () {
-    window.cancelAnimationFrame(this.raf)
-    clearTimeout(this.delay)
-  }
-  revealStep = (time) => {
-    const deltaTime = this.lastTime ? time - this.lastTime : 0
-    this.lastTime = time
-    const { a, b, duration } = this.props
-    if (this.state.currentAngle >= 360) {
-      return window.cancelAnimationFrame(this.raf)
-    }
-    this.setState(({ currentAngle, pointList }) => {
-      const nextAngle = (currentAngle + 360 * deltaTime * 0.001 / duration)
-      const newPointList = this.getIntegratedAngles(currentAngle, nextAngle, 5)
-        .filter(angle => angle <= 360)
-        .map(angle => ellipsePoint(a, b, angle))
-      return {
-        currentAngle: nextAngle,
-        pointList: [ ...pointList, ...newPointList ]
-      }
-    })
-    this.raf = window.requestAnimationFrame(this.revealStep)
-  }
-  getIntegratedAngles (currentAngle, nextAngle, maxAngle) {
-    if (nextAngle - currentAngle > maxAngle) {
-      return generateRange(currentAngle, nextAngle, maxAngle)
-    }
-    return [ currentAngle ]
-  }
   render () {
-    const { cx, cy, rotate } = this.props
-    const { currentAngle, pointList } = this.state
-    const path = pointList.map(({ x, y }) => x + ' ' + y).join(' ')
+    const { cx, cy, a, b, rotate, duration, delay } = this.props
     return (
-      <path
-        d={`M${path}${currentAngle >= 360 ? 'z' : ''}`}
-        transform={`
-          translate(${cx}, ${cy})
-          rotate(${rotate})
-        `}
-        strokeWidth='10px'
-        stroke='#00D8FF'
+      <ellipse
+        cx={cx}
+        cy={cy}
+        rx={a}
+        ry={b}
         fill='none'
-    />)
+        transform={`          
+          rotate(${rotate}, ${cx}, ${cy})
+        `}
+        strokeWidth={10}
+        stroke='#00D8FF'
+        strokeDasharray={620}
+        strokeDashoffset={620}
+      >
+        <animate
+          attributeName='stroke-dashoffset'
+          from={620}
+          to={0}
+          dur={duration}
+          begin={delay}
+          fill='freeze'
+          calcMode='spline'
+          keyTimes='0;1'
+          values='620;0'
+          keySplines='0.5 0 0.5 1'
+        />
+      </ellipse>
+    )
   }
 }
 
