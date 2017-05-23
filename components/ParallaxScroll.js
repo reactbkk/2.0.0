@@ -1,7 +1,3 @@
-/*
-eslint
-  no-return-assign: "off",
-*/
 export default class Parallax extends React.Component {
   componentDidMount () {
     window.addEventListener('load', this.scrollLoop, false)
@@ -22,7 +18,7 @@ export default class Parallax extends React.Component {
 
   render () {
     return (
-      <div ref={(dom) => this.dom = dom}>{this.props.children}</div>
+      <div ref={(dom) => (this.dom = dom)}>{this.props.children}</div>
     )
   }
 }
