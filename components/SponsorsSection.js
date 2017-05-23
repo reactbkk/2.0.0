@@ -64,8 +64,6 @@ function ItemSponsor ({ name, src, type, url }) {
       <style jsx>{`
         .sponsor-item-gold, .sponsor-item-silver {
           display: inline-block;
-          cursor: pointer;
-          transition: 0.2s 0s ease-in-out;
         }
         .sponsor-item-gold {
           width: 80%;
@@ -95,7 +93,11 @@ function ItemSponsor ({ name, src, type, url }) {
             padding: 0;
           }
         }
-        .sponsor-item-gold:hover, .sponsor-item-silver:hover {
+        .sponsor-item-gold > a, .sponsor-item-silver > a{
+          display: block;
+          transition: 0.2s 0s ease-in-out;
+        }
+        .sponsor-item-gold > a:hover, .sponsor-item-silver > a:hover {
           transform: scale(1.1);
         }
       `}</style>
