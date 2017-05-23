@@ -5,10 +5,10 @@ const sponsorsGold = [
   { name: 'SPRINT3r', image: 'sprin3r', url: 'http://sprint3r.com/' }
 ]
 const sponsorsSliver = [
-  { name: 'Cleverse', image: 'cleverse', url: '' },
+  { name: 'Cleverse', image: 'cleverse', url: 'http://cleverse.com' },
   { name: 'int’genxe', image: 'integenxe', url: 'https://www.intgenxe.com/' },
   { name: 'Omise', image: 'omise', url: 'https://www.omise.co/' },
-  { name: 'Pronto Tools', image: 'pronto', url: 'https://www.prontomarketing.com/' },
+  { name: 'Pronto Tools', image: 'pronto', url: 'http://www.prontotools.io' },
   { name: 'Taskworld', image: 'taskworld', url: 'https://www.taskworld.com/‎' },
   { name: 'THiNKNET', image: 'thinknet', url: 'https://www.thinknet.co.th/home.php' },
   { name: 'Wongnai', image: 'wongnai', url: 'https://www.wongnai.com/' }
@@ -58,7 +58,7 @@ function createSponsorRenderer (type) {
 function ItemSponsor ({ name, src, type, url }) {
   return (
     <div className={`sponsor-item-${type}`}>
-      <a href={url}>
+      <a href={url} target='_blank'>
         <img alt={`${name}`} src={src} width='100%' />
       </a>
       <style jsx>{`
