@@ -62,6 +62,8 @@ function ItemSponsor ({ name, src, type }) {
       <style jsx>{`
         .sponsor-item-gold, .sponsor-item-silver {
           display: inline-block;
+          cursor: pointer;
+          transition: 0.2s 0s ease-in-out;
         }
         .sponsor-item-gold {
           width: 80%;
@@ -90,6 +92,9 @@ function ItemSponsor ({ name, src, type }) {
             max-width: 100%;
             padding: 0;
           }
+        }
+        .sponsor-item-gold:hover, .sponsor-item-silver:hover {
+          transform: scale(1.1);
         }
       `}</style>
     </div>
