@@ -4,7 +4,7 @@ export default function AboutSection () {
     <div className='about'>
       <div className='header'>
         <div className='upsize'>2.0.0</div>
-        <SectionTitle>FIRST REACT MEETUP IN THAILAND</SectionTitle>
+        <SectionTitle>REACT MEETUP IN BANGKOK</SectionTitle>
       </div>
       <div className='content'>
         <div className='description'>
