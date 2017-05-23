@@ -1,6 +1,7 @@
 export default class Parallax extends React.Component {
   componentDidMount () {
     window.addEventListener('scroll', this.updateParallax, false)
+    this.updateParallax()
   }
 
   componentWillUnmount () {
