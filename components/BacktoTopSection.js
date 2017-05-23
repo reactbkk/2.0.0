@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import Scroll from 'react-scroll'
 
 export default class TopArrowSection extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      cssHide: 'button-hide'
+    }
+  }
+
   componentDidMount () {
     window.addEventListener('scroll', this.handleScroll)
   }
@@ -10,11 +17,11 @@ export default class TopArrowSection extends Component {
     window.removeEventListener('scroll', this.handleScroll)
   }
 
-  handleScroll = (e) => {
+  handleScroll = () => {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById('top-arrow').style.display = 'block'
+      this.setState({ cssHide: '' })
     } else {
-      document.getElementById('top-arrow').style.display = 'none'
+      this.setState({ cssHide: 'button-hide' })
     }
   }
 
@@ -25,7 +32,7 @@ export default class TopArrowSection extends Component {
   render () {
     return (
       <div>
-        <div id='top-arrow' className='top-arrow' onClick={this.scrollToTop}></div>
+        <div id='top-arrow' className={`top-arrow ${this.state.cssHide}`} onClick={this.scrollToTop}></div>
         <style jsx>{`
           .top-arrow {
             position: fixed;
@@ -35,7 +42,6 @@ export default class TopArrowSection extends Component {
             bottom: 40px;
             width: 30px;
             height: 30px;
-            display: block;
             background: #222 url(static/arrow-up.svg) no-repeat center center;
             background-size: 30px 20px;
             border-radius: 60px;
@@ -45,6 +51,9 @@ export default class TopArrowSection extends Component {
           }
           .top-arrow:hover {
             background-color: #777;
+          }
+          .button-hide {
+            display: none;
           }
         `}</style>
       </div>
