@@ -1,32 +1,60 @@
-import { Link } from 'react-scroll'
+import React, { Component } from 'react'
+import Scroll from 'react-scroll'
 
-export default function TopArrowSection () {
-  return (
-    <div>
-      <Link to='herounit' spy smooth duration={500}>
-        <div className='top-arrow'>
-        </div>
-      </Link>
+export default class TopArrowSection extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      atTopOfPage: true
+    }
+  }
 
-      <style jsx>{`
-        .top-arrow {
-          position: fixed;
-          left: auto;
-          right: 30px;
-          bottom: 40px;
-          width: 50px;
-          height: 50px;
-          display: block;
-          background: #222 url(static/arrow-up.png) no-repeat center center;
-          border-radius: 60px;
-          -webkit-transition: 1s;
-          -moz-transition: 1s;
-          transition: 1s;
-        }
-        .top-arrow:hover {
-          background-color: #777;
-        }
-      `}</style>
-    </div>
-  )
+  componentDidMount () {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  handleScroll = () => {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      if (this.state.atTopOfPage) this.setState({ atTopOfPage: false })
+    } else {
+      if (!this.state.atTopOfPage) this.setState({ atTopOfPage: true })
+    }
+  }
+
+  scrollToTop = () => {
+    Scroll.animateScroll.scrollToTop()
+  }
+
+  render () {
+    return (
+      <div>
+        <div id='top-arrow' className={`top-arrow ${this.state.atTopOfPage ? 'button-hide' : ''}`} onClick={this.scrollToTop} />
+        <style jsx>{`
+          .top-arrow {
+            position: fixed;
+            padding: 5px;
+            right: 30px;
+            bottom: 40px;
+            width: 30px;
+            height: 30px;
+            background: #222 url(static/arrow-up.svg) no-repeat center center;
+            background-size: 30px 20px;
+            border-radius: 60px;
+            transition: 1s;
+          }
+          .top-arrow:hover {
+            background-color: #777;
+          }
+          .button-hide {
+            opacity: 0.01;
+            pointer-events: none;
+          }
+        `}</style>
+      </div>
+    )
+  }
 }
