@@ -3,7 +3,7 @@
 
 const images = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   .map(n => `static/hero-bg/hero-bg-${n}.jpg`)
-  .reverse()
+  .reverse() // To make the images display in order as define in array
 
 export default () => (
   <div className='container'>
@@ -31,12 +31,12 @@ export default () => (
         transform-origin: center;
       }
       @keyframes SimpleCrossfade {
-        0% { opacity:1; transform: scale(1); }
-        7.5% { opacity:1; }
-        10% { opacity:0; transform: scale(1.05); }
+        0% { opacity: 1; transform: scale(1); }
+        7.5% { opacity: 1; }
+        10% { opacity: 0; transform: scale(1.05); }
         50% { transform: scale(1); }
         97.5% { opacity: 0; }
-        100% { opacity:1;  }
+        100% { opacity: 1; }
       }
       .image:nth-of-type(1) {
         animation-delay: 35s;
