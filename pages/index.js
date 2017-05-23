@@ -9,6 +9,7 @@ import SponsorsSection from '../components/SponsorsSection'
 import LogoBackground from '../components/LogoBackground'
 import MobileNavigation from '../components/MobileNavigation'
 import ScheduleSection from '../components/ScheduleSection'
+import ParallaxScroll from '../components/ParallaxScroll'
 
 const navs = [
   { href: '#about', label: 'About' },
@@ -24,14 +25,18 @@ export default () => (
     <MobileNavigation navs={navs} />
     <HeroUnit navs={navs} />
     <SectionSeparator first />
-    <LogoBackground offsetTop={100} right={-200} />
+    <ParallaxScroll speed={0.3}>
+      <LogoBackground offsetTop={100} right={-200} />
+    </ParallaxScroll>
     <section id='about'><AboutSection /></section>
     <SectionSeparator />
     <section id='tickets'><TicketsSection /></section>
     <SectionSeparator />
     <section id='sponsors'><SponsorsSection /></section>
     <SectionSeparator />
-    <LogoBackground offsetTop={50} left={-200} />
+    <ParallaxScroll speed={0.3}>
+      <LogoBackground offsetTop={50} left={-200} />
+    </ParallaxScroll>
     <section id='speakers'><SpeakersSection /></section>
     <SectionSeparator />
     <section id='schedule'><ScheduleSection /></section>
