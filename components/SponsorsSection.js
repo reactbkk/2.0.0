@@ -93,11 +93,11 @@ function ItemSponsor ({ name, src, type, url }) {
             padding: 0;
           }
         }
-        .sponsor-item-gold > a, .sponsor-item-silver > a{
+        a {
           display: block;
           transition: 0.2s 0s ease-in-out;
         }
-        .sponsor-item-gold > a:hover, .sponsor-item-silver > a:hover {
+        a:hover {
           transform: scale(1.1);
         }
       `}</style>
