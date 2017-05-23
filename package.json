@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "express": "^4.15.3",
+    "jquery": "^3.2.1",
     "next": "beta",
     "normalize.css": "^6.0.0",
     "prop-types": "^15.5.10",
