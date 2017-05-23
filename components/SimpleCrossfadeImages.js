@@ -1,11 +1,9 @@
 // Simple crossfade images
 // credit: http://css3.bradshawenterprises.com/cfimg/
 
-const images = [
-  'static/hero-bg.jpg',
-  'static/hero-bg-2.jpg',
-  'static/hero-bg-3.jpg'
-]
+const images = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  .map(n => `static/hero-bg/hero-bg-${n}.jpg`)
+  .reverse()
 
 export default () => (
   <div className='container'>
@@ -29,24 +27,45 @@ export default () => (
         background-size: cover;
         background-position: center center;
         position: absolute;
-        animation: SimpleCrossfade 12s linear infinite 0s;
+        animation: SimpleCrossfade 40s linear infinite 0s;
         transform-origin: center;
       }
       @keyframes SimpleCrossfade {
         0% { opacity:1; transform: scale(1); }
-        25% { opacity:1; }
-        33.3333% { opacity:0; transform: scale(1.05); }
+        7.5% { opacity:1; }
+        10% { opacity:0; transform: scale(1.05); }
         50% { transform: scale(1); }
-        91.66667% { opacity: 0; }
+        97.5% { opacity: 0; }
         100% { opacity:1;  }
       }
       .image:nth-of-type(1) {
-        animation-delay: 7s;
+        animation-delay: 35s;
       }
       .image:nth-of-type(2) {
-        animation-delay: 3s;
+        animation-delay: 31s;
       }
       .image:nth-of-type(3) {
+        animation-delay: 27s;
+      }
+      .image:nth-of-type(4) {
+        animation-delay: 23s;
+      }
+      .image:nth-of-type(5) {
+        animation-delay: 19s;
+      }
+      .image:nth-of-type(6) {
+        animation-delay: 15s;
+      }
+      .image:nth-of-type(7) {
+        animation-delay: 11s;
+      }
+      .image:nth-of-type(8) {
+        animation-delay: 7s;
+      }
+      .image:nth-of-type(9) {
+        animation-delay: 3s;
+      }
+      .image:nth-of-type(10) {
         animation-delay: -1s;
       }
     `}</style>
