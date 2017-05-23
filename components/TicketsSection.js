@@ -69,7 +69,7 @@ function TicketsRow ({ title, date, isFull }) {
 
 function Button ({ children, href }) {
   return (
-    <a className='button' href={href}>
+    <a className='button' href={href} target='_blank'>
       {children}
       <style jsx>{`
         .button {
