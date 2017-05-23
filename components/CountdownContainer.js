@@ -26,7 +26,7 @@ class CountdownContainer extends React.Component {
 function renderCompleted () {
   return (
     <span>
-      Remaining ticket released!
+      Remaining tickets released!
       <style jsx>{`
         span {
           font-size: 36px;
