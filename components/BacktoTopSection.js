@@ -32,7 +32,12 @@ export default class TopArrowSection extends Component {
   render () {
     return (
       <div>
-        <div id='top-arrow' className={`top-arrow ${this.state.atTopOfPage ? 'button-hide' : ''}`} onClick={this.scrollToTop} />
+        <div aria-hidden
+          id='top-arrow'
+          className={`top-arrow ${this.state.atTopOfPage ? 'button-hide' : ''}`}
+          onClick={this.scrollToTop}
+          onKeyDown={() => {}}
+          role='button' />
         <style jsx>{`
           .top-arrow {
             position: fixed;
