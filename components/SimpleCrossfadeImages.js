@@ -1,9 +1,9 @@
 // Simple crossfade images
 // credit: http://css3.bradshawenterprises.com/cfimg/
 
-const images = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-  .slice(0, 5)
+const images = [1, 2, 3, 4, 5]
   .map(n => `static/hero-bg/hero-bg-${n}.jpg`)
+  .reverse() // To make the images display in order defined in the array
 
 export default () => (
   <div className='container'>
@@ -55,10 +55,3 @@ export default () => (
       }
     `}</style>
   </div>)
-
-/**
- * credit: https://css-tricks.com/snippets/javascript/shuffle-array/
- */
-function shuffle (array) {
-  return [...array].sort(() => 0.5 - Math.random())
-}
