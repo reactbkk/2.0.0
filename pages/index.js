@@ -10,6 +10,7 @@ import LogoBackground from '../components/LogoBackground'
 import MobileNavigation from '../components/MobileNavigation'
 import ScheduleSection from '../components/ScheduleSection'
 import ParallaxScroll from '../components/ParallaxScroll'
+import BackToTopButton from '../components/BackToTopButton'
 
 const navs = [
   { href: '#about', label: 'About' },
@@ -42,5 +43,6 @@ export default () => (
     <section id='schedule'><ScheduleSection /></section>
     <SectionSeparator />
     <section id='contact'><FooterSection /></section>
+    <BackToTopButton />
   </MainLayout>
 )
