@@ -9,6 +9,8 @@ import SponsorsSection from '../components/SponsorsSection'
 import LogoBackground from '../components/LogoBackground'
 import MobileNavigation from '../components/MobileNavigation'
 import ScheduleSection from '../components/ScheduleSection'
+import ParallaxScroll from '../components/ParallaxScroll'
+import BackToTopButton from '../components/BackToTopButton'
 
 const navs = [
   { href: '#about', label: 'About' },
@@ -22,20 +24,26 @@ const navs = [
 export default () => (
   <MainLayout>
     <MobileNavigation navs={navs} />
-    <HeroUnit navs={navs} />
+    <section id='top'><HeroUnit navs={navs} /></section>
     <SectionSeparator first />
-    <LogoBackground offsetTop={100} right={-200} />
+    <ParallaxScroll speed={0.3}>
+      <LogoBackground offsetTop={100} right={-200} />
+    </ParallaxScroll>
     <section id='about'><AboutSection /></section>
     <SectionSeparator />
     <section id='tickets'><TicketsSection /></section>
     <SectionSeparator />
     <section id='sponsors'><SponsorsSection /></section>
     <SectionSeparator />
-    <LogoBackground offsetTop={50} left={-200} />
+    <ParallaxScroll speed={0.3}>
+      <LogoBackground offsetTop={50} left={-200} />
+    </ParallaxScroll>
     <section id='speakers'><SpeakersSection /></section>
     <SectionSeparator />
     <section id='schedule'><ScheduleSection /></section>
     <SectionSeparator />
     <section id='contact'><FooterSection /></section>
+    <BackToTopButton />
+    <style jsx>{`section { position: relative; }`}</style>
   </MainLayout>
 )
