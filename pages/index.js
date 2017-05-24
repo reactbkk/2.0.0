@@ -23,7 +23,7 @@ const navs = [
 export default () => (
   <MainLayout>
     <MobileNavigation navs={navs} />
-    <HeroUnit navs={navs} />
+    <section id='top'><HeroUnit navs={navs} /></section>
     <SectionSeparator first />
     <ParallaxScroll speed={0.3}>
       <LogoBackground offsetTop={100} right={-200} />
