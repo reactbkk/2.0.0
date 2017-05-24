@@ -223,6 +223,11 @@ const SessionItem = ({ topic, speakerName, speakerAvatar, speakerTitle }) => (
         font-weight: bold;
       }
       @media (max-width: 767px){
+        .session {
+          max-width: 360px;
+          margin-left: auto;
+          margin-right: auto;
+        }
         .topic, .speaker {
           font-size: 18px;
         }
