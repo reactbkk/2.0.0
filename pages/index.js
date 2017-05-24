@@ -44,5 +44,6 @@ export default () => (
     <SectionSeparator />
     <section id='contact'><FooterSection /></section>
     <BackToTopButton />
+    <style jsx>{`section { position: relative; }`}</style>
   </MainLayout>
 )
