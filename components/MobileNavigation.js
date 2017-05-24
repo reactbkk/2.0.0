@@ -72,7 +72,11 @@ export default class MobileNavigation extends Component {
           transitionName='fade'
           transitionEnterTimeout={300}
           transitionLeaveTimeout={300}>
-          { expandMobileNav && <div className='nav-header' key='nav-header'>React Bangkok</div> }
+          { expandMobileNav &&
+            <NavigationLink href={'#top'}>
+              <div className='nav-header' key='nav-header'>React Bangkok</div>
+            </NavigationLink>
+          }
           { expandMobileNav && navs.map(nav =>
             <NavigationLink href={nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>)
           }
