@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
           />
           <meta
             property='og:image'
-            content='https://reactbkk.github.io/2.0.0/static/og-image.jpg'
+            content='https://reactbkk.github.io/2.0.0/static/og-image-v2.jpg'
           />
           <meta name='theme-color' content='#222' />
           <meta name='apple-mobile-web-app-title' content='ReactBKK' />
