@@ -93,6 +93,13 @@ function ItemSponsor ({ name, src, type, url }) {
             padding: 0;
           }
         }
+        a {
+          display: block;
+          transition: 0.2s 0s ease-in-out;
+        }
+        a:hover {
+          transform: scale(1.1);
+        }
       `}</style>
     </div>
   )
