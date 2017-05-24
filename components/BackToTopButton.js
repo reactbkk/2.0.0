@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Scroll from 'react-scroll'
 
-export default class TopArrowSection extends Component {
+export default class BackToTopButton extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -11,6 +11,7 @@ export default class TopArrowSection extends Component {
 
   componentDidMount () {
     window.addEventListener('scroll', this.handleScroll)
+    this.handleScroll()
   }
 
   componentWillUnmount () {
@@ -18,7 +19,7 @@ export default class TopArrowSection extends Component {
   }
 
   handleScroll = () => {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    if (window.scrollY > 0) {
       if (this.state.atTopOfPage) this.setState({ atTopOfPage: false })
     } else {
       if (!this.state.atTopOfPage) this.setState({ atTopOfPage: true })
@@ -36,7 +37,6 @@ export default class TopArrowSection extends Component {
           id='top-arrow'
           className={`top-arrow ${this.state.atTopOfPage ? 'button-hide' : ''}`}
           onClick={this.scrollToTop}
-          onKeyDown={() => {}}
           role='button' />
         <style jsx>{`
           .top-arrow {
@@ -47,7 +47,7 @@ export default class TopArrowSection extends Component {
             width: 30px;
             height: 30px;
             background: #222 url(static/arrow-up.svg) no-repeat center center;
-            background-size: 30px 20px;
+            background-size: 20px 14px;
             border-radius: 60px;
             transition: 1s;
           }
@@ -55,7 +55,7 @@ export default class TopArrowSection extends Component {
             background-color: #777;
           }
           .button-hide {
-            opacity: 0.01;
+            opacity: 0;
             pointer-events: none;
           }
         `}</style>

@@ -9,7 +9,7 @@ import SponsorsSection from '../components/SponsorsSection'
 import LogoBackground from '../components/LogoBackground'
 import MobileNavigation from '../components/MobileNavigation'
 import ScheduleSection from '../components/ScheduleSection'
-import BacktoTopSection from '../components/BacktoTopSection'
+import BackToTopButton from '../components/BackToTopButton'
 
 const navs = [
   { href: '#about', label: 'About' },
@@ -38,6 +38,6 @@ export default () => (
     <section id='schedule'><ScheduleSection /></section>
     <SectionSeparator />
     <section id='contact'><FooterSection /></section>
-    <BacktoTopSection />
+    <BackToTopButton />
   </MainLayout>
 )
