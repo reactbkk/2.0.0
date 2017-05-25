@@ -29,7 +29,7 @@ export default function SponsorsSection () {
       </div>
 
       <style jsx>{`
-        .sponsor {
+        .sponsors {
           text-align: center;
         }
         .item-sponsors-box {
