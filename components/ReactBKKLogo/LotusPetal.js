@@ -28,7 +28,8 @@ class LotusPetal extends React.Component {
           dur={duration}
           begin={delay + 0.2}
           fill='freeze'
-          keySplines='0.1 0.8 0.2 1; 0.1 0.8 0.2 1; 0.1 0.8 0.2 1; 0.1 0.8 0.2 1; 0.1 0.8 0.2 1; 0.1 0.8 0.2 1'
+          calcMode='spline'
+          keySplines='0.21 0 0.14 1'
         />
       </g>
     )

@@ -18,16 +18,17 @@ class Logo extends React.Component {
             <animate attributeType='CSS' fill='freeze' attributeName='opacity' from='0' to='1' begin={1} dur={0.3} repeatCount='1' />
           </g>
         </g>
-        <LotusPetal rotate={0} delay={1} duration={0.7} />
-        <LotusPetal rotate={90} delay={0.9} duration={0.8} />
-        <LotusPetal rotate={180} delay={0.8} duration={0.9} />
-        <LotusPetal rotate={270} delay={0.7} duration={1} />
+        <LotusPetal rotate={0} delay={0.3} duration={0.6} />
+        <LotusPetal rotate={90} delay={0.2} duration={0.7} />
+        <LotusPetal rotate={180} delay={0.1} duration={0.8} />
+        <LotusPetal rotate={270} delay={0} duration={0.9} />
         <RevealEllipse
           a={132}
           b={51}
           cx={width / 2}
           cy={height / 2}
           duration={1.5}
+          delay={1}
         />
         <RevealEllipse
           a={132}
@@ -35,7 +36,7 @@ class Logo extends React.Component {
           cx={width / 2}
           cy={height / 2}
           rotate={60}
-          delay={0.15}
+          delay={1 + 0.15}
         />
         <RevealEllipse
           a={132}
@@ -43,7 +44,7 @@ class Logo extends React.Component {
           cx={width / 2}
           cy={height / 2}
           rotate={120}
-          delay={0.25}
+          delay={1 + 0.25}
         />
       </svg>
     )
