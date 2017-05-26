@@ -29,8 +29,13 @@ export default class MyDocument extends Document {
           />
           <meta
             property='og:image'
-            content='https://reactbkk.github.io/2.0.0/static/og-image.jpg'
+            content='https://reactbkk.github.io/2.0.0/static/og-image-v2.jpg'
           />
+          <meta
+            property='og:description'
+            content='จากเสียงตอบรับที่ดีใน 2 ครั้งที่ผ่านมา กับ React Bangkok 1.0.0 และ 1.1.0 เราได้กลับมาอีกครั้งกับ React Bangkok 2.0.0 ที่ยิ่งใหญ่กว่าเดิม และอัดแน่นไปด้วยความรู้และประสบการณ์จาก Speakers มากมาย หัวข้อที่จะมีในวันงานแบ่งเป็น 2 track คือ Beginner Track สำหรับผู้ที่มีพื้นฐาน React น้อย และ Intermediate Track สำหรับผู้ที่เขียน React มาบ้างพอสมควรแล้ว ในวันที่ 3 มิถุนายน 2560 ณ สถาบันเทคโนโลยีปทุมวัน'
+          />
+          <meta property='og:title' content='React Bangkok 2.0.0' />
           <meta name='theme-color' content='#222' />
           <meta name='apple-mobile-web-app-title' content='ReactBKK' />
           <meta name='apple-mobile-web-app-capable' content='yes' />

@@ -47,7 +47,7 @@ export default function ScheduleSection () {
         <BreakRow time='Break' />
         <SessionRow time='15:15 - 16:00'>
           <SessionItem
-            topic='Angualar to React without breakingthings'
+            topic='Angular to React without breaking things'
             speakerName='Jirat Kijlerdpornpailoj'
             speakerTitle='(SPRINT3r / Gucode)'
           />
@@ -223,6 +223,11 @@ const SessionItem = ({ topic, speakerName, speakerAvatar, speakerTitle }) => (
         font-weight: bold;
       }
       @media (max-width: 767px){
+        .session {
+          max-width: 360px;
+          margin-left: auto;
+          margin-right: auto;
+        }
         .topic, .speaker {
           font-size: 18px;
         }

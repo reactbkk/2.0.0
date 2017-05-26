@@ -6,17 +6,17 @@ const sponsorsGold = [
 ]
 const sponsorsSliver = [
   { name: 'Cleverse', image: 'cleverse', url: 'http://cleverse.com' },
-  { name: 'int’genxe', image: 'integenxe', url: 'https://www.intgenxe.com/' },
+  { name: 'int’genxe', image: 'integenxe', url: 'http://www.intgenxe.com/' },
   { name: 'Omise', image: 'omise', url: 'https://www.omise.co/' },
   { name: 'Pronto Tools', image: 'pronto', url: 'http://www.prontotools.io' },
-  { name: 'Taskworld', image: 'taskworld', url: 'https://www.taskworld.com/‎' },
+  { name: 'Taskworld', image: 'taskworld', url: 'https://www.taskworld.com' },
   { name: 'THiNKNET', image: 'thinknet', url: 'https://www.thinknet.co.th/home.php' },
   { name: 'Wongnai', image: 'wongnai', url: 'https://www.wongnai.com/' }
 ]
 
-export default function TicketsSection () {
+export default function SponsorsSection () {
   return (
-    <div className='tickets'>
+    <div className='sponsors'>
       <SectionTitle>Sponsors</SectionTitle>
 
       <div className='item-sponsors-box'>
@@ -29,7 +29,7 @@ export default function TicketsSection () {
       </div>
 
       <style jsx>{`
-        .tickets {
+        .sponsors {
           text-align: center;
         }
         .item-sponsors-box {
@@ -92,6 +92,13 @@ function ItemSponsor ({ name, src, type, url }) {
             max-width: 100%;
             padding: 0;
           }
+        }
+        a {
+          display: block;
+          transition: 0.2s 0s ease-in-out;
+        }
+        a:hover {
+          transform: scale(1.1);
         }
       `}</style>
     </div>
