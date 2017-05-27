@@ -20,7 +20,8 @@ export default class MobileNavigation extends Component {
 
   state = {
     showMobileNav: false,
-    expandMobileNav: false
+    expandMobileNav: false,
+    nowSelectMenu : null
   }
 
   componentDidMount () {
@@ -62,10 +63,15 @@ export default class MobileNavigation extends Component {
     this.handleToggleMobileNav(false)
   }
 
+  handleNavigationLink = (e, href) => {
+    this.setState({
+      nowSelectMenu : href
+    })
+  }
+
   renderNav = () => {
     const { navs } = this.props
-    const { expandMobileNav } = this.state
-
+    const { expandMobileNav, nowSelectMenu } = this.state
     return (
       <nav aria-hidden role='presentation' onClick={this.handleClickNav}>
         <CSSTransitionGroup
@@ -77,8 +83,7 @@ export default class MobileNavigation extends Component {
               <div className='nav-header' key='nav-header'>React Bangkok</div>
             </NavigationLink>
           }
-          { expandMobileNav && navs.map(nav =>
-            <NavigationLink href={nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>)
+          { expandMobileNav && navs.map(nav =>(<NavigationLink handleClick={this.handleNavigationLink} href={nav.href} active={nowSelectMenu===nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>))
           }
         </CSSTransitionGroup>
         <style jsx>{`
@@ -148,10 +153,10 @@ export default class MobileNavigation extends Component {
   }
 }
 
-function NavigationLink ({ href, disabled, children }) {
+function NavigationLink ({ href, disabled, children, handleClick, active }) {
   return (
     <div className={disabled ? 'disabled' : ''}>
-      <LevitatingLink href={href}>{children}</LevitatingLink>
+      <LevitatingLink href={href} handleClick={handleClick} active={active}>{children}</LevitatingLink>
       <style jsx>{`
         div {
           text-transform: uppercase;
