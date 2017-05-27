@@ -21,7 +21,7 @@ export default function HeroUnit ({ navs }) {
         header {
           text-align: center;
           position: relative;
-          background: url(static/hero-bg.jpg) center no-repeat;
+          background: url(static/hero-bg/hero-bg-1.jpg) center no-repeat;
           background-size: cover;
         }
         .bg-overlay {
