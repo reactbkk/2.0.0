@@ -14,9 +14,9 @@ const sponsorsSliver = [
   { name: 'Wongnai', image: 'wongnai', url: 'https://www.wongnai.com/' }
 ]
 
-export default function TicketsSection () {
+export default function SponsorsSection () {
   return (
-    <div className='tickets'>
+    <div className='sponsors'>
       <SectionTitle>Sponsors</SectionTitle>
 
       <div className='item-sponsors-box'>
@@ -29,7 +29,7 @@ export default function TicketsSection () {
       </div>
 
       <style jsx>{`
-        .tickets {
+        .sponsors {
           text-align: center;
         }
         .item-sponsors-box {
