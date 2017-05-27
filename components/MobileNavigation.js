@@ -21,7 +21,7 @@ export default class MobileNavigation extends Component {
   state = {
     showMobileNav: false,
     expandMobileNav: false,
-    nowSelectMenu : null
+    nowSelectMenu: null
   }
 
   componentDidMount () {
@@ -63,9 +63,9 @@ export default class MobileNavigation extends Component {
     this.handleToggleMobileNav(false)
   }
 
-  handleNavigationLink = (e, href) => {
+  handleNavigationLink = (href) => {
     this.setState({
-      nowSelectMenu : href
+      nowSelectMenu: href
     })
   }
 
@@ -83,7 +83,7 @@ export default class MobileNavigation extends Component {
               <div className='nav-header' key='nav-header'>React Bangkok</div>
             </NavigationLink>
           }
-          { expandMobileNav && navs.map(nav =>(<NavigationLink handleClick={this.handleNavigationLink} href={nav.href} active={nowSelectMenu===nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>))
+          { expandMobileNav && navs.map(nav => (<NavigationLink handleClick={this.handleNavigationLink} href={nav.href} active={nowSelectMenu === nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>))
           }
         </CSSTransitionGroup>
         <style jsx>{`
