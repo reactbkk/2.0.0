@@ -29,20 +29,16 @@ export default function MainLayout ({ children }) {
           font-size: 22px;
           -webkit-font-smoothing: antialiased;
         }
-
         .fade-enter {
           opacity: 0.01;
         }
-
         .fade-enter.fade-enter-active {
           opacity: 1;
           transition: opacity 500ms ease-out;
         }
-
         .fade-leave {
           opacity: 1;
         }
-
         .fade-leave.fade-leave-active {
           opacity: 0.01;
           transition: opacity 300ms ease-out;

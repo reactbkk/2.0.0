@@ -1,7 +1,7 @@
-export default function LevitatingLink ({ href, children, handleClick, active }) {
+export default function LevitatingLink ({ href, children, active }) {
   const className = active ? 'text active' : 'text'
   return (
-    <a href={href} onClick={() => { if (handleClick) handleClick(href) }}>
+    <a href={href} >
       <span className={className}>{children}</span>
       <style jsx>{`
         .text {

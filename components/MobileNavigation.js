@@ -21,11 +21,24 @@ export default class MobileNavigation extends Component {
   state = {
     showMobileNav: false,
     expandMobileNav: false,
-    nowSelectMenu: null
+    nowSelectMenu: null,
+    scrollPosition: null
   }
 
   componentDidMount () {
+    const { navs } = this.props
     window.addEventListener('scroll', this.handleScroll)
+    const scrollPosition = navs.reduce((obj, nav, index) => {
+      const navScroll = {
+        name: nav.label,
+        scroll: document.getElementById(nav.label.toLowerCase()).getBoundingClientRect().top + window.scrollY
+      }
+      obj[index] = navScroll
+      return obj
+    }, [])
+    this.setState({
+      scrollPosition: scrollPosition
+    })
   }
 
   componentWillUnmount () {
@@ -33,11 +46,27 @@ export default class MobileNavigation extends Component {
   }
 
   handleScroll = (e) => {
+    const _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight
+    let result
+    const { scrollPosition } = this.state
     if (window.scrollY > 700) {
       if (!this.state.showMobileNav) this.showMobileNav()
     } else {
       if (this.state.showMobileNav) this.hideMobileNav()
     }
+    if ((_docHeight - window.innerHeight) === window.scrollY) {
+      result = scrollPosition[scrollPosition.length - 1].name
+    } else {
+      result = scrollPosition.reduce((result, item) => {
+        if (window.scrollY >= (item.scroll - 50)) {
+          result = item.name
+        }
+        return result
+      }, null)
+    }
+    this.setState({
+      nowSelectMenu: result
+    })
   }
 
   showMobileNav = () => {
@@ -63,12 +92,6 @@ export default class MobileNavigation extends Component {
     this.handleToggleMobileNav(false)
   }
 
-  handleNavigationLink = (href) => {
-    this.setState({
-      nowSelectMenu: href
-    })
-  }
-
   renderNav = () => {
     const { navs } = this.props
     const { expandMobileNav, nowSelectMenu } = this.state
@@ -83,7 +106,7 @@ export default class MobileNavigation extends Component {
               <div className='nav-header' key='nav-header'>React Bangkok</div>
             </NavigationLink>
           }
-          { expandMobileNav && navs.map(nav => (<NavigationLink handleClick={this.handleNavigationLink} href={nav.href} active={nowSelectMenu === nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>))
+          { expandMobileNav && navs.map(nav => (<NavigationLink href={nav.href} key={nav.href} active={nowSelectMenu === nav.label} disabled={nav.disabled}>{nav.label}</NavigationLink>))
           }
         </CSSTransitionGroup>
         <style jsx>{`
@@ -153,10 +176,10 @@ export default class MobileNavigation extends Component {
   }
 }
 
-function NavigationLink ({ href, disabled, children, handleClick, active }) {
+function NavigationLink ({ href, disabled, children, active }) {
   return (
     <div className={disabled ? 'disabled' : ''}>
-      <LevitatingLink href={href} handleClick={handleClick} active={active}>{children}</LevitatingLink>
+      <LevitatingLink href={href} active={active}>{children}</LevitatingLink>
       <style jsx>{`
         div {
           text-transform: uppercase;
