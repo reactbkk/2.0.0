@@ -5,7 +5,7 @@ export default function TicketsSection () {
     <div className='tickets'>
       <SectionTitle>Tickets</SectionTitle>
       <TicketsTable />
-      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0' isFull>Get Tickets</Button>
+      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0' isDisabled>Get Tickets</Button>
       <style jsx>{`
         .tickets {
           text-align: center;
@@ -67,9 +67,9 @@ function TicketsRow ({ title, date, isFull }) {
   )
 }
 
-function Button ({ children, href, isFull }) {
+function Button ({ children, href, isDisabled }) {
   return (
-    <a className={`${isFull ? 'button_full' : 'button'}`} href={`${isFull ? '#' : href}`} target='_blank'>
+    <a className={`button ${isDisabled ? 'disabled' : ''}`} href={`${isDisabled ? '#' : href}`} target='_blank'>
       {children}
       <style jsx>{`
         .button {
@@ -88,16 +88,9 @@ function Button ({ children, href, isFull }) {
           background: #00D8FF;
           color: #FFF;
         }
-        .button_full {
-          display: inline-block;
-          font-size: 18px;
-          line-height: 33px;
-          border: 2px solid #6c6c6c;
-          padding: 0 30px;
-          border-radius: 35px;
-          text-transform: uppercase;
-          text-decoration: none;
+        .disabled {
           color: #6c6c6c;
+          border: 2px solid #6c6c6c;
           pointer-events: none;
         }
       `}</style>
