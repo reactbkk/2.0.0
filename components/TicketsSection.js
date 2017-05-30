@@ -5,7 +5,7 @@ export default function TicketsSection () {
     <div className='tickets'>
       <SectionTitle>Tickets</SectionTitle>
       <TicketsTable />
-      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0'>Get Tickets</Button>
+      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0' isFull>Get Tickets</Button>
       <style jsx>{`
         .tickets {
           text-align: center;
@@ -19,7 +19,7 @@ function TicketsTable () {
   return (
     <div className='tickets-table'>
       <TicketsRow title='1st round' date='18 May 2017' isFull />
-      <TicketsRow title='2nd round' date='25 May 2017' />
+      <TicketsRow title='2nd round' date='25 May 2017' isFull />
       <style jsx>{`
         .tickets-table {
           margin: 0 auto 30px;
@@ -67,9 +67,9 @@ function TicketsRow ({ title, date, isFull }) {
   )
 }
 
-function Button ({ children, href }) {
+function Button ({ children, href, isFull }) {
   return (
-    <a className='button' href={href} target='_blank'>
+    <a className={`${isFull ? 'button_full' : 'button'}`} href={`${isFull ? '#' : href}`} target='_blank'>
       {children}
       <style jsx>{`
         .button {
@@ -87,6 +87,18 @@ function Button ({ children, href }) {
         .button:hover {
           background: #00D8FF;
           color: #FFF;
+        }
+        .button_full {
+          display: inline-block;
+          font-size: 18px;
+          line-height: 33px;
+          border: 2px solid #6c6c6c;
+          padding: 0 30px;
+          border-radius: 35px;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: #6c6c6c;
+          pointer-events: none;
         }
       `}</style>
     </a>

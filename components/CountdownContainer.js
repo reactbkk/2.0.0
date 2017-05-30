@@ -10,7 +10,7 @@ class CountdownContainer extends React.Component {
   }
   render () {
     if (this.state.mounted) {
-      return <Countdown date={'25 May 2017 18:00:00'} renderer={renderCountdown} />
+      return <Countdown date={'3 June 2017 10:00:00'} renderer={renderCountdown} />
     } else {
       return renderCountdown({
         days: '…',
@@ -60,7 +60,8 @@ function renderCountdown ({ days, hours, minutes, seconds, completed }) {
   } else {
     return (
       <div className='countdown'>
-        <span>Remaining tickets available in</span>
+        <span>Ticket sold out !!</span><br />
+        <span>The meeting will begin in</span>
         <div>
           <p className='countdown-text'>
             {days}
@@ -82,6 +83,7 @@ function renderCountdown ({ days, hours, minutes, seconds, completed }) {
             <small>Second</small>
           </p>
         </div>
+        <br />
         <style jsx>{`
           span {
             font-size: 26px;
