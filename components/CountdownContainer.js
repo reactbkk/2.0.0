@@ -60,7 +60,6 @@ function renderCountdown ({ days, hours, minutes, seconds, completed }) {
   } else {
     return (
       <div className='countdown'>
-        <span>Tickets are sold out</span><br />
         <span>The event will begin in</span>
         <div>
           <p className='countdown-text'>
