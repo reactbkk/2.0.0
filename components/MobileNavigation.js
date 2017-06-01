@@ -20,21 +20,19 @@ export default class MobileNavigation extends Component {
   state = {
     showMobileNav: false,
     expandMobileNav: false,
-    nowSelectMenu: null
+    activeMenu: null
   }
 
   componentDidMount () {
     const { navs } = this.props
     window.addEventListener('scroll', this.handleScroll)
-    const target = navs.reduce((obj, nav, index) => {
-      const navTarget = {
+    const navigationTargets = navs.map((nav) => {
+      return {
         name: nav.label,
         target: document.getElementById(nav.href.slice(1))
       }
-      obj[index] = navTarget
-      return obj
-    }, [])
-    this.navigationTarget = target
+    })
+    this.navigationTargets = navigationTargets
   }
 
   componentWillUnmount () {
@@ -48,23 +46,20 @@ export default class MobileNavigation extends Component {
       if (this.state.showMobileNav) this.hideMobileNav()
     }
     const result = this.findScrollSection()
-    this.setState({
-      nowSelectMenu: result
-    })
+    if (this.state.activeMenu !== result) {
+      this.setState({ activeMenu: result })
+    }
   }
 
   findScrollSection () {
-    const { navigationTarget } = this
+    const { navigationTargets } = this
     const _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight
     if ((_docHeight - window.innerHeight) === window.scrollY) {
-      return navigationTarget[navigationTarget.length - 1].name
+      return navigationTargets[navigationTargets.length - 1].name
     } else {
-      return navigationTarget.reduce((result, item) => {
+      return navigationTargets.reduce((result, item) => {
         const targetScroll = item.target.getBoundingClientRect().top + window.scrollY
-        if (window.scrollY >= (targetScroll - 50)) {
-          result = item.name
-        }
-        return result
+        return window.scrollY >= (targetScroll - 50) ? item.name : result
       }, null)
     }
   }
@@ -94,7 +89,7 @@ export default class MobileNavigation extends Component {
 
   renderNav = () => {
     const { navs } = this.props
-    const { expandMobileNav, nowSelectMenu } = this.state
+    const { expandMobileNav, activeMenu } = this.state
     return (
       <nav aria-hidden role='presentation' onClick={this.handleClickNav}>
         <CSSTransitionGroup
@@ -106,8 +101,15 @@ export default class MobileNavigation extends Component {
               <div className='nav-header' key='nav-header'>React Bangkok</div>
             </NavigationLink>
           }
-          { expandMobileNav && navs.map(nav => (<NavigationLink href={nav.href} key={nav.href} active={nowSelectMenu === nav.label} disabled={nav.disabled}>{nav.label}</NavigationLink>))
-          }
+          { expandMobileNav && navs.map(nav => (
+            <NavigationLink
+              href={nav.href}
+              key={nav.href}
+              active={activeMenu === nav.label}
+              disabled={nav.disabled}>
+              {nav.label}
+            </NavigationLink>
+          ))}
         </CSSTransitionGroup>
         <style jsx>{`
           nav {
@@ -177,8 +179,12 @@ export default class MobileNavigation extends Component {
 }
 
 function NavigationLink ({ href, disabled, children, active }) {
+  const className = [
+    disabled && 'disabled',
+    active && 'active'
+  ].filter(name => name).join(' ')
   return (
-    <div className={active ? 'disabled' : ''}>
+    <div className={className}>
       <LevitatingLink href={href} active={active}>{children}</LevitatingLink>
       <style jsx>{`
         div {
@@ -192,9 +198,11 @@ function NavigationLink ({ href, disabled, children, active }) {
           opacity: 0.5;
         }
         .disabled {
-          /* opacity: 0.25;
-          pointer-events: none; */
-          font-weight:bold;
+          opacity: 0.25;
+          pointer-events: none; 
+        }
+        .active {
+          font-weight: bold;
         }
       `}</style>
     </div>
