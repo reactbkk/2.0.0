@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
-
 import LevitatingLink from './LevitatingLink'
 import Hamburger from '../resources/hamburger.svg'
 
@@ -21,24 +20,21 @@ export default class MobileNavigation extends Component {
   state = {
     showMobileNav: false,
     expandMobileNav: false,
-    nowSelectMenu: null,
-    scrollPosition: null
+    nowSelectMenu: null
   }
 
   componentDidMount () {
     const { navs } = this.props
     window.addEventListener('scroll', this.handleScroll)
-    const scrollPosition = navs.reduce((obj, nav, index) => {
-      const navScroll = {
+    const target = navs.reduce((obj, nav, index) => {
+      const navTarget = {
         name: nav.label,
-        scroll: document.getElementById(nav.label.toLowerCase()).getBoundingClientRect().top + window.scrollY
+        target: document.getElementById(nav.href.slice(1))
       }
-      obj[index] = navScroll
+      obj[index] = navTarget
       return obj
     }, [])
-    this.setState({
-      scrollPosition: scrollPosition
-    })
+    this.navigationTarget = target
   }
 
   componentWillUnmount () {
@@ -46,27 +42,31 @@ export default class MobileNavigation extends Component {
   }
 
   handleScroll = (e) => {
-    const _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight
-    let result
-    const { scrollPosition } = this.state
     if (window.scrollY > 700) {
       if (!this.state.showMobileNav) this.showMobileNav()
     } else {
       if (this.state.showMobileNav) this.hideMobileNav()
     }
+    const result = this.findScrollSection()
+    this.setState({
+      nowSelectMenu: result
+    })
+  }
+
+  findScrollSection(){
+    const { navigationTarget } = this
+    const _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight
     if ((_docHeight - window.innerHeight) === window.scrollY) {
-      result = scrollPosition[scrollPosition.length - 1].name
+      return navigationTarget[navigationTarget.length - 1].name
     } else {
-      result = scrollPosition.reduce((result, item) => {
-        if (window.scrollY >= (item.scroll - 50)) {
+      return navigationTarget.reduce((result, item) => {
+        const targetScroll = item.target.getBoundingClientRect().top + window.scrollY
+        if (window.scrollY >= (targetScroll - 50)) {
           result = item.name
         }
         return result
       }, null)
     }
-    this.setState({
-      nowSelectMenu: result
-    })
   }
 
   showMobileNav = () => {
@@ -178,7 +178,7 @@ export default class MobileNavigation extends Component {
 
 function NavigationLink ({ href, disabled, children, active }) {
   return (
-    <div className={disabled ? 'disabled' : ''}>
+    <div className={active ? 'disabled' : ''}>
       <LevitatingLink href={href} active={active}>{children}</LevitatingLink>
       <style jsx>{`
         div {
@@ -192,8 +192,9 @@ function NavigationLink ({ href, disabled, children, active }) {
           opacity: 0.5;
         }
         .disabled {
-          opacity: 0.25;
-          pointer-events: none;
+          /* opacity: 0.25;
+          pointer-events: none; */
+          font-weight:bold;
         }
       `}</style>
     </div>

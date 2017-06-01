@@ -1,8 +1,7 @@
-export default function LevitatingLink ({ href, children, active }) {
-  const className = active ? 'text active' : 'text'
+export default function LevitatingLink ({ href, children }) {
   return (
     <a href={href} >
-      <span className={className}>{children}</span>
+      <span>{children}</span>
       <style jsx>{`
         .text {
           display: block;
@@ -15,9 +14,6 @@ export default function LevitatingLink ({ href, children, active }) {
           text-decoration: none;
           display: inline-block;
           position: relative;
-        }
-        .active {
-          font-weight: bold;
         }
         @media (hover: hover) {
           a:hover .text {
