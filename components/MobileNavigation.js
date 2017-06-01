@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup'
-
 import LevitatingLink from './LevitatingLink'
 import Hamburger from '../resources/hamburger.svg'
 
@@ -20,11 +19,20 @@ export default class MobileNavigation extends Component {
 
   state = {
     showMobileNav: false,
-    expandMobileNav: false
+    expandMobileNav: false,
+    activeMenu: null
   }
 
   componentDidMount () {
+    const { navs } = this.props
     window.addEventListener('scroll', this.handleScroll)
+    const navigationTargets = navs.map((nav) => {
+      return {
+        name: nav.label,
+        target: document.getElementById(nav.href.slice(1))
+      }
+    })
+    this.navigationTargets = navigationTargets
   }
 
   componentWillUnmount () {
@@ -36,6 +44,23 @@ export default class MobileNavigation extends Component {
       if (!this.state.showMobileNav) this.showMobileNav()
     } else {
       if (this.state.showMobileNav) this.hideMobileNav()
+    }
+    const result = this.findScrollSection()
+    if (this.state.activeMenu !== result) {
+      this.setState({ activeMenu: result })
+    }
+  }
+
+  findScrollSection () {
+    const { navigationTargets } = this
+    const _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight
+    if ((_docHeight - window.innerHeight) === window.scrollY) {
+      return navigationTargets[navigationTargets.length - 1].name
+    } else {
+      return navigationTargets.reduce((result, item) => {
+        const targetScroll = item.target.getBoundingClientRect().top + window.scrollY
+        return window.scrollY >= (targetScroll - 50) ? item.name : result
+      }, null)
     }
   }
 
@@ -64,8 +89,7 @@ export default class MobileNavigation extends Component {
 
   renderNav = () => {
     const { navs } = this.props
-    const { expandMobileNav } = this.state
-
+    const { expandMobileNav, activeMenu } = this.state
     return (
       <nav aria-hidden role='presentation' onClick={this.handleClickNav}>
         <CSSTransitionGroup
@@ -77,9 +101,15 @@ export default class MobileNavigation extends Component {
               <div className='nav-header' key='nav-header'>React Bangkok</div>
             </NavigationLink>
           }
-          { expandMobileNav && navs.map(nav =>
-            <NavigationLink href={nav.href} key={nav.href} disabled={nav.disabled}>{nav.label}</NavigationLink>)
-          }
+          { expandMobileNav && navs.map(nav => (
+            <NavigationLink
+              href={nav.href}
+              key={nav.href}
+              active={activeMenu === nav.label}
+              disabled={nav.disabled}>
+              {nav.label}
+            </NavigationLink>
+          ))}
         </CSSTransitionGroup>
         <style jsx>{`
           nav {
@@ -148,10 +178,14 @@ export default class MobileNavigation extends Component {
   }
 }
 
-function NavigationLink ({ href, disabled, children }) {
+function NavigationLink ({ href, disabled, children, active }) {
+  const className = [
+    disabled && 'disabled',
+    active && 'active'
+  ].filter(name => name).join(' ')
   return (
-    <div className={disabled ? 'disabled' : ''}>
-      <LevitatingLink href={href}>{children}</LevitatingLink>
+    <div className={className}>
+      <LevitatingLink href={href} active={active}>{children}</LevitatingLink>
       <style jsx>{`
         div {
           text-transform: uppercase;
@@ -165,7 +199,10 @@ function NavigationLink ({ href, disabled, children }) {
         }
         .disabled {
           opacity: 0.25;
-          pointer-events: none;
+          pointer-events: none; 
+        }
+        .active {
+          font-weight: bold;
         }
       `}</style>
     </div>
