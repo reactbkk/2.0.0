@@ -53,7 +53,7 @@ export default class MobileNavigation extends Component {
     })
   }
 
-  findScrollSection(){
+  findScrollSection () {
     const { navigationTarget } = this
     const _docHeight = (document.height !== undefined) ? document.height : document.body.offsetHeight
     if ((_docHeight - window.innerHeight) === window.scrollY) {
