@@ -26,23 +26,11 @@ class CountdownContainer extends React.Component {
 function renderCompleted () {
   return (
     <span>
-      Remaining tickets released!
+      Enjoy the event!
       <style jsx>{`
         span {
           font-size: 36px;
           display: block;
-          animation: fade-in-from-top 1.5s;
-          animation-fill-mode: forwards;
-        }
-        @keyframes fade-in-from-top {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(20px);
-          }
         }
         @media (max-width: 399px) {
           span {
