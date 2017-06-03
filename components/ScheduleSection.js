@@ -5,6 +5,7 @@ export default function ScheduleSection () {
     <div className='schedule'>
       <SectionTitle>Schedule</SectionTitle>
       <div className='container'>
+        <ActivityRow time='9:30 - 10:00'>Registration</ActivityRow>
         <ActivityRow time='10:00 - 10:10'>Welcome Speech by Venue</ActivityRow>
         <SessionRow time='10:30 - 11:15'>
           <SessionItem
@@ -72,7 +73,6 @@ export default function ScheduleSection () {
         <BreakRow time='Break' />
         <ActivityRow time='17:00 - 17:20'>Fireside Chat</ActivityRow>
         <ActivityRow time='17:20 onwards'>Networking Dinner</ActivityRow>
-
       </div>
       <style jsx>{`
         .schedule {
