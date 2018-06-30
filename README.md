@@ -9,6 +9,8 @@
 <p align="center"><a href="https://circleci.com/gh/reactbkk/2.0.0/tree/master"><img src="https://circleci.com/gh/reactbkk/2.0.0/tree/master.svg?style=svg" alt="CircleCI" /></a></p>
 
 ## Sessions
+Photo Album https://www.facebook.com/media/set/?set=oa.1476859869001431&type=3
+
 ### Beginner
 | Session Name | Speakers(s) | Materials
 | --- | --- | --- |
